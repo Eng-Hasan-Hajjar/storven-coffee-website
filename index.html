@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Storven Coffee | ستورفين كوفي — قهوة مختصة على أوتوستراد إدلب</title>
+<meta name="description" content="Storven Coffee - ستورفين كوفي: قهوة مختصة نُحضّر كل كوب بشغف. زورونا على أوتوستراد إدلب - باب الهوى.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ==========================================================================
+   STORVEN COFFEE — ستورفين كوفي
+   ملف تصميم واحد شامل (HTML + CSS + JS)
+   ========================================================================== */
+
+/* ---------- 1) المتغيرات (Design Tokens) ---------- */
+:root{
+  --green-primary:#1a4d2e;
+  --green-dark:#0d2818;
+  --green-light:#2d6a4f;
+  --gold:#c9a961;
+  --gold-soft:#e3d3a6;
+  --cream:#f5f1e8;
+  --brown:#3d2817;
+  --white:#ffffff;
+  --shadow-1: 0 10px 30px rgba(13,40,24,.12);
+  --shadow-2: 0 20px 50px rgba(13,40,24,.22);
+  --ease: cubic-bezier(.22,.8,.28,1);
+  --radius-s:10px;
+  --radius-m:20px;
+  --radius-l:32px;
+  --container: 1200px;
+}
+
+/* ---------- 2) Reset ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Tajawal',sans-serif;
+  background:var(--cream);
+  color:var(--brown);
+  line-height:1.75;
+  overflow-x:hidden;
+  font-weight:400;
+}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+input,textarea{font-family:inherit;}
+h1,h2,h3,h4{font-weight:700;line-height:1.25;}
+.eng{font-family:'Playfair Display',serif;}
+.num{font-family:'Poppins',sans-serif;}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}
+}
+
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+
+/* ---------- 3) أدوات مساعدة عامة ---------- */
+.container{max-width:var(--container);margin:0 auto;padding:0 24px;}
+.section{padding:120px 0;position:relative;}
+@media (max-width:768px){.section{padding:80px 0;}}
+
+.section-head{max-width:640px;margin-bottom:64px;}
+.section-head.center{margin-inline:auto;text-align:center;}
+.section-kicker{
+  display:inline-flex;align-items:center;gap:10px;
+  color:var(--green-primary);font-weight:700;font-size:.95rem;margin-bottom:14px;
+}
+.section-kicker::before{content:"";width:28px;height:2px;background:var(--gold);display:inline-block;}
+.section-head.center .section-kicker{justify-content:center;}
+.section-title{font-size:clamp(2rem,4vw,2.85rem);color:var(--green-dark);font-weight:900;}
+.section-title span{color:var(--gold);}
+.section-desc{margin-top:18px;color:#5b4a3a;font-size:1.05rem;max-width:56ch;}
+.section-head.center .section-desc{margin-inline:auto;}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:16px 34px;border-radius:100px;font-weight:700;font-size:1rem;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease), color .35s var(--ease);
+  white-space:nowrap;
+}
+.btn-gold{background:var(--gold);color:var(--green-dark);box-shadow:0 12px 26px rgba(201,169,97,.35);position:relative;overflow:hidden;}
+.btn-gold::before{
+  content:"";position:absolute;top:0;bottom:0;width:55%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.65),transparent);
+  transform:skewX(-20deg) translateX(-220%);transition:transform .75s var(--ease);
+}
+.btn-gold:hover::before{transform:skewX(-20deg) translateX(300%);}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 18px 34px rgba(201,169,97,.5);}
+.btn-ghost{border:2px solid rgba(245,241,232,.55);color:var(--white);}
+.btn-ghost:hover{background:var(--white);color:var(--green-dark);transform:translateY(-3px);}
+.btn-outline-green{border:2px solid var(--green-primary);color:var(--green-primary);}
+.btn-outline-green:hover{background:var(--green-primary);color:var(--white);transform:translateY(-3px);}
+.btn-sm{padding:11px 22px;font-size:.9rem;}
+
+.divider-deco{display:flex;align-items:center;gap:14px;margin:6px 0 30px;}
+.divider-deco::before,.divider-deco::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.divider-deco i{color:var(--gold);font-size:1rem;}
+
+/* ---------- 4) Loader شاشة التحميل ---------- */
+#loader{
+  position:fixed;inset:0;z-index:9999;background:var(--green-dark);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:22px;
+  transition:opacity .6s var(--ease), visibility .6s var(--ease);
+}
+#loader.hide{opacity:0;visibility:hidden;pointer-events:none;}
+.loader-logo{width:78px;height:78px;position:relative;}
+.loader-logo svg{width:100%;height:100%;animation:loaderSpin 1.8s linear infinite;}
+@keyframes loaderSpin{to{transform:rotate(360deg);}}
+.loader-text{color:var(--cream);font-family:'Playfair Display',serif;font-size:1.3rem;letter-spacing:1px;font-style:italic;}
+.loader-bar{width:160px;height:3px;background:rgba(245,241,232,.18);border-radius:10px;overflow:hidden;}
+.loader-bar span{display:block;height:100%;width:40%;background:var(--gold);border-radius:10px;animation:loaderBar 1.2s ease-in-out infinite;}
+@keyframes loaderBar{0%{transform:translateX(-120%);}100%{transform:translateX(280%);}}
+
+/* ---------- 5) شريط تقدّم التمرير ---------- */
+#scrollProgress{position:fixed;top:0;inset-inline:0;height:3px;background:var(--gold);z-index:1001;width:0%;transition:width .1s linear;}
+
+/* ---------- 6) الشريط العلوي Navbar ---------- */
+header{
+  position:fixed;top:0;inset-inline:0;z-index:1000;
+  padding:22px 0;transition:all .45s var(--ease);
+}
+header .container{display:flex;align-items:center;justify-content:space-between;}
+header.scrolled{
+  padding:12px 0;background:rgba(13,40,24,.86);backdrop-filter:blur(14px) saturate(140%);
+  box-shadow:0 8px 30px rgba(0,0,0,.18);
+}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand-mark{width:46px;height:46px;flex:none;}
+.brand-name{color:var(--cream);font-family:'Playfair Display',serif;font-weight:700;font-size:1.35rem;letter-spacing:.5px;}
+.brand-name small{display:block;font-family:'Tajawal',sans-serif;font-size:.68rem;color:var(--gold-soft);font-weight:500;letter-spacing:1px;}
+
+.nav-links{display:flex;align-items:center;gap:38px;}
+.nav-links a{
+  color:var(--cream);font-weight:500;font-size:.98rem;position:relative;padding:6px 0;
+}
+.nav-links a::after{
+  content:"";position:absolute;bottom:0;right:0;left:auto;width:0;height:2px;background:var(--gold);
+  transition:width .35s var(--ease);
+}
+.nav-links a:hover::after{width:100%;}
+.nav-links a:hover{color:var(--gold-soft);}
+
+.nav-cta{display:flex;align-items:center;gap:14px;}
+.hamburger{
+  display:none;flex-direction:column;gap:6px;width:30px;z-index:1100;
+}
+.hamburger span{height:2px;background:var(--cream);border-radius:2px;transition:all .4s var(--ease);}
+.hamburger.active span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+
+@media (max-width:960px){
+  .nav-links{
+    position:fixed;inset-inline-end:0;top:0;height:100vh;width:min(80vw,340px);
+    background:var(--green-dark);flex-direction:column;justify-content:center;align-items:flex-start;
+    padding-inline:44px;gap:28px;transform:translateX(-100%);transition:transform .5s var(--ease);
+  }
+  .nav-links.active{transform:translateX(0);}
+  .nav-cta .btn-gold{display:none;}
+  .hamburger{display:flex;}
+}
+
+/* ---------- 7) الهيرو / السلايدر ---------- */
+.hero{position:relative;min-height:100vh;overflow:hidden;background:var(--green-dark);}
+.hero-parallax{position:absolute;inset:-6% 0 -6% 0;will-change:transform;}
+.hero-slide{
+  position:absolute;inset:0;opacity:0;visibility:hidden;
+  background-size:cover;background-position:center;
+  transition:opacity 1.4s var(--ease), transform 6s linear;
+  transform:scale(1.08);
+}
+.hero-slide.active{opacity:1;visibility:visible;transform:scale(1);z-index:1;}
+.hero-slide::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(115deg, rgba(13,40,24,.94) 8%, rgba(26,77,46,.72) 42%, rgba(201,169,97,.38) 100%);
+}
+.hero-inner{
+  position:relative;z-index:5;min-height:100vh;display:flex;align-items:center;
+}
+.hero-content{max-width:640px;padding-inline-start:clamp(24px,8vw,80px);padding-top:70px;}
+.hero-eyebrow{
+  display:flex;align-items:center;gap:12px;color:var(--gold-soft);font-weight:500;margin-bottom:22px;
+  overflow:hidden;
+}
+.hero-eyebrow i{color:var(--gold);}
+.hero-eyebrow span{display:inline-block;opacity:0;transform:translateY(16px);}
+.hero-title{
+  font-size:clamp(2.6rem,6vw,4.6rem);color:var(--cream);font-weight:900;line-height:1.12;margin-bottom:22px;
+  border-inline-start:3px solid var(--gold);padding-inline-start:26px;
+}
+.hero-title .line{display:block;overflow:hidden;}
+.hero-title .line span{display:inline-block;opacity:0;transform:translateY(115%);}
+.hero-title .accent{color:var(--gold);}
+.hero-sub{color:rgba(245,241,232,.88);font-size:1.12rem;max-width:48ch;margin-bottom:38px;opacity:0;transform:translateY(20px);padding-inline-start:29px;}
+.hero-actions{display:flex;gap:18px;flex-wrap:wrap;opacity:0;transform:translateY(20px);padding-inline-start:29px;}
+
+.hero.is-ready .hero-eyebrow span,
+.hero.is-ready .hero-title .line span,
+.hero.is-ready .hero-sub,
+.hero.is-ready .hero-actions{
+  animation:heroRise .9s var(--ease) forwards;
+}
+.hero.is-ready .hero-eyebrow span{animation-delay:.15s;}
+.hero.is-ready .hero-title .line:nth-child(1) span{animation-delay:.3s;}
+.hero.is-ready .hero-title .line:nth-child(2) span{animation-delay:.44s;}
+.hero.is-ready .hero-title .line:nth-child(3) span{animation-delay:.58s;}
+.hero.is-ready .hero-sub{animation-delay:.75s;}
+.hero.is-ready .hero-actions{animation-delay:.92s;}
+@keyframes heroRise{to{opacity:1;transform:translateY(0);}}
+
+/* ختم دوّار مميّز - لمسة هوية بصرية إضافية */
+.hero-stamp{
+  position:absolute;top:16%;inset-inline-end:9%;width:118px;height:118px;z-index:4;pointer-events:none;
+}
+.hero-stamp-ring{position:absolute;inset:0;animation:stampSpin 18s linear infinite;}
+.hero-stamp-ring text{fill:rgba(245,241,232,.75);font-size:11.5px;letter-spacing:2px;}
+.hero-stamp-icon{
+  position:absolute;inset:0;margin:auto;width:38px;height:38px;border-radius:50%;background:var(--gold);
+  color:var(--green-dark);display:flex;align-items:center;justify-content:center;font-size:1rem;
+  box-shadow:0 0 0 6px rgba(245,241,232,.08);
+}
+@keyframes stampSpin{to{transform:rotate(360deg);}}
+@media (max-width:900px){.hero-stamp{display:none;}}
+
+/* بخار القهوة - العنصر التحريكي المميز في الهيرو */
+.steam-wrap{
+  position:absolute;bottom:0;inset-inline-end:6%;width:220px;height:340px;z-index:4;
+  pointer-events:none;display:flex;align-items:flex-end;justify-content:center;
+  filter:blur(2.5px);
+}
+.steam-wrap svg{width:100%;height:100%;overflow:visible;}
+.steam-path{
+  fill:none;stroke:var(--cream);stroke-width:3;stroke-linecap:round;
+  opacity:0;animation:steamRise 6s ease-in-out infinite;
+  transform-origin:bottom center;
+}
+.steam-path.p2{animation-delay:1.6s;}
+.steam-path.p3{animation-delay:3.2s;}
+@keyframes steamRise{
+  0%{transform:translateY(6px) scale(.85);opacity:0;}
+  20%{opacity:.5;}
+  70%{opacity:.12;}
+  100%{transform:translateY(-170px) scale(1.7);opacity:0;}
+}
+
+.hero-controls{
+  position:absolute;bottom:44px;inset-inline-start:0;inset-inline-end:0;z-index:6;
+  display:flex;align-items:center;justify-content:center;gap:22px;
+}
+.hero-dots{display:flex;gap:10px;}
+.hero-dots button{
+  position:relative;width:34px;height:4px;border-radius:4px;background:rgba(245,241,232,.28);overflow:hidden;
+}
+.hero-dots button .fill{position:absolute;top:0;inset-inline-start:0;height:100%;width:0;background:var(--gold);border-radius:4px;}
+.hero-dots button.active .fill{animation:progressFill 6s linear forwards;}
+@keyframes progressFill{to{width:100%;}}
+.hero-arrows{display:flex;gap:10px;}
+.hero-arrows button{
+  width:44px;height:44px;border-radius:50%;border:1px solid rgba(245,241,232,.35);
+  color:var(--cream);display:flex;align-items:center;justify-content:center;transition:all .35s var(--ease);
+}
+.hero-arrows button:hover{background:var(--gold);border-color:var(--gold);color:var(--green-dark);}
+
+.scroll-hint{
+  position:absolute;bottom:16px;inset-inline-start:0;inset-inline-end:0;z-index:6;
+  color:var(--gold-soft);display:flex;align-items:center;justify-content:center;opacity:.85;
+  animation:bounceHint 2.2s ease-in-out infinite;
+}
+@keyframes bounceHint{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+
+@media (max-width:640px){
+  .hero-content{padding-top:110px;}
+  .steam-wrap{opacity:.3;width:140px;}
+  .hero-title{border-inline-start-width:2px;padding-inline-start:16px;}
+  .hero-sub,.hero-actions{padding-inline-start:19px;}
+}
+
+/* ---------- 8) من نحن About ---------- */
+.about-grid{display:flex;gap:70px;align-items:center;}
+.about-text{flex:1.05;}
+.about-visual{flex:.95;position:relative;}
+.about-visual .frame{
+  position:relative;border-radius:var(--radius-l);overflow:hidden;box-shadow:var(--shadow-2);
+  aspect-ratio:4/5;background-size:cover;background-position:center;
+}
+.about-visual .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(13,40,24,.05),rgba(13,40,24,.35));}
+.about-visual .badge-float{
+  position:absolute;bottom:-26px;inset-inline-start:-26px;background:var(--white);border-radius:var(--radius-m);
+  padding:22px 26px;box-shadow:var(--shadow-2);display:flex;align-items:center;gap:16px;max-width:230px;
+}
+.about-visual .badge-float i{font-size:1.6rem;color:var(--gold);}
+.about-visual .badge-float strong{display:block;font-size:1.3rem;color:var(--green-dark);}
+.about-visual .badge-float span{font-size:.82rem;color:#6b5c4c;}
+
+.about-lead{font-size:1.12rem;color:#5b4a3a;margin:22px 0 36px;max-width:52ch;}
+.features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+.feature-card{
+  padding:26px 22px;border-radius:var(--radius-m);background:var(--white);
+  box-shadow:0 6px 20px rgba(61,40,23,.06);transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+  opacity:0;transform:translateY(26px);will-change:transform;
+}
+.feature-card.in-view{opacity:1;transform:translateY(0);}
+.feature-card:hover{box-shadow:var(--shadow-1);}
+.feature-card i{
+  width:52px;height:52px;border-radius:50%;background:linear-gradient(140deg,var(--green-primary),var(--green-light));
+  color:var(--gold-soft);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:16px;
+  animation:iconFloat 3.6s ease-in-out infinite;
+}
+.feature-card:nth-child(2) i{animation-delay:.5s;}
+.feature-card:nth-child(3) i{animation-delay:1s;}
+.feature-card:nth-child(4) i{animation-delay:1.5s;}
+@keyframes iconFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+.feature-card h4{color:var(--green-dark);font-size:1.05rem;margin-bottom:8px;}
+.feature-card p{font-size:.9rem;color:#6b5c4c;}
+
+@media (max-width:900px){
+  .about-grid{flex-direction:column;}
+  .about-visual{order:-1;width:100%;}
+  .about-visual .badge-float{inset-inline-start:16px;bottom:-20px;padding:16px 18px;}
+}
+@media (max-width:520px){.features-grid{grid-template-columns:1fr;}}
+
+/* ---------- 9) القائمة Menu ---------- */
+.menu{background:var(--green-dark);position:relative;overflow:hidden;}
+.menu::before{
+  content:"";position:absolute;inset:0;opacity:.05;background-image:radial-gradient(circle,var(--gold) 1.5px,transparent 1.5px);
+  background-size:26px 26px;
+}
+.menu .section-title,.menu .section-desc{color:var(--cream);}
+.menu .section-desc{color:rgba(245,241,232,.7);}
+.menu .section-kicker{color:var(--gold-soft);}
+
+.menu-filters{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:50px;position:relative;z-index:2;}
+.filter-btn{
+  padding:11px 26px;border-radius:100px;border:1.5px solid rgba(245,241,232,.25);
+  color:rgba(245,241,232,.8);font-weight:500;transition:all .35s var(--ease);
+}
+.filter-btn:hover{border-color:var(--gold);color:var(--gold-soft);}
+.filter-btn.active{background:var(--gold);border-color:var(--gold);color:var(--green-dark);font-weight:700;}
+
+.menu-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:28px;position:relative;z-index:2;
+}
+.menu-card{
+  background:var(--cream);border-radius:var(--radius-m);overflow:hidden;
+  transition:transform .5s var(--ease), box-shadow .5s var(--ease), opacity .5s var(--ease);
+  opacity:1; transform:scale(1);
+}
+.menu-card.hidden-item{
+  opacity:0;transform:scale(.85);pointer-events:none;position:absolute;visibility:hidden;
+}
+.menu-card:hover{box-shadow:0 25px 45px rgba(0,0,0,.35);}
+.menu-card-img{
+  height:210px;background-size:cover;background-position:center;position:relative;overflow:hidden;
+}
+.menu-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease);}
+.menu-card:hover .menu-card-img img{transform:scale(1.12);}
+.menu-badge{
+  position:absolute;top:14px;inset-inline-start:14px;background:var(--gold);color:var(--green-dark);
+  font-size:.72rem;font-weight:700;padding:6px 14px;border-radius:100px;z-index:2;
+}
+.menu-badge.new{background:var(--green-light);color:var(--white);}
+.menu-card-body{padding:22px 24px 26px;}
+.menu-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px;}
+.menu-card-top h4{color:var(--green-dark);font-size:1.18rem;}
+.menu-price{font-family:'Poppins',sans-serif;font-weight:700;color:var(--green-primary);font-size:1.05rem;white-space:nowrap;}
+.menu-card-body p{font-size:.88rem;color:#7a6a58;margin-bottom:18px;}
+.add-cart-btn{
+  width:44px;height:44px;border-radius:50%;background:var(--green-primary);color:var(--white);
+  display:flex;align-items:center;justify-content:center;transition:all .4s var(--ease);margin-inline-start:auto;
+}
+.add-cart-btn:hover{background:var(--gold);color:var(--green-dark);transform:rotate(90deg);}
+.menu-card-bottom{display:flex;justify-content:flex-start;}
+
+@media (max-width:960px){.menu-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:600px){.menu-grid{grid-template-columns:1fr;}}
+
+/* ---------- 10) العروض الخاصة Offers ---------- */
+.offers{
+  background:linear-gradient(135deg,var(--green-primary) 0%, var(--green-dark) 55%, #1f3f1a 100%);
+  position:relative;overflow:hidden;
+}
+.offers::before{
+  content:"";position:absolute;width:480px;height:480px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,169,97,.25),transparent 70%);
+  top:-160px;inset-inline-end:-120px;
+}
+.offers .section-title{color:var(--cream);}
+.offers .section-desc{color:rgba(245,241,232,.75);}
+.offers .section-kicker{color:var(--gold-soft);}
+.offers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;position:relative;z-index:2;}
+.offer-card{
+  background:rgba(245,241,232,.09);backdrop-filter:blur(16px);border:1px solid rgba(245,241,232,.16);
+  border-radius:var(--radius-m);padding:38px 30px;transition:transform .45s var(--ease), background .45s var(--ease);
+  opacity:0;transform:translateY(30px);
+}
+.offer-card.in-view{opacity:1;transform:translateY(0);}
+.offer-card:hover{background:rgba(245,241,232,.14);}
+.offer-badge{
+  display:inline-flex;align-items:baseline;gap:4px;background:var(--gold);color:var(--green-dark);
+  font-weight:900;font-size:1.5rem;padding:8px 18px;border-radius:100px;margin-bottom:22px;font-family:'Poppins',sans-serif;
+}
+.offer-badge small{font-size:.85rem;font-weight:600;}
+.offer-card h4{color:var(--cream);font-size:1.3rem;margin-bottom:12px;}
+.offer-card p{color:rgba(245,241,232,.72);font-size:.92rem;margin-bottom:20px;}
+.offer-valid{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--gold-soft);}
+@media (max-width:900px){.offers-grid{grid-template-columns:1fr;}}
+
+/* ---------- 11) معرض إنستغرام Gallery ---------- */
+.gallery-head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px;margin-bottom:50px;}
+.ig-handle{display:flex;align-items:center;gap:10px;color:var(--green-primary);font-weight:700;}
+.ig-handle i{font-size:1.4rem;background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.gallery-item{
+  position:relative;border-radius:var(--radius-s);overflow:hidden;aspect-ratio:1/1;cursor:pointer;
+  background-size:cover;background-position:center;
+}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease);}
+.gallery-item:hover img{transform:scale(1.15);}
+.gallery-overlay{
+  position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,40,24,.88),rgba(13,40,24,.1) 60%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:18px;
+  opacity:0;transition:opacity .4s var(--ease);
+}
+.gallery-item:hover .gallery-overlay{opacity:1;}
+.gallery-overlay i{color:var(--gold);font-size:1.3rem;margin-bottom:8px;}
+.gallery-overlay p{color:var(--cream);font-size:.85rem;}
+.gallery-cta{text-align:center;margin-top:46px;}
+
+@media (max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:520px){.gallery-grid{grid-template-columns:repeat(2,1fr);gap:10px;}}
+
+/* Lightbox */
+.lightbox{
+  position:fixed;inset:0;background:rgba(13,40,24,.94);z-index:2000;
+  display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;
+  transition:opacity .4s var(--ease), visibility .4s var(--ease);padding:24px;
+}
+.lightbox.active{opacity:1;visibility:visible;}
+.lightbox-inner{max-width:640px;width:100%;text-align:center;}
+.lightbox-inner img{border-radius:var(--radius-m);width:100%;max-height:70vh;object-fit:cover;box-shadow:var(--shadow-2);}
+.lightbox-inner p{color:var(--cream);margin-top:18px;font-size:1rem;}
+.lightbox-close{
+  position:absolute;top:28px;inset-inline-end:32px;width:46px;height:46px;border-radius:50%;
+  border:1px solid rgba(245,241,232,.3);color:var(--cream);display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;transition:all .3s var(--ease);
+}
+.lightbox-close:hover{background:var(--gold);color:var(--green-dark);}
+
+/* ---------- 12) الموقع والتواصل Location ---------- */
+.location-grid{display:flex;gap:60px;align-items:stretch;}
+.location-info{flex:.85;}
+
+/* عرض الخريطة كمجسّم ثلاثي الأبعاد على واجهة عرض، بدل الإطار المسطح التقليدي */
+.location-map{flex:1.15;position:relative;min-height:460px;}
+.location-map::before{
+  content:"";position:absolute;top:26px;bottom:-26px;inset-inline-start:26px;inset-inline-end:-26px;
+  background:linear-gradient(135deg,var(--gold),var(--green-primary) 70%);
+  border-radius:var(--radius-l);z-index:0;
+}
+.map-frame{
+  position:relative;z-index:1;height:100%;min-height:460px;border-radius:var(--radius-l);overflow:hidden;
+  box-shadow:0 35px 60px rgba(13,40,24,.4);
+  transform:perspective(1600px) rotateY(-7deg) rotateX(3deg) scale(.97);
+  transform-origin:center;transition:transform .8s var(--ease), box-shadow .8s var(--ease);
+}
+.location-map:hover .map-frame{transform:perspective(1600px) rotateY(0) rotateX(0) scale(1);box-shadow:var(--shadow-2);}
+.map-frame iframe{width:100%;height:100%;min-height:460px;border:0;display:block;}
+.map-plaque{
+  position:absolute;bottom:22px;inset-inline-start:22px;z-index:2;
+  background:rgba(13,40,24,.85);backdrop-filter:blur(8px);color:var(--cream);
+  padding:12px 20px;border-radius:14px;display:flex;align-items:center;gap:12px;
+  border-inline-start:3px solid var(--gold);font-size:.8rem;box-shadow:0 12px 24px rgba(0,0,0,.25);
+}
+.map-plaque .pulse-dot{width:9px;height:9px;border-radius:50%;background:#4ade80;flex:none;animation:pulseDot 1.8s ease-in-out infinite;}
+@keyframes pulseDot{0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,.55);}70%{box-shadow:0 0 0 9px rgba(74,222,128,0);}}
+.map-plaque .num{color:var(--gold-soft);display:block;font-size:.9rem;}
+
+.info-card-list{display:flex;flex-direction:column;gap:22px;margin:30px 0 36px;}
+.info-row{display:flex;align-items:flex-start;gap:18px;}
+.info-row i{
+  width:52px;height:52px;flex:none;border-radius:16px;background:var(--green-primary);color:var(--gold-soft);
+  display:flex;align-items:center;justify-content:center;font-size:1.15rem;
+}
+.info-row strong{display:block;color:var(--green-dark);margin-bottom:4px;font-size:1.02rem;}
+.info-row span, .info-row a{color:#6b5c4c;font-size:.94rem;}
+.info-row a:hover{color:var(--green-primary);}
+
+@media (max-width:960px){
+  .location-grid{flex-direction:column;}
+  .location-map{width:100%;min-height:340px;}
+  .location-map::before{top:14px;bottom:-14px;inset-inline-start:14px;inset-inline-end:-14px;}
+  .map-frame{min-height:340px;transform:perspective(1600px) rotateY(-3deg) rotateX(1.5deg) scale(.98);}
+  .map-frame iframe{min-height:340px;}
+}
+
+/* ---------- 13) الفوتر Footer ---------- */
+footer{background:var(--green-dark);color:rgba(245,241,232,.75);position:relative;padding-top:90px;}
+footer::before{content:"";position:absolute;top:0;inset-inline:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.1fr;gap:50px;padding-bottom:60px;border-bottom:1px solid rgba(245,241,232,.1);}
+.footer-brand .brand{margin-bottom:18px;}
+.footer-brand p{font-size:.92rem;line-height:1.9;max-width:34ch;margin-bottom:22px;}
+.social-row{display:flex;gap:12px;}
+.social-row a{
+  width:42px;height:42px;border-radius:50%;border:1px solid rgba(245,241,232,.2);
+  display:flex;align-items:center;justify-content:center;transition:all .35s var(--ease);
+}
+.social-row a:hover{background:var(--gold);border-color:var(--gold);color:var(--green-dark);transform:translateY(-4px);}
+.footer-col h5{color:var(--cream);font-size:1.05rem;margin-bottom:22px;position:relative;}
+.footer-col ul{display:flex;flex-direction:column;gap:13px;font-size:.92rem;}
+.footer-col ul a:hover{color:var(--gold-soft);padding-inline-start:4px;}
+.footer-col ul a{transition:all .3s var(--ease);display:inline-block;}
+.footer-hours li{display:flex;justify-content:space-between;gap:10px;}
+.footer-contact li{display:flex;align-items:flex-start;gap:10px;}
+.footer-contact i{color:var(--gold);margin-top:4px;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;padding:26px 0;font-size:.85rem;}
+.footer-bottom a{color:var(--gold-soft);}
+
+@media (max-width:960px){
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:560px){
+  .footer-grid{grid-template-columns:1fr;text-align:center;}
+  .social-row{justify-content:center;}
+  .footer-bottom{justify-content:center;text-align:center;}
+  .footer-contact li{justify-content:center;}
+}
+
+/* ---------- 14) الأزرار العائمة ---------- */
+.float-btn{
+  position:fixed;bottom:26px;left:26px;width:58px;height:58px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.4rem;
+  box-shadow:0 12px 30px rgba(0,0,0,.28);z-index:900;transition:transform .3s var(--ease);
+}
+.float-btn:hover{transform:scale(1.1);}
+.float-whatsapp{background:#25D366;}
+.float-phone{background:var(--green-dark);bottom:96px;}
+.float-btn::before{
+  content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid currentColor;opacity:.55;
+  animation:pulseRing 2.4s ease-out infinite;
+}
+.float-whatsapp::before{color:#25D366;}
+.float-phone::before{color:var(--green-dark);}
+@keyframes pulseRing{0%{transform:scale(.85);opacity:.6;}100%{transform:scale(1.5);opacity:0;}}
+.float-tooltip{
+  position:absolute;inset-inline-end:calc(100% + 14px);top:50%;transform:translateY(-50%) translateX(6px);
+  background:var(--green-dark);color:var(--cream);padding:8px 14px;border-radius:8px;font-size:.8rem;
+  white-space:nowrap;opacity:0;visibility:hidden;transition:all .3s var(--ease);
+}
+.float-btn:hover .float-tooltip{opacity:1;visibility:visible;transform:translateY(-50%) translateX(0);}
+
+#backToTop{
+  position:fixed;bottom:26px;right:26px;width:52px;height:52px;border-radius:50%;
+  background:var(--cream);color:var(--green-dark);display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-1);z-index:900;opacity:0;visibility:hidden;transform:translateY(16px);
+  transition:all .4s var(--ease);
+}
+#backToTop.show{opacity:1;visibility:visible;transform:translateY(0);}
+#backToTop:hover{background:var(--gold);}
+
+@media (max-width:600px){
+  .float-btn{width:50px;height:50px;font-size:1.2rem;bottom:18px;left:18px;}
+  .float-phone{bottom:80px;}
+  #backToTop{width:44px;height:44px;bottom:18px;right:18px;}
+  .float-tooltip{display:none;}
+}
+
+/* ---------- 15) شريط التمرير المخصص ---------- */
+::-webkit-scrollbar{width:11px;}
+::-webkit-scrollbar-track{background:var(--cream);}
+::-webkit-scrollbar-thumb{background:var(--green-primary);border-radius:10px;border:2px solid var(--cream);}
+::-webkit-scrollbar-thumb:hover{background:var(--gold);}
+*{scrollbar-width:thin;scrollbar-color:var(--green-primary) var(--cream);}
+
+/* ---------- 16) حركات عامة عند الظهور ---------- */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease), transform .8s var(--ease);}
+.reveal.in-view{opacity:1;transform:translateY(0);}
+.reveal-delay-1.in-view{transition-delay:.1s;}
+.reveal-delay-2.in-view{transition-delay:.2s;}
+.reveal-delay-3.in-view{transition-delay:.3s;}
+
+@media (max-width:768px){
+  .container{padding:0 20px;}
+  .about-grid, .location-grid{gap:40px;}
+}
+
+/* ---------- 17) تعويض ارتفاع الهيدر الثابت عند التنقل ---------- */
+section[id]{scroll-margin-top:88px;}
+
+/* ---------- 18) بديل احتياطي للصور (في حال تعذّر تحميل الصورة) ---------- */
+.img-fallback-bg{
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--green-light),var(--green-dark));
+}
+.img-fallback-bg i{color:var(--gold-soft);font-size:2.4rem;opacity:.85;}
+</style>
+</head>
+<body>
+
+<!-- ============ Loader ============ -->
+<div id="loader">
+  <div class="loader-logo">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="46" fill="none" stroke="#c9a961" stroke-width="4" stroke-dasharray="180 100"/>
+      <ellipse cx="50" cy="50" rx="19" ry="27" fill="#f5f1e8" transform="rotate(-20 50 50)"/>
+      <path d="M50 26 C 41 36, 41 64, 50 74" stroke="#0d2818" stroke-width="3.5" fill="none" stroke-linecap="round" transform="rotate(-20 50 50)"/>
+    </svg>
+  </div>
+  <div class="loader-text">Storven Coffee</div>
+  <div class="loader-bar"><span></span></div>
+</div>
+
+<div id="scrollProgress"></div>
+
+<!-- ============ Header ============ -->
+<header id="siteHeader">
+  <div class="container">
+    <a href="#hero" class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="46" fill="#1a4d2e" stroke="#f5f1e8" stroke-width="4"/>
+          <ellipse cx="50" cy="50" rx="19" ry="27" fill="#f5f1e8" transform="rotate(-20 50 50)"/>
+          <path d="M50 26 C 41 36, 41 64, 50 74" stroke="#1a4d2e" stroke-width="3.5" fill="none" stroke-linecap="round" transform="rotate(-20 50 50)"/>
+        </svg>
+      </span>
+      <span class="brand-name">Storven<small>ستورفين كوفي</small></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#hero" class="nav-link-item">الرئيسية</a>
+      <a href="#about" class="nav-link-item">من نحن</a>
+      <a href="#menu" class="nav-link-item">القائمة</a>
+      <a href="#offers" class="nav-link-item">عروضنا</a>
+      <a href="#gallery" class="nav-link-item">تابعونا</a>
+      <a href="#location" class="nav-link-item">موقعنا</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="https://wa.me/963930427495" target="_blank" rel="noopener" class="btn btn-gold btn-sm">
+        <i class="fa-brands fa-whatsapp"></i> اطلب الآن
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="القائمة">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ Hero ============ -->
+<section class="hero" id="hero">
+
+  <div class="hero-parallax" id="heroParallax">
+    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1800&q=80')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=1800&q=80')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1800&q=80')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=80')"></div>
+  </div>
+
+  <div class="hero-inner container">
+    <div class="hero-content">
+      <div class="hero-eyebrow"><i class="fa-solid fa-mug-hot"></i><span>قهوة مختصة · أوتوستراد إدلب</span></div>
+      <h1 class="hero-title">
+        <span class="line"><span>نُحضّر كل كوب</span></span>
+        <span class="line"><span class="accent">بشغف</span> حقيقي،</span>
+        <span class="line"><span>وكأنكم في منزلكم</span></span>
+      </h1>
+      <p class="hero-sub">في Storven Coffee، كل زيارة محطة دافئة على الطريق — بنّ مُنتقى، تحضير متقن، وضيافة سورية أصيلة تشعركم بالراحة من أول رشفة.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/963930427495" target="_blank" rel="noopener" class="btn btn-gold">اطلب الآن</a>
+        <a href="#menu" class="btn btn-ghost">استكشف القائمة</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-stamp" aria-hidden="true">
+    <svg class="hero-stamp-ring" viewBox="0 0 200 200">
+      <defs><path id="stampCircle" d="M 100,100 m -82,0 a 82,82 0 1,1 164,0 a 82,82 0 1,1 -164,0"/></defs>
+      <text><textPath href="#stampCircle" startOffset="0%">Storven Coffee • قهوة مختصة • Storven Coffee • </textPath></text>
+    </svg>
+    <div class="hero-stamp-icon"><i class="fa-solid fa-mug-saucer"></i></div>
+  </div>
+
+  <div class="steam-wrap" aria-hidden="true">
+    <svg viewBox="0 0 100 160">
+      <path class="steam-path p1" d="M35 150 C 20 120, 55 110, 40 85 C 28 62, 55 55, 45 30"/>
+      <path class="steam-path p2" d="M55 150 C 70 120, 40 108, 55 82 C 68 60, 42 52, 55 26"/>
+      <path class="steam-path p3" d="M46 152 C 34 126, 58 112, 47 88 C 38 66, 60 56, 50 32"/>
+    </svg>
+  </div>
+
+  <div class="hero-controls">
+    <div class="hero-dots" id="heroDots"></div>
+    <div class="hero-arrows">
+      <button id="heroPrev" aria-label="السابق"><i class="fa-solid fa-chevron-right"></i></button>
+      <button id="heroNext" aria-label="التالي"><i class="fa-solid fa-chevron-left"></i></button>
+    </div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></div>
+</section>
+
+<!-- ============ About ============ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-text reveal">
+        <div class="divider-deco" style="max-width:120px;"><i class="fa-solid fa-mug-hot"></i></div>
+        <h2 class="section-title">بيت القهوة الذي تحنّ إليه <span>في كل رحلة</span></h2>
+        <p class="about-lead">
+          وُلدت فكرة Storven Coffee من شغف حقيقي بالقهوة المختصة، لتكون محطة على أوتوستراد إدلب يجد فيها كل مسافر
+          وكل زائر كوباً مُحضّراً بعناية، وأجواءً دافئة تذكّره بمنزله. نؤمن أن القهوة الجيدة تبدأ من انتقاء الحبوب،
+          وتكتمل بضيافة لا تُنسى.
+        </p>
+        <div class="features-grid">
+          <div class="feature-card"><i class="fa-solid fa-seedling"></i><h4>حبوب مختارة بعناية</h4><p>نُحمّص أجود أنواع البن لضمان نكهة غنية وثابتة في كل كوب.</p></div>
+          <div class="feature-card"><i class="fa-solid fa-house-chimney"></i><h4>أجواء دافئة كالمنزل</h4><p>تصميم مستوحى من الضيافة السورية الأصيلة براحة واسترخاء حقيقيين.</p></div>
+          <div class="feature-card"><i class="fa-solid fa-location-dot"></i><h4>موقع مثالي للمسافرين</h4><p>على أوتوستراد إدلب - باب الهوى، محطة راحة قبل استكمال الطريق.</p></div>
+          <div class="feature-card"><i class="fa-solid fa-clock"></i><h4>خدمة سريعة ومتقنة</h4><p>فريق مدرّب يقدّم كوبك خلال دقائق دون أي مساس بالجودة.</p></div>
+        </div>
+      </div>
+
+      <div class="about-visual reveal">
+        <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=80')"></div>
+        <div class="badge-float">
+          <i class="fa-solid fa-mug-saucer"></i>
+          <div><strong>+10</strong><span>مشروب مختص طازج يومياً</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ Menu ============ -->
+<section class="section menu" id="menu">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="section-kicker">قائمتنا</div>
+      <h2 class="section-title">تشكيلة <span>ستورفين</span> المختارة</h2>
+      <p class="section-desc">من الإسبريسو الكلاسيكي إلى أطباق الحلا المُعدّة يومياً — كل صنف بذوقٍ يليق بكم.</p>
+    </div>
+
+    <div class="menu-filters reveal">
+      <button class="filter-btn active" data-filter="all">الكل</button>
+      <button class="filter-btn" data-filter="hot">ساخن</button>
+      <button class="filter-btn" data-filter="cold">بارد</button>
+      <button class="filter-btn" data-filter="sweet">حلويات</button>
+    </div>
+
+    <div class="menu-grid" id="menuGrid">
+
+      <div class="menu-card" data-cat="hot">
+        <div class="menu-card-img"><img loading="lazy" src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=700&q=80" alt="إسبريسو"></div>
+        <div class="menu-card-body">
+          <div class="menu-card-top"><h4>إسبريسو</h4><span class="menu-price num">3000 ل.س</span></div>
+          <p>جرعة مركّزة وغنية من أجود حبوب البن المحمّص طازجاً.</p>
+          <div class="menu-card-bottom"><button class="add-cart-btn"><i class="fa-solid fa-plus"></i></button></div>
+        </div>
+      </div>
+
+      <div class="menu-card" data-cat="hot">
+        <div class="menu-card-img">
+          <span class="menu-badge">الأكثر مبيعاً</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=700&q=80" alt="لاتيه">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-top"><h4>لاتيه</h4><span class="menu-price num">5500 ل.س</span></div>
+          <p>إسبريسو ناعم مع حليب مُبخّر ورغوة حريرية دافئة.</p>
+          <div class="menu-card-bottom"><button class="add-cart-btn"><i class="fa-solid fa-plus"></i></button></div>
+        </div>
+      </div>
+
+      <div class="menu-card" data-cat="hot">
+        <div class="menu-card-img"><img loading="lazy" src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80" alt="كابتشينو"></div>
+        <div class="menu-card-body">
+          <div class="menu-card-top"><h4>كابتشينو</h4><span class="menu-price num">5000 ل.س</span></div>
+          <p>توازن مثالي بين الإسبريسو والحليب المرغي الغني.</p>
+          <div class="menu-card-bottom"><button class="add-cart-btn"><i class="fa-solid fa-plus"></i></button></div>
+        </div>
+      </div>
+
+      <div class="menu-card" data-cat="hot">
+        <div class="menu-card-img"><img loading="lazy" src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=700&q=80" alt="موكا"></div>
+        <div class="menu-card-body">
+          <div class="menu-card-top"><h4>موكا</h4><span class="menu-price num">6000 ل.س</span></div>
+          <p>مزيج غني من الإسبريسو والشوكولا الفاخرة والحليب الدافئ.</p>
+          <div class="menu-card-bottom"><button class="add-cart-btn"><i class="fa-solid fa-plus"></i></button></div>
+        </div>
+      </div>
+
+      <div class="menu-card" data-cat="cold">
+        <div class="menu-card-img"><img loading="lazy" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80" alt="آيس كوفي"></div>
+        <div class="menu-card-body">
+          <div class="menu-card-top"><h4>آيس كوفي</h4><span class="menu-price num">6000 ل.س</span></div>
+          <p>قهوة باردة منعشة تُقدّم فوق ثلج مع لمسة من الحليب.</p>
+          <div class="menu-card-bottom"><button class="add-cart-btn"><i class="fa-solid fa-plus"></i></button></div>
+        </div>
+      </div>
+
+      <div class="menu-card" data-cat="cold">
+        <div class="menu-card-img">
+          <span class="menu-badge new">جديد</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=700&q=80" alt="فرابتشينو">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-top"><h4>فرابتشينو</h4><span class="menu-price num">7000 ل.س</span></div>
+          <p>مشروب مثلج كريمي مخفوق يُتوّج برغوة كريمة غنية.</p>
+          <div class="menu-card-bottom"><button class="add-cart-btn"><i class="fa-solid fa-plus"></i></button></div>
+        </div>
+      </div>
+
+      <div class="menu-card" data-cat="cold">
+        <div class="menu-card-img"><img loading="lazy" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80" alt="آيس لاتيه"></div>
+        <div class="menu-card-body">
+          <div class="menu-card-top"><h4>آيس لاتيه</h4><span class="menu-price num">6500 ل.س</span></div>
+          <p>لاتيه بارد ناعم، مثالي لأيام الصيف الحارة.</p>
+          <div class="menu-card-bottom"><button class="add-cart-btn"><i class="fa-solid fa-plus"></i></button></div>
+        </div>
+      </div>
+
+      <div class="menu-card" data-cat="sweet">
+        <div class="menu-card-img">
+          <span class="menu-badge">مميز</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?auto=format&fit=crop&w=700&q=80" alt="تشيز كيك">
+        </div>
+        <div class="menu-card-body">
+          <div class="menu-card-top"><h4>تشيز كيك</h4><span class="menu-price num">6500 ل.س</span></div>
+          <p>قطعة كريمية غنية بقاعدة بسكويت مقرمشة، تُحضّر يومياً.</p>
+          <div class="menu-card-bottom"><button class="add-cart-btn"><i class="fa-solid fa-plus"></i></button></div>
+        </div>
+      </div>
+
+      <div class="menu-card" data-cat="sweet">
+        <div class="menu-card-img"><img loading="lazy" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=700&q=80" alt="كرواسون"></div>
+        <div class="menu-card-body">
+          <div class="menu-card-top"><h4>كرواسون</h4><span class="menu-price num">3500 ل.س</span></div>
+          <p>عجين فرنسي طبقي مقرمش من الخارج وطري من الداخل.</p>
+          <div class="menu-card-bottom"><button class="add-cart-btn"><i class="fa-solid fa-plus"></i></button></div>
+        </div>
+      </div>
+
+      <div class="menu-card" data-cat="sweet">
+        <div class="menu-card-img"><img loading="lazy" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=700&q=80" alt="آيس كريم قهوة"></div>
+        <div class="menu-card-body">
+          <div class="menu-card-top"><h4>آيس كريم قهوة</h4><span class="menu-price num">4500 ل.س</span></div>
+          <p>نكهة قهوة أصيلة في قوام آيس كريم ناعم ومنعش.</p>
+          <div class="menu-card-bottom"><button class="add-cart-btn"><i class="fa-solid fa-plus"></i></button></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ Offers ============ -->
+<section class="section offers" id="offers">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="section-kicker">عروض خاصة</div>
+      <h2 class="section-title">لحظات <span>أوفر وأدفأ</span> بانتظاركم</h2>
+      <p class="section-desc">عروض مصمّمة لتناسب كل زائر — سواء كنتم في استراحة سريعة أو جلسة طويلة مع الأصدقاء.</p>
+    </div>
+
+    <div class="offers-grid">
+      <div class="offer-card">
+        <div class="offer-badge">20<small>% خصم</small></div>
+        <h4>صباح ستورفين الدافئ</h4>
+        <p>خصم 20% على جميع المشروبات الساخنة من الساعة 7 حتى 10 صباحاً — بداية يومك تستحق الأفضل.</p>
+        <div class="offer-valid"><i class="fa-regular fa-clock"></i><span>يومياً 7:00 – 10:00 صباحاً</span></div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-badge">3<small>+1 حلا</small></div>
+        <h4>عرض الرفقة</h4>
+        <p>عند طلب 3 مشروبات أو أكثر لنفس الطاولة، تحصلون على قطعة حلا مجاناً هدية منّا.</p>
+        <div class="offer-valid"><i class="fa-regular fa-calendar"></i><span>ساري طوال أيام الأسبوع</span></div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-badge">15<small>% خصم</small></div>
+        <h4>توقف المسافرين</h4>
+        <p>خصم خاص لعملاء الطريق على أوتوستراد إدلب — استريحوا واستكملوا رحلتكم بطاقة متجددة.</p>
+        <div class="offer-valid"><i class="fa-solid fa-road"></i><span>على مدار اليوم</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Instagram Gallery ============ -->
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="gallery-head reveal">
+      <div>
+        <div class="divider-deco" style="max-width:120px;"><i class="fa-solid fa-camera"></i></div>
+        <h2 class="section-title">تابعونا على <span>إنستغرام</span></h2>
+      </div>
+      <a href="https://www.instagram.com/storvencoffee_syr" target="_blank" rel="noopener" class="ig-handle">
+        <i class="fa-brands fa-instagram"></i> storvencoffee_syr@
+      </a>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item" data-caption="صباح الخير من Storven ☕">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=600&q=80" alt="صورة إنستغرام 1">
+        <div class="gallery-overlay"><i class="fa-brands fa-instagram"></i><p>صباح الخير من Storven ☕</p></div>
+      </div>
+      <div class="gallery-item" data-caption="فن اللاتيه بلمسة ستورفين">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1521302200778-33500795e128?auto=format&fit=crop&w=600&q=80" alt="صورة إنستغرام 2">
+        <div class="gallery-overlay"><i class="fa-brands fa-instagram"></i><p>فن اللاتيه بلمسة ستورفين</p></div>
+      </div>
+      <div class="gallery-item" data-caption="حلا اليوم طازج دايمًا">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?auto=format&fit=crop&w=600&q=80" alt="صورة إنستغرام 3">
+        <div class="gallery-overlay"><i class="fa-brands fa-instagram"></i><p>حلا اليوم طازج دايمًا</p></div>
+      </div>
+      <div class="gallery-item" data-caption="حبوب مختارة، تحميص طازج">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80" alt="صورة إنستغرام 4">
+        <div class="gallery-overlay"><i class="fa-brands fa-instagram"></i><p>حبوب مختارة، تحميص طازج</p></div>
+      </div>
+      <div class="gallery-item" data-caption="أجواء دافئة تنتظركم">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80" alt="صورة إنستغرام 5">
+        <div class="gallery-overlay"><i class="fa-brands fa-instagram"></i><p>أجواء دافئة تنتظركم</p></div>
+      </div>
+      <div class="gallery-item" data-caption="محطتكم المفضلة على الطريق">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80" alt="صورة إنستغرام 6">
+        <div class="gallery-overlay"><i class="fa-brands fa-instagram"></i><p>محطتكم المفضلة على الطريق</p></div>
+      </div>
+    </div>
+
+    <div class="gallery-cta reveal">
+      <a href="https://www.instagram.com/storvencoffee_syr" target="_blank" rel="noopener" class="btn btn-outline-green">
+        <i class="fa-brands fa-instagram"></i> تابعونا على إنستغرام
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Location & Contact ============ -->
+<section class="section" id="location" style="background:#efe9db;">
+  <div class="container">
+    <div class="location-grid">
+
+      <div class="location-info reveal">
+        <div class="divider-deco" style="max-width:120px;"><i class="fa-solid fa-location-dot"></i></div>
+        <h2 class="section-title">بانتظاركم <span>على الطريق</span></h2>
+        <p class="section-desc">توقفوا عندنا في أي وقت — نرحّب بكم دائماً بكوب دافئ وابتسامة صادقة.</p>
+
+        <div class="info-card-list">
+          <div class="info-row">
+            <i class="fa-solid fa-location-dot"></i>
+            <div><strong>العنوان</strong><span>أوتوستراد إدلب - باب الهوى، 1 كم بعد إدلب على اليمين</span></div>
+          </div>
+          <div class="info-row">
+            <i class="fa-brands fa-whatsapp"></i>
+            <div><strong>واتساب</strong><a class="num" href="https://wa.me/963930427495" target="_blank" rel="noopener">963930427495+</a></div>
+          </div>
+          <div class="info-row">
+            <i class="fa-solid fa-envelope"></i>
+            <div><strong>البريد الإلكتروني</strong><a href="mailto:Storiescoffee27@gmail.com">Storiescoffee27@gmail.com</a></div>
+          </div>
+          <div class="info-row">
+            <i class="fa-regular fa-clock"></i>
+            <div><strong>ساعات العمل</strong><span>نعمل على مدار الساعة، طوال أيام الأسبوع (24/7)</span></div>
+          </div>
+        </div>
+
+        <a href="https://www.google.com/maps/dir/?api=1&destination=35.9644953,36.6613314" target="_blank" rel="noopener" class="btn btn-gold" style="background:var(--green-primary);color:var(--white);box-shadow:none;">
+          <i class="fa-solid fa-diamond-turn-right"></i> احصل على الاتجاهات
+        </a>
+      </div>
+
+      <div class="location-map reveal">
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps?q=35.9644953,36.6613314&z=16&t=h&output=embed" loading="lazy" allowfullscreen title="موقع Storven Coffee"></iframe>
+        </div>
+        <div class="map-plaque">
+          <span class="pulse-dot"></span>
+          <div><strong>Storven Coffee</strong><span class="num">35.9645° N, 36.6613° E</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <a href="#hero" class="brand">
+          <span class="brand-mark">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="46" fill="#1a4d2e" stroke="#f5f1e8" stroke-width="4"/>
+              <ellipse cx="50" cy="50" rx="19" ry="27" fill="#f5f1e8" transform="rotate(-20 50 50)"/>
+              <path d="M50 26 C 41 36, 41 64, 50 74" stroke="#1a4d2e" stroke-width="3.5" fill="none" stroke-linecap="round" transform="rotate(-20 50 50)"/>
+            </svg>
+          </span>
+          <span class="brand-name">Storven<small>ستورفين كوفي</small></span>
+        </a>
+        <p>قهوة مختصة نُحضّر كل كوب منها بشغف، على أوتوستراد إدلب - باب الهوى. محطتكم الدافئة في كل رحلة.</p>
+        <div class="social-row">
+          <a href="https://www.instagram.com/storvencoffee_syr" target="_blank" rel="noopener" aria-label="إنستغرام"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@storvencoffee_syr" target="_blank" rel="noopener" aria-label="تيك توك"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.facebook.com/StorvenCoffeeSyria" target="_blank" rel="noopener" aria-label="فيسبوك"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://wa.me/963930427495" target="_blank" rel="noopener" aria-label="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>روابط سريعة</h5>
+        <ul>
+          <li><a href="#hero">الرئيسية</a></li>
+          <li><a href="#about">من نحن</a></li>
+          <li><a href="#menu">القائمة</a></li>
+          <li><a href="#offers">عروضنا</a></li>
+          <li><a href="#gallery">تابعونا</a></li>
+          <li><a href="#location">موقعنا</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>ساعات العمل</h5>
+        <ul class="footer-hours">
+          <li><span>كل أيام الأسبوع</span><span class="num">24/7</span></li>
+          <li><span>مفتوحون دائماً لخدمتكم</span></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>تواصل معنا</h5>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i><span>أوتوستراد إدلب - باب الهوى، 1كم بعد إدلب</span></li>
+          <li><i class="fa-brands fa-whatsapp"></i><span class="num">963930427495+</span></li>
+          <li><i class="fa-solid fa-envelope"></i><span>Storiescoffee27@gmail.com</span></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Storven Coffee — جميع الحقوق محفوظة</span>
+      <span>صُنع بشغف ☕ لخدمة كل مسافر</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ Floating Buttons ============ -->
+<a href="https://wa.me/963930427495" target="_blank" rel="noopener" class="float-btn float-whatsapp" aria-label="تواصل معنا عبر واتساب">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span class="float-tooltip">تواصل معنا</span>
+</a>
+<a href="tel:+963930427495" class="float-btn float-phone" aria-label="اتصل بنا">
+  <i class="fa-solid fa-phone"></i>
+  <span class="float-tooltip">اتصل بنا</span>
+</a>
+<button id="backToTop" aria-label="العودة للأعلى"><i class="fa-solid fa-arrow-up"></i></button>
+
+<!-- ============ Lightbox ============ -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="إغلاق"><i class="fa-solid fa-xmark"></i></button>
+  <div class="lightbox-inner">
+    <img id="lightboxImg" src="" alt="عرض الصورة">
+    <p id="lightboxCaption"></p>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+
+  /* ---------- سنة الفوتر ---------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- شاشة التحميل ---------- */
+  var loader = document.getElementById('loader');
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      loader.classList.add('hide');
+      document.getElementById('hero').classList.add('is-ready');
+    }, 500);
+  });
+  // شبكة أمان: إخفاء اللودر حتى لو تأخر تحميل بعض الموارد
+  setTimeout(function(){
+    loader.classList.add('hide');
+    document.getElementById('hero').classList.add('is-ready');
+  }, 2500);
+
+  /* ---------- شريط تقدم التمرير + Header + زر الصعود ---------- */
+  var header = document.getElementById('siteHeader');
+  var progress = document.getElementById('scrollProgress');
+  var backToTop = document.getElementById('backToTop');
+
+  function onScroll(){
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progress.style.width = pct + '%';
+
+    if(scrollTop > 60){ header.classList.add('scrolled'); } else { header.classList.remove('scrolled'); }
+    if(scrollTop > 500){ backToTop.classList.add('show'); } else { backToTop.classList.remove('show'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  backToTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* ---------- قائمة الموبايل ---------- */
+  var hamburger = document.getElementById('hamburger');
+  var navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', function(){
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+  document.querySelectorAll('.nav-link-item').forEach(function(link){
+    link.addEventListener('click', function(){
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+
+  /* ---------- سلايدر الهيرو ---------- */
+  var slides = document.querySelectorAll('.hero-slide');
+  var dotsWrap = document.getElementById('heroDots');
+  var current = 0;
+  var slideInterval;
+
+  slides.forEach(function(_, i){
+    var dot = document.createElement('button');
+    dot.setAttribute('aria-label', 'الانتقال للشريحة ' + (i+1));
+    var fill = document.createElement('span');
+    fill.className = 'fill';
+    dot.appendChild(fill);
+    if(i === 0) dot.classList.add('active');
+    dot.addEventListener('click', function(){ goToSlide(i); resetInterval(); });
+    dotsWrap.appendChild(dot);
+  });
+  var dots = dotsWrap.querySelectorAll('button');
+
+  function restartFill(dot){
+    var fill = dot.querySelector('.fill');
+    fill.style.animation = 'none';
+    void fill.offsetWidth;
+    fill.style.animation = '';
+  }
+  function goToSlide(index){
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    dots[current].querySelector('.fill').style.animation = 'none';
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    restartFill(dots[current]);
+  }
+  function nextSlide(){ goToSlide(current + 1); }
+  function prevSlide(){ goToSlide(current - 1); }
+  function resetInterval(){
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, 6000);
+  }
+  document.getElementById('heroNext').addEventListener('click', function(){ nextSlide(); resetInterval(); });
+  document.getElementById('heroPrev').addEventListener('click', function(){ prevSlide(); resetInterval(); });
+  restartFill(dots[0]);
+  resetInterval();
+
+  /* ---------- كشف الظهور عند التمرير (Scroll Reveal) ---------- */
+  var revealTargets = document.querySelectorAll('.reveal, .feature-card, .offer-card');
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry, idx){
+      if(entry.isIntersecting){
+        setTimeout(function(){
+          entry.target.classList.add('in-view');
+        }, (idx % 4) * 90);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.15, rootMargin:'0px 0px -60px 0px'});
+  revealTargets.forEach(function(el){ observer.observe(el); });
+
+  /* ---------- فلترة القائمة ---------- */
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var menuCards = document.querySelectorAll('.menu-card');
+  filterBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filterBtns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var filter = btn.getAttribute('data-filter');
+      menuCards.forEach(function(card){
+        var match = filter === 'all' || card.getAttribute('data-cat') === filter;
+        card.classList.toggle('hidden-item', !match);
+      });
+    });
+  });
+
+  /* ---------- معرض الصور + Lightbox ---------- */
+  var galleryItems = document.querySelectorAll('.gallery-item');
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightboxImg');
+  var lightboxCaption = document.getElementById('lightboxCaption');
+
+  galleryItems.forEach(function(item){
+    item.addEventListener('click', function(){
+      var img = item.querySelector('img');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxCaption.textContent = item.getAttribute('data-caption') || '';
+      lightbox.classList.add('active');
+    });
+  });
+  function closeLightbox(){ lightbox.classList.remove('active'); }
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function(e){ if(e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLightbox(); });
+
+  /* ---------- بديل احتياطي عند تعذر تحميل أي صورة (منتجات/معرض) ---------- */
+  document.querySelectorAll('.menu-card-img img, .gallery-item img').forEach(function(img){
+    img.addEventListener('error', function(){
+      var wrap = img.parentElement;
+      img.remove();
+      wrap.classList.add('img-fallback-bg');
+      var icon = document.createElement('i');
+      icon.className = 'fa-solid fa-mug-saucer';
+      wrap.appendChild(icon);
+    });
+  });
+
+  /* ---------- حركات إضافية: ميل ثلاثي الأبعاد + Parallax (مع احترام إعداد تقليل الحركة) ---------- */
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if(!reduceMotion){
+
+    // ميل البطاقات عند تحريك المؤشر (Tilt)
+    function addTilt(nodeList, liftPx, maxDeg){
+      nodeList.forEach(function(card){
+        card.addEventListener('mousemove', function(e){
+          var rect = card.getBoundingClientRect();
+          var px = (e.clientX - rect.left) / rect.width;   // 0 -> 1
+          var py = (e.clientY - rect.top) / rect.height;   // 0 -> 1
+          var rotateY = (px - .5) * maxDeg * 2;
+          var rotateX = -(py - .5) * maxDeg * 2;
+          card.style.transform = 'perspective(900px) rotateX('+rotateX+'deg) rotateY('+rotateY+'deg) translateY(-'+liftPx+'px)';
+        });
+        card.addEventListener('mouseleave', function(){
+          card.style.transform = '';
+        });
+      });
+    }
+    addTilt(document.querySelectorAll('.menu-card'), 10, 5);
+    addTilt(document.querySelectorAll('.feature-card'), 8, 4);
+    addTilt(document.querySelectorAll('.offer-card'), 10, 4);
+
+    // Parallax خفيف لخلفية الهيرو أثناء التمرير
+    var heroParallax = document.getElementById('heroParallax');
+    var heroSection = document.getElementById('hero');
+    var ticking = false;
+    function updateParallax(){
+      var rect = heroSection.getBoundingClientRect();
+      if(rect.bottom > 0 && rect.top < window.innerHeight){
+        heroParallax.style.transform = 'translateY(' + (window.scrollY * .22) + 'px)';
+      }
+      ticking = false;
+    }
+    window.addEventListener('scroll', function(){
+      if(!ticking){ window.requestAnimationFrame(updateParallax); ticking = true; }
+    }, {passive:true});
+    updateParallax();
+  }
+
+});
+</script>
+</body>
+</html>
