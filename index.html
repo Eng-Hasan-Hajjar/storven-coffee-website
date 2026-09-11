@@ -2743,88 +2743,72 @@
         }
 
 
-        /* ==============================================================
-   LOCATION / GOOGLE MAPS
-   ============================================================= */
+/* ==========================================
+   PREMIUM LOCATION CARD - DESKTOP
+========================================== */
 
-        .location-section {
+.location-card {
 
-            background:
-                radial-gradient(circle at 12% 12%,
-                    rgba(201, 169, 97, .10),
-                    transparent 28%),
-                var(--bg);
-        }
+    position: relative;
 
-        .location-card {
+    min-height: 650px;
 
-            position: relative;
+    border-radius: 32px;
 
-            min-height: 570px;
+    overflow: hidden;
 
-            border-radius: 32px;
+    background: var(--green-dark);
 
-            overflow: hidden;
+    box-shadow:
+        0 30px 80px rgba(13, 40, 24, .20);
 
-            background: var(--green-dark);
-
-            box-shadow:
-                0 30px 80px rgba(13, 40, 24, .20);
-
-            border:
-                1px solid rgba(201, 169, 97, .12);
-        }
-
-        .location-card::after {
-
-            content: "";
-
-            position: absolute;
-
-            inset: 0;
-
-            pointer-events: none;
-
-            background:
-                linear-gradient(90deg,
-                    transparent 45%,
-                    rgba(6, 34, 20, .08) 70%,
-                    rgba(6, 34, 20, .20) 100%);
-
-            z-index: 2;
-        }
+    border:
+        1px solid rgba(201, 169, 97, .12);
+}
 
 
+.location-info {
 
-        .location-info {
-            position: absolute;
+    position: absolute;
 
-            top: 50%;
-            inset-inline-end: 28px;
-right: 28px;
-left: auto;
-            transform: translateY(-50%);
+    z-index: 5;
 
-            width: min(380px, calc(100% - 56px));
+    top: 50%;
+    right: 28px;
+    left: auto;
 
-            max-height: calc(100% - 48px);
+    transform: translateY(-50%);
 
-            padding: 32px 28px;
+    width: 405px;
 
-            border-radius: 26px;
+    max-width: calc(100% - 56px);
 
-            background: rgba(10, 67, 39, 0.94);
+    /* مهم جداً */
+    max-height: none;
+    overflow: hidden;
 
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
+    padding: 30px 28px;
 
-            box-shadow:
-                0 24px 60px rgba(0, 0, 0, 0.28);
+    border-radius: 26px;
 
-            border: 1px solid rgba(255, 255, 255, .08);
+    color: #ffffff;
 
-            overflow-y: auto;
-        }
+    background:
+        linear-gradient(
+            145deg,
+            rgba(9, 55, 31, .97),
+            rgba(18, 92, 52, .95)
+        );
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 24px 60px rgba(0, 0, 0, .30);
+
+    border:
+        1px solid rgba(255, 255, 255, .10);
+}
 
         .location-info::before {
 
@@ -2873,43 +2857,46 @@ left: auto;
 
         .location-info h3 {
 
-            position: relative;
+           
+    position: relative;
 
-            z-index: 2;
+    z-index: 2;
 
-            font-size: clamp(1.8rem, 3vw, 2.55rem);
+    color: #ffffff;
 
-            line-height: 1.25;
+    font-size: clamp(1.8rem, 3vw, 2.55rem);
 
-            margin-bottom: 14px;
+    line-height: 1.25;
+
+    margin-bottom: 12px;
         }
 
         .location-info>p {
 
-            position: relative;
+               position: relative;
 
-            z-index: 2;
+    z-index: 2;
 
-            color: rgba(255, 255, 255, .77);
+    color: rgba(255,255,255,.78);
 
-            margin-bottom: 26px;
+    margin-bottom: 20px;
 
-            max-width: 520px;
+    line-height: 1.75;
         }
 
         .location-details {
 
-            position: relative;
+             position: relative;
 
-            z-index: 2;
+    z-index: 2;
 
-            display: flex;
+    display: flex;
 
-            flex-direction: column;
+    flex-direction: column;
 
-            gap: 13px;
+    gap: 10px;
 
-            margin-bottom: 28px;
+    margin-bottom: 22px;
         }
 
         .location-detail {
@@ -2923,10 +2910,11 @@ left: auto;
 
         .location-detail-icon {
 
-            width: 42px;
-            height: 42px;
+            
+    width: 40px;
+    height: 40px;
 
-            flex: 0 0 42px;
+    flex: 0 0 40px;
 
             border-radius: 13px;
 
@@ -2940,6 +2928,27 @@ left: auto;
 
             border: 1px solid rgba(255, 255, 255, .11);
         }
+
+        .location-actions {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+}
+
+
+.location-actions .btn {
+
+    width: 100%;
+
+    min-height: 48px;
+}
 
         .location-detail-text {
 
@@ -2980,20 +2989,21 @@ left: auto;
             gap: 11px;
         }
 
-        .map-wrap {
+      .map-wrap {
 
+    position: absolute;
 
-            position: absolute;
+    z-index: 1;
 
-            inset: 0;
+    inset: 0;
 
-            width: 100%;
-            height: 100%;
+    width: 100%;
+    height: 100%;
 
-            min-height: 570px;
+    min-height: 570px;
 
-            background: #ebe6da;
-        }
+    background: #ebe6da;
+}
 
         .map-wrap iframe {
             position: absolute;
@@ -3010,39 +3020,39 @@ left: auto;
             display: block;
         }
 
-        .map-badge {
+.map-badge {
 
-            position: absolute;
+    position: absolute;
 
-            top: 20px;
-            inset-inline-start: 20px;
+    top: 22px;
 
-            z-index: 3;
+    left: 22px;
+    right: auto;
 
-            display: flex;
+    z-index: 3;
 
-            align-items: center;
+    display: flex;
 
-            gap: 10px;
+    align-items: center;
 
-            max-width: calc(100% - 40px);
+    gap: 10px;
 
-            padding: 10px 14px;
+    padding: 10px 14px;
 
-            border-radius: 15px;
+    border-radius: 15px;
 
-            background: rgba(13, 40, 24, .93);
+    background: rgba(13, 40, 24, .93);
 
-            backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
 
-            color: white;
+    color: white;
 
-            box-shadow: 0 12px 32px rgba(0, 0, 0, .20);
+    box-shadow:
+        0 12px 32px rgba(0, 0, 0, .20);
 
-            pointer-events: none;
-        }
-
-        .map-badge i {
+    pointer-events: none;
+} 
+       .map-badge i {
 
             width: 34px;
             height: 34px;
@@ -4052,68 +4062,92 @@ left: auto;
         }
 
 
-        @media (max-width: 768px) {
+       @media (max-width: 768px) {
 
-            .location-card {
+    .location-card {
 
-                display: flex;
+        display: flex;
 
-                flex-direction: column;
+        flex-direction: column;
 
-                overflow: visible;
+        min-height: auto;
 
-                background: transparent;
+        overflow: visible;
 
-                border: 0;
+        background: transparent;
 
-                box-shadow: none;
-            }
+        border: 0;
 
-
-            .map-wrap {
-
-                order: 1;
-
-                min-height: 370px;
-
-                border-radius: 26px;
-
-                overflow: hidden;
-
-                box-shadow:
-                    0 18px 45px rgba(13, 40, 24, .18);
-            }
+        box-shadow: none;
+    }
 
 
-            .location-info {
-
-                order: 2;
-
-                position: relative;
-
-                z-index: 4;
-
-                margin:
-                    -32px 14px 0;
-
-                padding:
-                    30px 22px;
-
-                border-radius: 26px;
-
-                box-shadow:
-                    0 20px 50px rgba(0, 0, 0, .25);
-            }
+    .location-card::after {
+        display: none;
+    }
 
 
-            .map-badge {
+    .map-wrap {
 
-                top: 14px;
+        position: relative;
 
-                inset-inline-start: 14px;
-            }
+        z-index: 1;
 
-        }
+        inset: auto;
+
+        order: 1;
+
+        width: 100%;
+        height: 380px;
+
+        min-height: 380px;
+
+        border-radius: 26px;
+
+        overflow: hidden;
+
+        box-shadow:
+            0 18px 45px rgba(13, 40, 24, .18);
+    }
+
+
+    .map-wrap iframe {
+
+        position: absolute;
+
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        min-height: 0;
+    }
+
+
+    .location-info {
+
+        color: #ffffff;
+
+        overflow: hidden;
+
+        max-height: none;
+    }
+
+
+    .location-info h3 {
+
+        color: #ffffff;
+    }
+
+
+    .map-badge {
+
+        left: 14px;
+        right: auto;
+    }
+
+
+}
     </style>
 </head>
 
