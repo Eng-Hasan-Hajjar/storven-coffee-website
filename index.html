@@ -2743,72 +2743,70 @@
         }
 
 
-/* ==========================================
+        /* ==========================================
    PREMIUM LOCATION CARD - DESKTOP
 ========================================== */
 
-.location-card {
+        .location-card {
 
-    position: relative;
+            position: relative;
 
-    min-height: 650px;
+            min-height: 650px;
 
-    border-radius: 32px;
+            border-radius: 32px;
 
-    overflow: hidden;
+            overflow: hidden;
 
-    background: var(--green-dark);
+            background: var(--green-dark);
 
-    box-shadow:
-        0 30px 80px rgba(13, 40, 24, .20);
+            box-shadow:
+                0 30px 80px rgba(13, 40, 24, .20);
 
-    border:
-        1px solid rgba(201, 169, 97, .12);
-}
+            border:
+                1px solid rgba(201, 169, 97, .12);
+        }
 
 
-.location-info {
+        .location-info {
 
-    position: absolute;
+            position: absolute;
 
-    z-index: 5;
+            z-index: 5;
 
-    top: 50%;
-    right: 28px;
-    left: auto;
+            top: 50%;
+            right: 28px;
+            left: auto;
 
-    transform: translateY(-50%);
+            transform: translateY(-50%);
 
-    width: 405px;
+            width: 405px;
 
-    max-width: calc(100% - 56px);
+            max-width: calc(100% - 56px);
 
-    /* مهم جداً */
-    max-height: none;
-    overflow: hidden;
+            /* مهم جداً */
+            max-height: none;
+            overflow: hidden;
 
-    padding: 30px 28px;
+            padding: 30px 28px;
 
-    border-radius: 26px;
+            border-radius: 26px;
 
-    color: #ffffff;
+            color: #ffffff;
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(9, 55, 31, .97),
-            rgba(18, 92, 52, .95)
-        );
+            background:
+                linear-gradient(145deg,
+                    rgba(9, 55, 31, .97),
+                    rgba(18, 92, 52, .95));
 
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
 
-    box-shadow:
-        0 24px 60px rgba(0, 0, 0, .30);
+            box-shadow:
+                0 24px 60px rgba(0, 0, 0, .30);
 
-    border:
-        1px solid rgba(255, 255, 255, .10);
-}
+            border:
+                1px solid rgba(255, 255, 255, .10);
+        }
 
         .location-info::before {
 
@@ -2857,46 +2855,46 @@
 
         .location-info h3 {
 
-           
-    position: relative;
 
-    z-index: 2;
+            position: relative;
 
-    color: #ffffff;
+            z-index: 2;
 
-    font-size: clamp(1.8rem, 3vw, 2.55rem);
+            color: #ffffff;
 
-    line-height: 1.25;
+            font-size: clamp(1.8rem, 3vw, 2.55rem);
 
-    margin-bottom: 12px;
+            line-height: 1.25;
+
+            margin-bottom: 12px;
         }
 
         .location-info>p {
 
-               position: relative;
+            position: relative;
 
-    z-index: 2;
+            z-index: 2;
 
-    color: rgba(255,255,255,.78);
+            color: rgba(255, 255, 255, .78);
 
-    margin-bottom: 20px;
+            margin-bottom: 20px;
 
-    line-height: 1.75;
+            line-height: 1.75;
         }
 
         .location-details {
 
-             position: relative;
+            position: relative;
 
-    z-index: 2;
+            z-index: 2;
 
-    display: flex;
+            display: flex;
 
-    flex-direction: column;
+            flex-direction: column;
 
-    gap: 10px;
+            gap: 10px;
 
-    margin-bottom: 22px;
+            margin-bottom: 22px;
         }
 
         .location-detail {
@@ -2910,11 +2908,11 @@
 
         .location-detail-icon {
 
-            
-    width: 40px;
-    height: 40px;
 
-    flex: 0 0 40px;
+            width: 40px;
+            height: 40px;
+
+            flex: 0 0 40px;
 
             border-radius: 13px;
 
@@ -2931,24 +2929,24 @@
 
         .location-actions {
 
-    position: relative;
+            position: relative;
 
-    z-index: 2;
+            z-index: 2;
 
-    display: grid;
+            display: grid;
 
-    grid-template-columns: 1fr;
+            grid-template-columns: 1fr;
 
-    gap: 10px;
-}
+            gap: 10px;
+        }
 
 
-.location-actions .btn {
+        .location-actions .btn {
 
-    width: 100%;
+            width: 100%;
 
-    min-height: 48px;
-}
+            min-height: 48px;
+        }
 
         .location-detail-text {
 
@@ -2989,21 +2987,21 @@
             gap: 11px;
         }
 
-      .map-wrap {
+        .map-wrap {
 
-    position: absolute;
+            position: absolute;
 
-    z-index: 1;
+            z-index: 1;
 
-    inset: 0;
+            inset: 0;
 
-    width: 100%;
-    height: 100%;
+            width: 100%;
+            height: 100%;
 
-    min-height: 570px;
+            min-height: 570px;
 
-    background: #ebe6da;
-}
+            background: #ebe6da;
+        }
 
         .map-wrap iframe {
             position: absolute;
@@ -3020,39 +3018,40 @@
             display: block;
         }
 
-.map-badge {
+        .map-badge {
 
-    position: absolute;
+            position: absolute;
 
-    top: 22px;
+            top: 22px;
 
-    left: 22px;
-    right: auto;
+            left: 22px;
+            right: auto;
 
-    z-index: 3;
+            z-index: 3;
 
-    display: flex;
+            display: flex;
 
-    align-items: center;
+            align-items: center;
 
-    gap: 10px;
+            gap: 10px;
 
-    padding: 10px 14px;
+            padding: 10px 14px;
 
-    border-radius: 15px;
+            border-radius: 15px;
 
-    background: rgba(13, 40, 24, .93);
+            background: rgba(13, 40, 24, .93);
 
-    backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
 
-    color: white;
+            color: white;
 
-    box-shadow:
-        0 12px 32px rgba(0, 0, 0, .20);
+            box-shadow:
+                0 12px 32px rgba(0, 0, 0, .20);
 
-    pointer-events: none;
-} 
-       .map-badge i {
+            pointer-events: none;
+        }
+
+        .map-badge i {
 
             width: 34px;
             height: 34px;
@@ -3682,15 +3681,15 @@
 
             .map-badge {
 
-                   top: 12px;
+                top: 12px;
 
-        left: 12px;
-        right: auto;
+                left: 12px;
+                right: auto;
 
-        inset-inline-start: auto;
-        inset-inline-end: auto;
+                inset-inline-start: auto;
+                inset-inline-end: auto;
 
-        max-width: calc(100% - 24px);
+                max-width: calc(100% - 24px);
             }
 
             .social-contact-links {
@@ -4073,231 +4072,229 @@
    Desktop design stays unchanged
    ============================================================== */
 
-@media (max-width: 768px) {
+        @media (max-width: 768px) {
 
-    /* الحاوية الرئيسية */
+            /* الحاوية الرئيسية */
 
-    .location-card {
+            .location-card {
 
-        display: flex;
+                display: flex;
 
-        flex-direction: column;
+                flex-direction: column;
 
-        min-height: auto;
+                min-height: auto;
 
-        overflow: hidden;
+                overflow: hidden;
 
-        background: var(--surface);
+                background: var(--surface);
 
-        border-radius: 26px;
+                border-radius: 26px;
 
-        border: 1px solid var(--border);
+                border: 1px solid var(--border);
 
-        box-shadow:
-            0 18px 45px rgba(13, 40, 24, .16);
-    }
-
-
-    /* إلغاء Overlay الخاص بالديسكتوب */
-
-    .location-card::after {
-
-        display: none;
-    }
+                box-shadow:
+                    0 18px 45px rgba(13, 40, 24, .16);
+            }
 
 
-    /* =========================================
+            /* إلغاء Overlay الخاص بالديسكتوب */
+
+            .location-card::after {
+
+                display: none;
+            }
+
+
+            /* =========================================
        معلومات المقهى
        ========================================= */
 
-    .location-info {
+            .location-info {
 
-        position: relative;
+                position: relative;
 
-        z-index: 2;
+                z-index: 2;
 
-        top: auto;
+                top: auto;
 
-        right: auto;
-        left: auto;
+                right: auto;
+                left: auto;
 
-        transform: none;
+                transform: none;
 
-        order: 1;
+                order: 1;
 
-        width: 100%;
-        max-width: none;
+                width: 100%;
+                max-width: none;
 
-        max-height: none;
+                max-height: none;
 
-        margin: 0;
+                margin: 0;
 
-        padding: 30px 22px;
+                padding: 30px 22px;
 
-        border-radius: 0;
+                border-radius: 0;
 
-        overflow: hidden;
+                overflow: hidden;
 
-        box-shadow: none;
-    }
-
-
-    .location-info h3 {
-
-        color: #ffffff;
-
-        font-size: 2rem;
-    }
+                box-shadow: none;
+            }
 
 
-    /* =========================================
+            .location-info h3 {
+
+                color: #ffffff;
+
+                font-size: 2rem;
+            }
+
+
+            /* =========================================
        الخريطة أسفل المعلومات
        ========================================= */
 
-    .map-wrap {
+            .map-wrap {
 
-        position: relative;
+                position: relative;
 
-        z-index: 1;
+                z-index: 1;
 
-        inset: auto;
+                inset: auto;
 
-        order: 2;
+                order: 2;
 
-        width: 100%;
+                width: 100%;
 
-        height: 380px;
+                height: 380px;
 
-        min-height: 380px;
+                min-height: 380px;
 
-        border-radius: 0;
+                border-radius: 0;
 
-        overflow: hidden;
+                overflow: hidden;
 
-        box-shadow: none;
-    }
-
-
-    .map-wrap iframe {
-
-        position: absolute;
-
-        inset: 0;
-
-        width: 100%;
-        height: 100%;
-
-        min-height: 0;
-
-        border: 0;
-    }
+                box-shadow: none;
+            }
 
 
-    /* البطاقة الصغيرة فوق الخريطة */
+            .map-wrap iframe {
 
-    .map-badge {
+                position: absolute;
 
-        top: 14px;
+                inset: 0;
 
-        left: 14px;
-        right: auto;
+                width: 100%;
+                height: 100%;
 
-        max-width:
-            calc(100% - 28px);
-    }
+                min-height: 0;
+
+                border: 0;
+            }
 
 
-    /* =========================================
+            /* البطاقة الصغيرة فوق الخريطة */
+
+            .map-badge {
+
+                top: 14px;
+
+                left: 14px;
+                right: auto;
+
+                max-width:
+                    calc(100% - 28px);
+            }
+
+
+            /* =========================================
        أزرار الموقع
        ========================================= */
 
-    .location-actions {
+            .location-actions {
 
-        display: grid;
+                display: grid;
 
-        grid-template-columns: 1fr;
+                grid-template-columns: 1fr;
 
-        gap: 10px;
-    }
-
-
-    .location-actions .btn {
-
-        width: 100%;
-
-        min-height: 50px;
-    }
+                gap: 10px;
+            }
 
 
-    /* =========================================
+            .location-actions .btn {
+
+                width: 100%;
+
+                min-height: 50px;
+            }
+
+
+            /* =========================================
        تفاصيل الموقع
        ========================================= */
 
-    .location-details {
+            .location-details {
 
-        gap: 11px;
+                gap: 11px;
 
-        margin-bottom: 22px;
-    }
-
-
-    .location-detail {
-
-        width: 100%;
-    }
+                margin-bottom: 22px;
+            }
 
 
-    .location-detail-text strong,
-    .location-detail-text a {
+            .location-detail {
 
-        word-break: break-word;
-    }
-
-}
+                width: 100%;
+            }
 
 
+            .location-detail-text strong,
+            .location-detail-text a {
 
-/* الهواتف الصغيرة */
+                word-break: break-word;
+            }
 
-@media (max-width: 520px) {
-
-    .location-card {
-
-        border-radius: 23px;
-    }
+        }
 
 
-    .location-info {
 
-        padding:
-            27px 18px;
-    }
+        /* الهواتف الصغيرة */
 
+        @media (max-width: 520px) {
 
-    .location-info h3 {
+            .location-card {
 
-        font-size: 1.8rem;
-    }
+                border-radius: 23px;
+            }
 
 
-    .map-wrap {
+            .location-info {
 
-        height: 340px;
+                padding:
+                    27px 18px;
+            }
 
-        min-height: 340px;
-    }
+
+            .location-info h3 {
+
+                font-size: 1.8rem;
+            }
 
 
-    .map-badge {
+            .map-wrap {
 
-        top: 12px;
+                height: 340px;
 
-        left: 12px;
-    }
+                min-height: 340px;
+            }
 
-}
 
-   
+            .map-badge {
+
+                top: 12px;
+
+                left: 12px;
+            }
+
+        }
     </style>
 </head>
 
@@ -5116,7 +5113,7 @@
                                 </small>
 
                                 <strong data-i18n="workingHours">
-                                    مفتوح 24 ساعة يوميًا
+                                    نعمل على مدار 24 ساعة يوميًا
                                 </strong>
 
                             </div>
@@ -5292,7 +5289,7 @@
                             <i class="fa-solid fa-clock"></i>
 
                             <span data-i18n="workingHours">
-                                يومياً من 7 صباحاً حتى 12 ليلاً
+                                نعمل على مدار 24 ساعة يوميًا
                             </span>
 
                         </div>
@@ -5726,7 +5723,7 @@
                 locationBoxText: "استخدم الخريطة أو افتح الاتجاهات في Google Maps للوصول مباشرة إلى المقهى.",
                 coordinatesLabel: "الإحداثيات",
                 hoursLabel: "أوقات العمل",
-                workingHours: "مفتوح 24 ساعة يوميًا",
+                workingHours: "نعمل على مدار 24 ساعة يوميًا",
                 open247: "مفتوح 24/7",
                 whatsappLabel: "واتساب",
                 emailLabel: "البريد الإلكتروني",
@@ -5745,8 +5742,7 @@
 
                 address: "أوتوستراد إدلب - باب الهوى",
 
-                workingHours:
-                    "مفتوح 24 ساعة يوميًا",
+                workingHours: "نعمل على مدار 24 ساعة يوميًا",
 
                 browseMenu: "تصفح القائمة",
 
@@ -5920,11 +5916,8 @@
                 hoursLabel:
                     "Working Hours",
 
-                workingHours:
-                    "Open 24 Hours Daily",
-
-                open247:
-                    "Open 24/7",
+                workingHours: "We operate 24 hours a day",
+                open247: "Operating 24/7",
                 whatsappLabel:
                     "WhatsApp",
 
@@ -5955,8 +5948,7 @@
                 address:
                     "Idlib Highway - Bab Al-Hawa",
 
-                workingHours:
-                    "Open 24 Hours Daily",
+                workingHours: "We operate 24 hours a day",
 
                 browseMenu:
                     "Browse Menu",
