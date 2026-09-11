@@ -14,6 +14,9 @@
 
     <title>Storven Coffee | ستورفين كوفي</title>
 
+    <!-- Official Storven logo -->
+    <link rel="icon" type="image/png" href="assets/images/logo/storven-logo.png">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2437,6 +2440,1298 @@ html[data-theme="dark"] .footer-logo {
 }
 
 
+
+
+/* ==============================================================
+   OFFICIAL STORVEN LOGO
+   ============================================================= */
+
+.official-logo {
+
+    display: block;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    flex-shrink: 0;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+}
+
+/* =========================================
+   LOADER LOGO ANIMATION
+========================================= */
+
+.loader-content {
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* الإطار الدائري حول اللوغو */
+
+.loader-logo-wrapper {
+
+    width: 150px;
+    height: 150px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+}
+
+
+/* الحلقة المتحركة */
+
+.loader-logo-wrapper::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -8px;
+
+    border-radius: 50%;
+
+    border: 3px solid rgba(201, 169, 97, 0.15);
+
+    border-top-color: var(--gold);
+    border-right-color: var(--gold);
+
+    animation: storvenLoaderSpin 1.4s linear infinite;
+}
+
+
+/* حلقة داخلية إضافية */
+
+.loader-logo-wrapper::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 4px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    pointer-events: none;
+}
+
+
+/* اللوغو */
+
+.loader-logo {
+
+    width: 125px;
+    height: 125px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    position: relative;
+
+    z-index: 2;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.25);
+
+
+
+    animation: logoRotate 2s linear infinite;
+}
+
+
+/* دوران الحلقة */
+
+@keyframes storvenLoaderSpin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* اسم الموقع تحت اللوغو */
+
+.loader-title {
+
+    margin-top: 25px;
+
+    color: var(--gold);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 1.65rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    animation: loaderTextFade 1.4s ease-in-out infinite alternate;
+}
+
+
+/* النص الصغير */
+
+.loader-subtitle {
+
+    margin-top: 4px;
+
+    color: rgba(255,255,255,.65);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: .72rem;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+@keyframes logoRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loaderTextFade {
+
+    from {
+        opacity: .55;
+        transform: translateY(3px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes loaderLogoPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: .95;
+    }
+
+    50% {
+        transform: scale(1.045);
+        opacity: 1;
+    }
+}
+
+.brand-logo {
+
+    width: 50px;
+
+    height: 50px;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+
+    filter: drop-shadow(0 6px 16px rgba(0,0,0,.18));
+}
+
+.footer-brand-logo {
+
+    width: 92px;
+
+    height: 92px;
+
+    object-fit: contain;
+
+    margin: 0 auto 14px;
+}
+
+
+/* ==============================================================
+   LOCATION / GOOGLE MAPS
+   ============================================================= */
+
+.location-section {
+
+    background:
+        radial-gradient(
+            circle at 12% 12%,
+            rgba(201,169,97,.10),
+            transparent 28%
+        ),
+        var(--bg);
+}
+
+.location-card {
+
+    display: grid;
+
+    grid-template-columns: .82fr 1.18fr;
+
+    min-height: 520px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-lg);
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow-lg);
+}
+
+.location-info {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: clamp(34px,5vw,58px);
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--green-dark),
+            var(--green-main)
+        );
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.location-info::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    top: -135px;
+    inset-inline-end: -120px;
+
+    border: 48px solid rgba(201,169,97,.065);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.location-label {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    width: fit-content;
+
+    margin-bottom: 14px;
+
+    color: var(--gold-light);
+
+    font-weight: 800;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.location-label i {
+
+    color: var(--gold);
+}
+
+.location-info h3 {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-size: clamp(1.8rem,3vw,2.55rem);
+
+    line-height: 1.25;
+
+    margin-bottom: 14px;
+}
+
+.location-info > p {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: rgba(255,255,255,.77);
+
+    margin-bottom: 26px;
+
+    max-width: 520px;
+}
+
+.location-details {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+
+    margin-bottom: 28px;
+}
+
+.location-detail {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.location-detail-icon {
+
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+
+    border-radius: 13px;
+
+    display: grid;
+
+    place-items: center;
+
+    color: var(--gold);
+
+    background: rgba(255,255,255,.08);
+
+    border: 1px solid rgba(255,255,255,.11);
+}
+
+.location-detail-text {
+
+    min-width: 0;
+}
+
+.location-detail-text small {
+
+    display: block;
+
+    color: rgba(255,255,255,.60);
+
+    font-size: .72rem;
+}
+
+.location-detail-text strong,
+.location-detail-text a {
+
+    display: block;
+
+    color: white;
+
+    font-weight: 700;
+
+    overflow-wrap: anywhere;
+}
+
+.location-actions {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 11px;
+}
+
+.map-wrap {
+
+    position: relative;
+
+    min-height: 520px;
+
+    background: var(--surface-2);
+}
+
+.map-wrap iframe {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+
+    display: block;
+}
+
+.map-badge {
+
+    position: absolute;
+
+    top: 20px;
+    inset-inline-start: 20px;
+
+    z-index: 3;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    max-width: calc(100% - 40px);
+
+    padding: 10px 14px;
+
+    border-radius: 15px;
+
+    background: rgba(13,40,24,.93);
+
+    backdrop-filter: blur(12px);
+
+    color: white;
+
+    box-shadow: 0 12px 32px rgba(0,0,0,.20);
+
+    pointer-events: none;
+}
+
+.map-badge i {
+
+    width: 34px;
+    height: 34px;
+
+    flex: 0 0 34px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    background: var(--gold);
+
+    color: var(--green-dark);
+}
+
+.map-badge strong {
+
+    display: block;
+
+    color: var(--gold-light);
+
+    font-size: .9rem;
+}
+
+.map-badge small {
+
+    display: block;
+
+    color: rgba(255,255,255,.68);
+
+    font-size: .69rem;
+}
+
+
+/* ==============================================================
+   WHATSAPP
+   ============================================================= */
+
+.btn-whatsapp {
+
+    background: #25D366 !important;
+
+    color: #ffffff !important;
+
+    border-color: #25D366 !important;
+
+    box-shadow: 0 13px 32px rgba(37,211,102,.30);
+}
+
+.btn-whatsapp:hover {
+
+    background: #1fba59 !important;
+
+    color: #ffffff !important;
+
+    border-color: #1fba59 !important;
+
+    box-shadow: 0 18px 38px rgba(37,211,102,.38);
+}
+
+.floating-whatsapp {
+
+    position: fixed;
+
+    left: 24px;
+
+    bottom: 24px;
+
+    z-index: 1800;
+
+    min-height: 54px;
+
+    padding: 0 18px;
+
+    border-radius: 100px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    background: #25D366;
+
+    color: white;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 16px 38px rgba(37,211,102,.35),
+        0 0 0 0 rgba(37,211,102,.30);
+
+    transition:
+        transform .3s var(--ease),
+        box-shadow .3s ease;
+
+    animation: whatsappPulse 2.8s ease-out infinite;
+}
+
+.floating-whatsapp i {
+
+    font-size: 24px;
+}
+
+.floating-whatsapp:hover {
+
+    color: white;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 20px 44px rgba(37,211,102,.43),
+        0 0 0 0 rgba(37,211,102,0);
+}
+
+@keyframes whatsappPulse {
+
+    0% {
+        box-shadow:
+            0 16px 38px rgba(37,211,102,.35),
+            0 0 0 0 rgba(37,211,102,.30);
+    }
+
+    55% {
+        box-shadow:
+            0 16px 38px rgba(37,211,102,.35),
+            0 0 0 13px rgba(37,211,102,0);
+    }
+
+    100% {
+        box-shadow:
+            0 16px 38px rgba(37,211,102,.35),
+            0 0 0 0 rgba(37,211,102,0);
+    }
+}
+
+
+/* ==============================================================
+   SOCIAL CONTACT LINKS
+   ============================================================= */
+
+.social-contact-links {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns: repeat(2,minmax(0,1fr));
+
+    gap: 10px;
+
+    margin-top: 22px;
+}
+
+.social-contact-link {
+
+    min-height: 47px;
+
+    padding: 0 15px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: white;
+
+    background: rgba(255,255,255,.08);
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    transition:
+        background .25s ease,
+        transform .25s ease,
+        border-color .25s ease;
+}
+
+.social-contact-link:hover {
+
+    color: white;
+
+    background: rgba(255,255,255,.14);
+
+    border-color: rgba(201,169,97,.35);
+
+    transform: translateY(-2px);
+}
+
+.social-contact-link i {
+
+    color: var(--gold);
+
+    width: 20px;
+
+    text-align: center;
+}
+
+
+/* ==============================================================
+   FULL MENU MODAL - FIRST OPEN FIX
+   ============================================================= */
+
+.modal-filters {
+
+    min-height: 82px;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 15px 25px;
+
+    scrollbar-width: thin;
+}
+
+.modal-filter {
+
+    flex: 0 0 auto;
+
+    min-width: 112px;
+
+    min-height: 50px;
+
+    padding: 0 18px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    border-radius: 15px;
+
+    font-weight: 800;
+
+    transition:
+        transform .25s var(--ease),
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+.modal-filter i {
+
+    color: var(--gold);
+}
+
+.modal-filter:hover {
+
+    transform: translateY(-2px);
+
+    border-color: rgba(201,169,97,.55);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.modal-filter.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--green-main),
+            var(--green-light)
+        );
+
+    color: white;
+
+    border-color: var(--green-main);
+
+    box-shadow: 0 9px 25px rgba(26,77,46,.25);
+}
+
+.modal-product-card {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform .35s var(--ease),
+        box-shadow .35s ease,
+        border-color .35s ease;
+}
+
+.modal-product-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow-md);
+
+    border-color: rgba(201,169,97,.38);
+}
+
+.modal-product-image {
+
+    height: 190px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: var(--surface-2);
+}
+
+.modal-product-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform .5s var(--ease);
+}
+
+.modal-product-card:hover .modal-product-image img {
+
+    transform: scale(1.055);
+}
+
+.modal-product-content {
+
+    padding: 17px;
+}
+
+.modal-product-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin-bottom: 7px;
+}
+
+.modal-product-top h4 {
+
+    color: var(--green-dark);
+
+    font-size: 1.04rem;
+}
+
+html[data-theme="dark"] .modal-product-top h4 {
+
+    color: var(--cream);
+}
+
+.modal-product-price {
+
+    color: var(--green-main);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: .85rem;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+html[data-theme="dark"] .modal-product-price {
+
+    color: var(--gold);
+}
+
+.modal-product-content p {
+
+    color: var(--text-soft);
+
+    font-size: .82rem;
+
+    min-height: 52px;
+}
+
+.modal-product-footer {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-top: 12px;
+
+    padding-top: 11px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+/* ==============================================================
+   SWIPER CDN FALLBACK
+   Site remains usable if the external Swiper script fails.
+   ============================================================= */
+
+html.swiper-fallback .categorySwiper,
+html.swiper-fallback .productsSwiper {
+
+    overflow: hidden;
+}
+
+html.swiper-fallback .categorySwiper .swiper-wrapper,
+html.swiper-fallback .productsSwiper .swiper-wrapper {
+
+    display: flex;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+
+    scroll-behavior: smooth;
+
+    scroll-snap-type: x mandatory;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+html.swiper-fallback .categorySwiper .swiper-wrapper::-webkit-scrollbar,
+html.swiper-fallback .productsSwiper .swiper-wrapper::-webkit-scrollbar {
+
+    display: none;
+}
+
+html.swiper-fallback .categorySwiper .swiper-slide {
+
+    width: auto;
+
+    flex: 0 0 auto;
+}
+
+html.swiper-fallback .productsSwiper .swiper-slide {
+
+    flex: 0 0 calc((100% - 66px) / 4);
+
+    margin-inline-end: 22px;
+
+    scroll-snap-align: start;
+}
+
+
+/* ==============================================================
+   MOBILE BOTTOM NAV - PROFESSIONAL
+   ============================================================= */
+
+.mobile-bottom-nav {
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(9,34,20,.97),
+            rgba(20,70,41,.96)
+        );
+
+    box-shadow:
+        0 18px 48px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+.mobile-bottom-nav a {
+
+    position: relative;
+
+    min-width: 0;
+
+    transition:
+        color .25s ease,
+        background .25s ease,
+        transform .25s ease;
+}
+
+.mobile-bottom-nav a::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 6px;
+
+    width: 26px;
+    height: 3px;
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    transition: background .25s ease;
+}
+
+.mobile-bottom-nav a.active {
+
+    color: var(--gold);
+
+    background: rgba(255,255,255,.045);
+}
+
+.mobile-bottom-nav a.active::before {
+
+    background: var(--gold);
+}
+
+.mobile-bottom-nav a:active {
+
+    transform: scale(.96);
+}
+
+
+/* ==============================================================
+   EXTRA RESPONSIVE / PERFORMANCE
+   ============================================================= */
+
+@media (max-width: 1000px) {
+
+    .location-card {
+
+        grid-template-columns: 1fr;
+    }
+
+    .map-wrap {
+
+        min-height: 440px;
+    }
+
+    html.swiper-fallback .productsSwiper .swiper-slide {
+
+        flex-basis: calc((100% - 40px) / 3);
+
+        margin-inline-end: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .brand-logo {
+
+        width: 42px;
+
+        height: 42px;
+    }
+
+    .location-info {
+
+        padding: 34px 26px;
+    }
+
+    .map-wrap {
+
+        min-height: 400px;
+    }
+
+    .floating-whatsapp {
+
+        left: 16px;
+
+        bottom: calc(88px + env(safe-area-inset-bottom));
+
+        width: 54px;
+        height: 54px;
+
+        min-height: 54px;
+
+        padding: 0;
+
+        border-radius: 50%;
+    }
+
+    .floating-whatsapp span {
+
+        display: none;
+    }
+
+    html.swiper-fallback .productsSwiper .swiper-slide {
+
+        flex-basis: 46%;
+
+        margin-inline-end: 16px;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .location-card {
+
+        border-radius: 23px;
+    }
+
+    .location-info {
+
+        padding: 29px 20px;
+    }
+
+    .location-actions {
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+    }
+
+    .location-actions .btn {
+
+        width: 100%;
+    }
+
+    .map-wrap {
+
+        min-height: 360px;
+    }
+
+    .map-badge {
+
+        top: 13px;
+
+        inset-inline-start: 13px;
+    }
+
+    .social-contact-links {
+
+        grid-template-columns: 1fr;
+    }
+
+    .modal-filters {
+
+        min-height: 72px;
+
+        padding: 11px 15px;
+    }
+
+    .modal-filter {
+
+        min-width: 104px;
+
+        min-height: 48px;
+
+        padding: 0 15px;
+
+        font-size: .84rem;
+    }
+
+    .modal-product-card {
+
+        display: grid;
+
+        grid-template-columns: 112px 1fr;
+    }
+
+    .modal-product-image {
+
+        height: 100%;
+
+        min-height: 145px;
+    }
+
+    .modal-product-content {
+
+        padding: 13px;
+    }
+
+    .modal-product-top {
+
+        flex-direction: column;
+
+        gap: 2px;
+    }
+
+    .modal-product-content p {
+
+        min-height: 0;
+
+        font-size: .77rem;
+    }
+
+    html.swiper-fallback .productsSwiper .swiper-slide {
+
+        flex-basis: 87%;
+
+        margin-inline-end: 15px;
+    }
+}
+
+
+
+/* ==============================================================
+   EMAIL BUTTON
+   ============================================================= */
+
+.btn-email {
+
+    background: transparent;
+
+    color: #ffffff;
+
+    border: 1.5px solid rgba(255, 255, 255, 0.75);
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.10);
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.btn-email i {
+
+    color: var(--gold-light);
+
+    font-size: 1rem;
+}
+
+
+.btn-email:hover {
+
+    background: #ffffff;
+
+    color: var(--green-dark);
+
+    border-color: #ffffff;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+
+.btn-email:hover i {
+
+    color: var(--green-main);
+}
+
+.btn-email {
+
+    background: rgba(201, 169, 97, 0.08);
+
+    color: var(--gold-light);
+
+    border: 1.5px solid var(--gold);
+
+}
+
+.btn-email i {
+    color: var(--gold);
+}
+
+.btn-email:hover {
+
+    background: var(--gold);
+
+    color: var(--green-dark);
+
+    border-color: var(--gold);
+}
+
+.btn-email:hover i {
+    color: var(--green-dark);
+}
+
+@media (hover: none) and (pointer: coarse) {
+
+    .menu-card:hover,
+    .feature:hover,
+    .offer:hover,
+    .modal-product-card:hover {
+
+        transform: none;
+    }
+}
+
+
+
 /* reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
@@ -2470,11 +3765,22 @@ html[data-theme="dark"] .footer-logo {
 
     <div class="loader-content">
 
-        <div class="loader-icon">
-            <i class="fa-solid fa-mug-hot"></i>
+        <div class="loader-logo-wrapper">
+
+            <img
+                src="assets/images/logo/storven-logo.png"
+                class="official-logo loader-logo"
+                alt="Storven Coffee Logo">
+
         </div>
 
-        <h3>Storven Coffee</h3>
+        <h2 class="loader-title">
+            Storven Coffee
+        </h2>
+
+        <span class="loader-subtitle">
+            Specialty Coffee
+        </span>
 
     </div>
 
@@ -2495,9 +3801,10 @@ html[data-theme="dark"] .footer-logo {
 
         <a href="#home" class="brand">
 
-            <div class="brand-icon">
-                <i class="fa-solid fa-mug-hot"></i>
-            </div>
+            <img
+                src="assets/images/logo/storven-logo.png"
+                class="official-logo brand-logo"
+                alt="Storven Coffee Logo">
 
             <div class="brand-title">
 
@@ -2523,6 +3830,8 @@ html[data-theme="dark"] .footer-logo {
             <a href="#offers" data-i18n="navOffers">العروض</a>
 
             <a href="#gallery" data-i18n="navGallery">المعرض</a>
+
+            <a href="#location" data-i18n="navLocation">موقعنا</a>
 
             <a href="#contact" data-i18n="navContact">تواصل معنا</a>
 
@@ -2634,7 +3943,7 @@ html[data-theme="dark"] .footer-logo {
 
 
                 <a
-                    href="#contact"
+                    href="#location"
                     class="btn btn-outline">
 
                     <i class="fa-solid fa-location-dot"></i>
@@ -3140,6 +4449,226 @@ html[data-theme="dark"] .footer-logo {
 
 
 
+
+<!-- =========================================================
+     LOCATION / GOOGLE MAPS
+========================================================= -->
+
+<section class="section location-section" id="location">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="kicker" data-i18n="locationKicker">
+                موقعنا
+            </div>
+
+
+            <h2>
+
+                <span data-i18n="locationTitle1">
+                    اعثر على
+                </span>
+
+                <span>
+                    Storven
+                </span>
+
+            </h2>
+
+
+            <p data-i18n="locationDescription">
+                موقعنا الدقيق على خرائط Google لتصل إلينا بسهولة.
+            </p>
+
+        </div>
+
+
+        <div class="location-card reveal">
+
+
+            <div class="location-info">
+
+
+                <div class="location-label">
+
+                    <i class="fa-solid fa-location-crosshairs"></i>
+
+                    <span data-i18n="locationSmallTitle">
+                        موقع Storven Coffee
+                    </span>
+
+                </div>
+
+
+                <h3 data-i18n="locationBoxTitle">
+                    نحن بانتظارك
+                </h3>
+
+
+                <p data-i18n="locationBoxText">
+                    استخدم الخريطة أو افتح الاتجاهات في Google Maps للوصول مباشرة إلى المقهى.
+                </p>
+
+
+                <div class="location-details">
+
+
+                    <div class="location-detail">
+
+                        <div class="location-detail-icon">
+                            <i class="fa-solid fa-map-pin"></i>
+                        </div>
+
+                        <div class="location-detail-text">
+
+                            <small data-i18n="coordinatesLabel">
+                                الإحداثيات
+                            </small>
+
+                            <strong dir="ltr">
+                                35.9644953, 36.6613314
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="location-detail">
+
+                        <div class="location-detail-icon">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+
+                        <div class="location-detail-text">
+
+                            <small data-i18n="whatsappLabel">
+                                واتساب
+                            </small>
+
+                            <a
+                                href="https://wa.me/963930427495"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                dir="ltr">
+                                +963 930 427 495
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="location-detail">
+
+                        <div class="location-detail-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+
+                        <div class="location-detail-text">
+
+                            <small data-i18n="emailLabel">
+                                البريد الإلكتروني
+                            </small>
+
+                            <a
+                                href="mailto:Storiescoffee27@gmail.com"
+                                dir="ltr">
+                                Storiescoffee27@gmail.com
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="location-actions">
+
+
+                    <a
+                        href="https://maps.google.com/maps?q=35.9644953%2C36.6613314&z=17&hl=en"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary">
+
+                        <i class="fa-solid fa-route"></i>
+
+                        <span data-i18n="openGoogleMaps">
+                            فتح في خرائط Google
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="https://wa.me/963930427495"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-whatsapp">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        <span data-i18n="whatsapp">
+                            تواصل عبر واتساب
+                        </span>
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="map-wrap">
+
+
+                <div class="map-badge">
+
+                    <i class="fa-solid fa-mug-hot"></i>
+
+                    <div>
+
+                        <strong>
+                            Storven Coffee
+                        </strong>
+
+                        <small data-i18n="mapBadgeText">
+                            موقعنا على الخريطة
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <iframe
+                    src="https://maps.google.com/maps?q=35.9644953%2C36.6613314&z=17&hl=en&output=embed"
+                    title="Storven Coffee Location"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen>
+                </iframe>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
 <!-- =========================================================
      CONTACT
 ========================================================= -->
@@ -3201,11 +4730,71 @@ html[data-theme="dark"] .footer-logo {
 
                         <i class="fa-solid fa-phone"></i>
 
-                        <span dir="ltr">
-                            +963 000 000 000
-                        </span>
+                        <a
+                            href="https://wa.me/963930427495"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            dir="ltr">
+                            +963 930 427 495
+                        </a>
 
                     </div>
+
+
+                </div>
+
+
+                <div class="social-contact-links">
+
+
+                    <a
+                        class="social-contact-link"
+                        href="https://www.instagram.com/storvencoffee_syr?stkn=MTd1Y3lhbzdoNHl4Yw=="
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                        <span>Instagram</span>
+
+                    </a>
+
+
+                    <a
+                        class="social-contact-link"
+                        href="https://www.tiktok.com/@storvencoffee_syr?_r=1&_t=ZS-99ZdBJ0lsmo"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <i class="fa-brands fa-tiktok"></i>
+
+                        <span>TikTok</span>
+
+                    </a>
+
+
+                    <a
+                        class="social-contact-link"
+                        href="https://www.facebook.com/share/1CLc9zU6W9/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <i class="fa-brands fa-facebook-f"></i>
+
+                        <span>Facebook</span>
+
+                    </a>
+
+
+                    <a
+                        class="social-contact-link"
+                        href="mailto:Storiescoffee27@gmail.com">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <span>Email</span>
+
+                    </a>
 
 
                 </div>
@@ -3231,13 +4820,28 @@ html[data-theme="dark"] .footer-logo {
 
 
                 <a
-                    href="#"
-                    class="btn btn-outline">
+                    href="https://wa.me/963930427495"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-whatsapp">
 
                     <i class="fa-brands fa-whatsapp"></i>
 
                     <span data-i18n="whatsapp">
                         تواصل عبر واتساب
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="mailto:Storiescoffee27@gmail.com"
+                    class="btn btn-email">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <span data-i18n="emailUs">
+                        راسلنا عبر البريد
                     </span>
 
                 </a>
@@ -3262,12 +4866,13 @@ html[data-theme="dark"] .footer-logo {
     <div class="container">
 
 
+        <img
+            src="assets/images/logo/storven-logo.png"
+            class="official-logo footer-brand-logo"
+            alt="Storven Coffee Logo">
+
         <div class="footer-logo">
-
-            <i class="fa-solid fa-mug-hot"></i>
-
             Storven Coffee
-
         </div>
 
 
@@ -3280,16 +4885,42 @@ html[data-theme="dark"] .footer-logo {
 
         <div class="footer-social">
 
-            <a href="#" aria-label="Instagram">
+            <a
+                href="https://www.instagram.com/storvencoffee_syr?stkn=MTd1Y3lhbzdoNHl4Yw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram">
                 <i class="fa-brands fa-instagram"></i>
             </a>
 
-            <a href="#" aria-label="Facebook">
+            <a
+                href="https://www.tiktok.com/@storvencoffee_syr?_r=1&_t=ZS-99ZdBJ0lsmo"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+
+            <a
+                href="https://www.facebook.com/share/1CLc9zU6W9/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook">
                 <i class="fa-brands fa-facebook-f"></i>
             </a>
 
-            <a href="#" aria-label="WhatsApp">
+            <a
+                href="https://wa.me/963930427495"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp">
                 <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+            <a
+                href="mailto:Storiescoffee27@gmail.com"
+                aria-label="Email">
+                <i class="fa-solid fa-envelope"></i>
             </a>
 
         </div>
@@ -3352,7 +4983,7 @@ html[data-theme="dark"] .footer-logo {
     </a>
 
 
-    <a href="#contact">
+    <a href="#location">
 
         <i class="fa-solid fa-location-dot"></i>
 
@@ -3363,6 +4994,26 @@ html[data-theme="dark"] .footer-logo {
     </a>
 
 </nav>
+
+
+<!-- =========================================================
+     FLOATING WHATSAPP
+========================================================= -->
+
+<a
+    href="https://wa.me/963930427495"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="floating-whatsapp"
+    aria-label="WhatsApp">
+
+    <i class="fa-brands fa-whatsapp"></i>
+
+    <span data-i18n="whatsappFloat">
+        تواصل معنا
+    </span>
+
+</a>
 
 
 
@@ -3490,6 +5141,7 @@ const translations = {
         navMenu: "القائمة",
         navOffers: "العروض",
         navGallery: "المعرض",
+        navLocation: "موقعنا",
         navContact: "تواصل معنا",
 
         heroKicker: "قهوة مختصة، لحظات لا تُنسى",
@@ -3556,6 +5208,20 @@ const translations = {
         galleryDescription:
             "مساحة دافئة، قهوة رائعة، وتفاصيل تستحق أن تبقى في الذاكرة.",
 
+        locationKicker: "موقعنا",
+        locationTitle1: "اعثر على",
+        locationDescription: "موقعنا الدقيق على خرائط Google لتصل إلينا بسهولة.",
+        locationSmallTitle: "موقع Storven Coffee",
+        locationBoxTitle: "نحن بانتظارك",
+        locationBoxText: "استخدم الخريطة أو افتح الاتجاهات في Google Maps للوصول مباشرة إلى المقهى.",
+        coordinatesLabel: "الإحداثيات",
+        whatsappLabel: "واتساب",
+        emailLabel: "البريد الإلكتروني",
+        openGoogleMaps: "فتح في خرائط Google",
+        mapBadgeText: "موقعنا على الخريطة",
+        emailUs: "راسلنا عبر البريد",
+        whatsappFloat: "تواصل معنا",
+
         contactKicker: "زورونا",
 
         contactTitle:
@@ -3598,6 +5264,7 @@ const translations = {
         navMenu: "Menu",
         navOffers: "Offers",
         navGallery: "Gallery",
+        navLocation: "Location",
         navContact: "Contact",
 
         heroKicker:
@@ -3716,6 +5383,45 @@ const translations = {
 
         galleryDescription:
             "Warm spaces, great coffee and details worth remembering.",
+
+        locationKicker:
+            "Our Location",
+
+        locationTitle1:
+            "Find",
+
+        locationDescription:
+            "Our exact location is available on Google Maps for easy navigation.",
+
+        locationSmallTitle:
+            "Storven Coffee Location",
+
+        locationBoxTitle:
+            "We are waiting for you",
+
+        locationBoxText:
+            "Use the map or open directions in Google Maps to reach the café directly.",
+
+        coordinatesLabel:
+            "Coordinates",
+
+        whatsappLabel:
+            "WhatsApp",
+
+        emailLabel:
+            "Email",
+
+        openGoogleMaps:
+            "Open in Google Maps",
+
+        mapBadgeText:
+            "Our location on the map",
+
+        emailUs:
+            "Email Us",
+
+        whatsappFloat:
+            "Chat with us",
 
         contactKicker:
             "Visit Us",
@@ -4145,6 +5851,9 @@ let currentTheme =
 let activeCategory = "all";
 
 
+let modalCategory = "all";
+
+
 let productsSwiper;
 let categorySwiper;
 
@@ -4155,6 +5864,29 @@ let categorySwiper;
    ============================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    const loader =
+        document.getElementById(
+            "loader"
+        );
+
+
+    /*
+       Loader safety:
+       it is hidden independently from Swiper/CDN initialization.
+       No sound or automatic media playback is used anywhere.
+    */
+
+    window.setTimeout(() => {
+
+        if (loader) {
+
+            loader.classList.add("hide");
+
+        }
+
+    }, 450);
+
 
     document.getElementById("year").textContent =
         new Date().getFullYear();
@@ -4188,14 +5920,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initMobileNavigation();
 
-
-    setTimeout(() => {
-
-        document
-            .getElementById("loader")
-            .classList.add("hide");
-
-    }, 550);
 
 });
 
@@ -4356,6 +6080,16 @@ function createCategorySlider() {
     renderCategories();
 
 
+    if (typeof Swiper === "undefined") {
+
+        document.documentElement
+            .classList.add("swiper-fallback");
+
+        return;
+
+    }
+
+
     categorySwiper =
         new Swiper(".categorySwiper", {
 
@@ -4450,6 +6184,18 @@ function renderCategories() {
 
 function createProductsSwiper() {
 
+    if (typeof Swiper === "undefined") {
+
+        document.documentElement
+            .classList.add("swiper-fallback");
+
+        initFallbackSliderControls();
+
+        return;
+
+    }
+
+
     productsSwiper =
         new Swiper(".productsSwiper", {
 
@@ -4528,6 +6274,96 @@ function createProductsSwiper() {
 
 
 
+function initFallbackSliderControls() {
+
+    const wrapper =
+        document.getElementById(
+            "productsWrapper"
+        );
+
+
+    const prevButton =
+        document.getElementById(
+            "productsPrev"
+        );
+
+
+    const nextButton =
+        document.getElementById(
+            "productsNext"
+        );
+
+
+    if (
+        !wrapper
+        ||
+        !prevButton
+        ||
+        !nextButton
+    ) return;
+
+
+    const getStep = () => {
+
+        const slide =
+            wrapper.querySelector(
+                ".swiper-slide"
+            );
+
+
+        return slide
+            ? slide.getBoundingClientRect().width + 22
+            : 320;
+
+    };
+
+
+    const directionSign = () =>
+        document.documentElement.dir === "rtl"
+        ? -1
+        : 1;
+
+
+    nextButton.addEventListener(
+        "click",
+        () => {
+
+            wrapper.scrollBy({
+
+                left:
+                    directionSign()
+                    * getStep(),
+
+                behavior:
+                    "smooth"
+
+            });
+
+        }
+    );
+
+
+    prevButton.addEventListener(
+        "click",
+        () => {
+
+            wrapper.scrollBy({
+
+                left:
+                    -directionSign()
+                    * getStep(),
+
+                behavior:
+                    "smooth"
+
+            });
+
+        }
+    );
+
+}
+
+
 function renderProducts() {
 
     const wrapper =
@@ -4561,6 +6397,10 @@ function renderProducts() {
         productsSwiper.update();
 
         productsSwiper.slideTo(0);
+
+    } else {
+
+        wrapper.scrollLeft = 0;
 
     }
 
@@ -4694,18 +6534,23 @@ function createModalFilters() {
         );
 
 
+    if (!container) return;
+
+
     container.innerHTML =
         categories.map(category => `
 
             <button
                 class="modal-filter
-                ${activeCategory === category.id ? "active" : ""}"
+                ${modalCategory === category.id ? "active" : ""}"
 
                 data-filter="${category.id}">
 
-                ${
-                    category[currentLanguage]
-                }
+                <i class="fa-solid ${category.icon}"></i>
+
+                <span>
+                    ${category[currentLanguage]}
+                </span>
 
             </button>
 
@@ -4720,7 +6565,7 @@ function createModalFilters() {
                 "click",
                 () => {
 
-                    activeCategory =
+                    modalCategory =
                         button.dataset.filter;
 
 
@@ -4728,10 +6573,143 @@ function createModalFilters() {
 
                     renderFullMenu();
 
+
+                    requestAnimationFrame(() => {
+
+                        const activeButton =
+                            container.querySelector(
+                                ".modal-filter.active"
+                            );
+
+
+                        if (activeButton) {
+
+                            activeButton.scrollIntoView({
+
+                                behavior: "smooth",
+
+                                block: "nearest",
+
+                                inline: "center"
+
+                            });
+
+                        }
+
+                    });
+
                 }
             );
 
         });
+
+}
+
+
+function createModalProductCard(item) {
+
+    const category =
+        categories.find(
+            cat =>
+                cat.id === item.category
+        );
+
+
+    const categoryName =
+        category
+        ? category[currentLanguage]
+        : "";
+
+
+    const currency =
+        currentLanguage === "ar"
+        ? "ل.س"
+        : "SYP";
+
+
+    return `
+
+        <article class="modal-product-card">
+
+
+            <div class="modal-product-image">
+
+                ${
+                    item.badge
+                    ? `
+                        <span class="product-badge">
+                            ${item.badge[currentLanguage]}
+                        </span>
+                      `
+                    : ""
+                }
+
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name[currentLanguage]}"
+                    loading="lazy"
+                    decoding="async">
+
+            </div>
+
+
+            <div class="modal-product-content">
+
+
+                <div class="modal-product-top">
+
+                    <h4>
+                        ${item.name[currentLanguage]}
+                    </h4>
+
+
+                    <span class="modal-product-price">
+
+                        ${item.price.toLocaleString()}
+
+                        ${currency}
+
+                    </span>
+
+                </div>
+
+
+                <p>
+                    ${item.description[currentLanguage]}
+                </p>
+
+
+                <div class="modal-product-footer">
+
+
+                    <div class="product-category">
+
+                        <i class="fa-solid fa-tag"></i>
+
+                        ${categoryName}
+
+                    </div>
+
+
+                    <button
+                        class="add-btn"
+                        aria-label="Add">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+        </article>
+
+    `;
 
 }
 
@@ -4745,37 +6723,26 @@ function renderFullMenu() {
         );
 
 
+    if (!grid) return;
+
+
     const items =
-        activeCategory === "all"
+        modalCategory === "all"
 
         ? menuItems
 
         : menuItems.filter(
             item =>
-                item.category === activeCategory
+                item.category === modalCategory
         );
 
 
     grid.innerHTML =
-        items.map(item => {
-
-            const card =
-                createProductCard(item);
-
-            return card
-                .replace(
-                    '<div class="swiper-slide">',
-                    ""
-                )
-                .replace(
-                    "</div>",
-                    ""
-                );
-
-        }).join("");
+        items
+            .map(createModalProductCard)
+            .join("");
 
 }
-
 
 
 /* =============================================================
@@ -4805,6 +6772,13 @@ function initModal() {
     openButton.addEventListener(
         "click",
         () => {
+
+            modalCategory = "all";
+
+            createModalFilters();
+
+            renderFullMenu();
+
 
             modal.classList.add("active");
 
@@ -5152,7 +7126,7 @@ function initMobileNavigation() {
         "home",
         "menu",
         "offers",
-        "contact"
+        "location"
     ];
 
 
@@ -5227,4 +7201,3 @@ function initMobileNavigation() {
 
 </body>
 </html>
-
