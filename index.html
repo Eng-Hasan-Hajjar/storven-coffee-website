@@ -34,17 +34,12 @@
     </noscript>
 
     <!-- Font Awesome -->
-   <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    media="print"
-    onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        media="print" onload="this.media='all'">
 
-<noscript>
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</noscript>
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </noscript>
     <!-- Swiper 
     <link
         rel="stylesheet"
@@ -1853,6 +1848,79 @@
 
         .footer small {
             font-size: .8rem;
+        }
+
+
+        /* ==========================================
+   OPEN 24/7 BADGE
+========================================== */
+
+        .open-badge {
+
+            position: relative;
+            z-index: 2;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            width: fit-content;
+
+            padding: 8px 15px;
+
+            margin-bottom: 18px;
+
+            border-radius: 999px;
+
+            background: rgba(37, 211, 102, 0.12);
+
+            color: #8df5ad;
+
+            border: 1px solid rgba(37, 211, 102, 0.28);
+
+            font-size: .82rem;
+
+            font-weight: 800;
+        }
+
+
+        .open-dot {
+
+            width: 8px;
+            height: 8px;
+
+            flex: 0 0 8px;
+
+            border-radius: 50%;
+
+            background: #25D366;
+
+            box-shadow:
+                0 0 0 5px rgba(37, 211, 102, 0.12);
+
+            animation:
+                openPulse 1.8s ease-in-out infinite;
+        }
+
+
+        @keyframes openPulse {
+
+            0%,
+            100% {
+
+                transform: scale(1);
+
+                opacity: 1;
+            }
+
+            50% {
+
+                transform: scale(1.22);
+
+                opacity: .72;
+            }
         }
 
 
@@ -3752,210 +3820,264 @@
 
         @media (max-width: 768px) {
 
-    .loader {
+            .loader {
 
-        position: fixed;
+                position: fixed;
 
-        inset: 0;
+                inset: 0;
 
-        width: 100%;
-        height: 100dvh;
+                width: 100%;
+                height: 100dvh;
 
-        min-height: 100svh;
+                min-height: 100svh;
 
-        background: var(--green-dark);
+                background: var(--green-dark);
 
-        z-index: 99999;
-    }
+                z-index: 99999;
+            }
 
 
-    .loader-logo-wrapper {
+            .loader-logo-wrapper {
 
-        width: 120px;
-        height: 120px;
-    }
+                width: 120px;
+                height: 120px;
+            }
 
 
-    .loader-logo {
+            .loader-logo {
 
-        width: 100px;
-        height: 100px;
-    }
+                width: 100px;
+                height: 100px;
+            }
 
 
-    .loader-title {
+            .loader-title {
 
-        font-size: 1.35rem;
+                font-size: 1.35rem;
 
-        margin-top: 20px;
-    }
+                margin-top: 20px;
+            }
 
 
-    .loader-subtitle {
+            .loader-subtitle {
 
-        font-size: .65rem;
-    }
+                font-size: .65rem;
+            }
 
-}
+        }
 
-@media (max-width: 768px) {
+        @media (max-width: 768px) {
 
-    .hero {
+            .hero {
 
-        min-height: 100svh;
-    }
+                min-height: 100svh;
+            }
 
 
-    .hero-bg {
+            .hero-bg {
 
-        animation: none;
+                animation: none;
 
-        transform: none;
+                transform: none;
 
-        background-position: center center;
-    }
+                background-position: center center;
+            }
 
 
-    .hero-content {
+            .hero-content {
 
-        padding-top: 100px;
+                padding-top: 100px;
 
-        padding-bottom:
-            calc(
-                100px +
-                env(safe-area-inset-bottom)
-            );
-    }
+                padding-bottom:
+                    calc(100px + env(safe-area-inset-bottom));
+            }
 
-}
-@media (hover: none) and (pointer: coarse) {
+        }
 
-    .menu-card:hover,
-    .feature:hover,
-    .offer:hover,
-    .modal-product-card:hover {
+        @media (hover: none) and (pointer: coarse) {
 
-        transform: none;
-    }
+            .menu-card:hover,
+            .feature:hover,
+            .offer:hover,
+            .modal-product-card:hover {
 
+                transform: none;
+            }
 
-    .hero-bg {
 
-        animation: none;
-    }
+            .hero-bg {
 
+                animation: none;
+            }
 
-    .floating-whatsapp {
 
-        animation: none;
-    }
+            .floating-whatsapp {
 
-}
+                animation: none;
+            }
 
-@media (max-width: 768px) {
+        }
 
-    body {
+        @media (max-width: 768px) {
 
-        padding-bottom:
-            calc(
-                88px +
-                env(safe-area-inset-bottom)
-            );
-    }
+            body {
 
+                padding-bottom:
+                    calc(88px + env(safe-area-inset-bottom));
+            }
 
-    .mobile-bottom-nav {
 
-        display: flex;
+            .mobile-bottom-nav {
 
-        position: fixed;
+                display: flex;
 
-        left: 12px;
-        right: 12px;
+                position: fixed;
 
-        bottom:
-            max(
-                10px,
-                env(safe-area-inset-bottom)
-            );
+                left: 12px;
+                right: 12px;
 
-        height: 66px;
+                bottom:
+                    max(10px,
+                        env(safe-area-inset-bottom));
 
-        z-index: 9000;
+                height: 66px;
 
-        border-radius: 22px;
+                z-index: 9000;
 
-        background:
-            rgba(13, 40, 24, .96);
+                border-radius: 22px;
 
-        box-shadow:
-            0 12px 35px
-            rgba(0,0,0,.28);
+                background:
+                    rgba(13, 40, 24, .96);
 
-        overflow: hidden;
-    }
+                box-shadow:
+                    0 12px 35px rgba(0, 0, 0, .28);
 
+                overflow: hidden;
+            }
 
-    .mobile-bottom-nav a {
 
-        flex: 1;
+            .mobile-bottom-nav a {
 
-        min-width: 0;
+                flex: 1;
 
-        display: flex;
+                min-width: 0;
 
-        flex-direction: column;
+                display: flex;
 
-        align-items: center;
-        justify-content: center;
+                flex-direction: column;
 
-        gap: 3px;
+                align-items: center;
+                justify-content: center;
 
-        color:
-            rgba(255,255,255,.65);
+                gap: 3px;
 
-        font-size: .68rem;
-    }
+                color:
+                    rgba(255, 255, 255, .65);
 
+                font-size: .68rem;
+            }
 
-    .mobile-bottom-nav a.active {
 
-        color: var(--gold);
+            .mobile-bottom-nav a.active {
 
-        background:
-            rgba(255,255,255,.06);
-    }
+                color: var(--gold);
 
-}
-@media (max-width: 768px) {
+                background:
+                    rgba(255, 255, 255, .06);
+            }
 
-    .floating-whatsapp {
+        }
 
-        left: 16px;
+        @media (max-width: 768px) {
 
-        bottom:
-            calc(
-                90px +
-                env(safe-area-inset-bottom)
-            );
+            .floating-whatsapp {
 
-        width: 54px;
-        height: 54px;
+                left: 16px;
 
-        min-height: 54px;
+                bottom:
+                    calc(90px + env(safe-area-inset-bottom));
 
-        padding: 0;
+                width: 54px;
+                height: 54px;
 
-        border-radius: 50%;
-    }
+                min-height: 54px;
 
+                padding: 0;
 
-    .floating-whatsapp span {
+                border-radius: 50%;
+            }
 
-        display: none;
-    }
 
-}
+            .floating-whatsapp span {
+
+                display: none;
+            }
+
+        }
+
+
+        @media (max-width: 768px) {
+
+            .location-card {
+
+                display: flex;
+
+                flex-direction: column;
+
+                overflow: visible;
+
+                background: transparent;
+
+                border: 0;
+
+                box-shadow: none;
+            }
+
+
+            .map-wrap {
+
+                order: 1;
+
+                min-height: 370px;
+
+                border-radius: 26px;
+
+                overflow: hidden;
+
+                box-shadow:
+                    0 18px 45px rgba(13, 40, 24, .18);
+            }
+
+
+            .location-info {
+
+                order: 2;
+
+                position: relative;
+
+                z-index: 4;
+
+                margin:
+                    -32px 14px 0;
+
+                padding:
+                    30px 22px;
+
+                border-radius: 26px;
+
+                box-shadow:
+                    0 20px 50px rgba(0, 0, 0, .25);
+            }
+
+
+            .map-badge {
+
+                top: 14px;
+
+                inset-inline-start: 14px;
+            }
+
+        }
     </style>
 </head>
 
@@ -3990,59 +4112,59 @@
 
     </div>
 
-<script>
-(function () {
+    <script>
+        (function () {
 
-    const hideLoader = function () {
+            const hideLoader = function () {
 
-        const loader =
-            document.getElementById("loader");
+                const loader =
+                    document.getElementById("loader");
 
-        if (!loader) return;
+                if (!loader) return;
 
-        loader.classList.add("hide");
+                loader.classList.add("hide");
 
-        setTimeout(function () {
-            loader.style.display = "none";
-        }, 650);
-    };
+                setTimeout(function () {
+                    loader.style.display = "none";
+                }, 650);
+            };
 
 
-    /* الوضع الطبيعي */
-    document.addEventListener(
-        "DOMContentLoaded",
-        function () {
+            /* الوضع الطبيعي */
+            document.addEventListener(
+                "DOMContentLoaded",
+                function () {
 
-            setTimeout(
-                hideLoader,
-                450
+                    setTimeout(
+                        hideLoader,
+                        450
+                    );
+
+                },
+                { once: true }
             );
 
-        },
-        { once: true }
-    );
+
+            /* حماية إضافية */
+            window.addEventListener(
+                "load",
+                hideLoader,
+                { once: true }
+            );
 
 
-    /* حماية إضافية */
-    window.addEventListener(
-        "load",
-        hideLoader,
-        { once: true }
-    );
+            /*
+               الحماية النهائية:
+               مهما حدث، لا نسمح للـLoader
+               بالبقاء أكثر من ثانيتين.
+            */
+            setTimeout(
+                hideLoader,
+                2000
+            );
 
-
-    /*
-       الحماية النهائية:
-       مهما حدث، لا نسمح للـLoader
-       بالبقاء أكثر من ثانيتين.
-    */
-    setTimeout(
-        hideLoader,
-        2000
-    );
-
-})();
-</script>
+        })();
+    </script>
     <div class="scroll-progress" id="scrollProgress"></div>
 
 
@@ -4718,6 +4840,16 @@
                     </div>
 
 
+
+                    <div class="open-badge">
+                        <span class="open-dot"></span>
+
+                        <span data-i18n="open247">
+                            مفتوح 24/7
+                        </span>
+                    </div>
+
+
                     <h3 data-i18n="locationBoxTitle">
                         نحن بانتظارك
                     </h3>
@@ -4751,6 +4883,25 @@
 
                         </div>
 
+                        <div class="location-detail">
+
+                            <div class="location-detail-icon">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+
+                            <div class="location-detail-text">
+
+                                <small data-i18n="hoursLabel">
+                                    أوقات العمل
+                                </small>
+
+                                <strong data-i18n="workingHours">
+                                    مفتوح 24 ساعة يوميًا
+                                </strong>
+
+                            </div>
+
+                        </div>
 
                         <div class="location-detail">
 
@@ -5354,6 +5505,9 @@
                 locationBoxTitle: "نحن بانتظارك",
                 locationBoxText: "استخدم الخريطة أو افتح الاتجاهات في Google Maps للوصول مباشرة إلى المقهى.",
                 coordinatesLabel: "الإحداثيات",
+                hoursLabel: "أوقات العمل",
+                workingHours: "مفتوح 24 ساعة يوميًا",
+                open247: "مفتوح 24/7",
                 whatsappLabel: "واتساب",
                 emailLabel: "البريد الإلكتروني",
                 openGoogleMaps: "فتح في خرائط Google",
@@ -5372,7 +5526,7 @@
                 address: "أوتوستراد إدلب - باب الهوى",
 
                 workingHours:
-                    "يومياً من 7 صباحاً حتى 12 ليلاً",
+                    "مفتوح 24 ساعة يوميًا",
 
                 browseMenu: "تصفح القائمة",
 
@@ -5543,7 +5697,14 @@
 
                 coordinatesLabel:
                     "Coordinates",
+                hoursLabel:
+                    "Working Hours",
 
+                workingHours:
+                    "Open 24 Hours Daily",
+
+                open247:
+                    "Open 24/7",
                 whatsappLabel:
                     "WhatsApp",
 
@@ -5575,7 +5736,7 @@
                     "Idlib Highway - Bab Al-Hawa",
 
                 workingHours:
-                    "Daily from 7 AM to 12 AM",
+                    "Open 24 Hours Daily",
 
                 browseMenu:
                     "Browse Menu",
