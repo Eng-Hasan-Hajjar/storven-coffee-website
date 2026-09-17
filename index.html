@@ -1079,42 +1079,55 @@
             font-size: .87rem;
         }
 
-
         /* ==============================================================
-   MENU
-   ============================================================= */
+   MENU - REAL STORVEN MENU
+   ============================================================== */
 
         .menu-section {
-
             background:
-                radial-gradient(circle at 80% 10%,
-                    rgba(201, 169, 97, .08),
-                    transparent 25%),
+                radial-gradient(circle at 85% 8%, rgba(201, 169, 97, .11), transparent 28%),
+                radial-gradient(circle at 10% 88%, rgba(26, 77, 46, .07), transparent 30%),
                 var(--surface-2);
+            overflow: hidden;
         }
 
         .menu-toolbar {
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
             gap: 20px;
-
-            margin-bottom: 28px;
+            margin-bottom: 25px;
         }
 
+        .menu-source-note {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: fit-content;
+            margin: -24px auto 34px;
+            padding: 8px 15px;
+            border: 1px solid rgba(201, 169, 97, .28);
+            border-radius: 999px;
+            color: var(--text-soft);
+            background: rgba(255, 255, 255, .55);
+            font-size: .82rem;
+            font-weight: 700;
+        }
 
-        /* categories slider */
+        html[data-theme="dark"] .menu-source-note {
+            background: rgba(255, 255, 255, .045);
+        }
+
+        .menu-source-note i {
+            color: var(--gold);
+        }
+
+        /* category slider */
 
         .category-slider-wrap {
-
             flex: 1;
-
             min-width: 0;
-
             position: relative;
         }
 
@@ -1127,28 +1140,24 @@
         }
 
         .category-btn {
-
             min-width: max-content;
-
-            padding: 12px 23px;
-
-            border-radius: 100px;
-
+            min-height: 46px;
+            padding: 0 18px;
+            border-radius: 999px;
             background: var(--surface);
-
             color: var(--text);
-
             border: 1px solid var(--border);
-
-            font-weight: 700;
-
-            display: flex;
-
+            font-weight: 800;
+            display: inline-flex;
             align-items: center;
-
             gap: 8px;
-
-            transition: .3s var(--ease);
+            box-shadow: 0 6px 18px rgba(13, 40, 24, .045);
+            transition:
+                transform .25s var(--ease),
+                border-color .25s ease,
+                background .25s ease,
+                color .25s ease,
+                box-shadow .25s ease;
         }
 
         .category-btn i {
@@ -1160,305 +1169,441 @@
         }
 
         .category-btn:hover {
-
-            border-color: var(--gold);
-
             transform: translateY(-2px);
+            border-color: rgba(201, 169, 97, .65);
+            box-shadow: var(--shadow-sm);
         }
 
         .category-btn.active {
-
-            background: var(--green-main);
-
             color: white;
-
             border-color: var(--green-main);
-
-            box-shadow:
-                0 8px 24px rgba(26, 77, 46, .22);
+            background:
+                linear-gradient(135deg, var(--green-main), var(--green-light));
+            box-shadow: 0 10px 25px rgba(26, 77, 46, .22);
         }
 
         .category-btn.active i {
-            color: var(--gold);
+            color: var(--gold-light);
         }
 
-
-        /* menu controls */
+        /* slider controls */
 
         .menu-actions {
-
             display: flex;
-
             align-items: center;
-
             gap: 8px;
-
             flex-shrink: 0;
         }
 
         .slider-control {
-
             width: 44px;
             height: 44px;
-
             border-radius: 50%;
-
             background: var(--surface);
-
             color: var(--green-main);
-
             border: 1px solid var(--border);
-
             display: grid;
             place-items: center;
-
-            transition: .3s ease;
+            box-shadow: 0 6px 18px rgba(13, 40, 24, .05);
+            transition: .25s ease;
         }
 
         .slider-control:hover {
-
             background: var(--green-main);
-
             color: white;
+            transform: translateY(-2px);
         }
 
         html[dir="ltr"] .slider-control i {
             transform: scaleX(-1);
         }
 
-
-        /* Products slider */
+        /* products slider */
 
         .productsSwiper {
-
             overflow: visible;
-
-            padding: 10px 3px 45px;
+            padding: 8px 3px 46px;
         }
 
         .productsSwiper .swiper-slide {
             height: auto;
         }
 
-
-        /* card */
+        /* professional menu card */
 
         .menu-card {
-
             height: 100%;
-
+            display: flex;
+            flex-direction: column;
             background: var(--surface);
-
-            border-radius: var(--radius-md);
-
+            border-radius: 24px;
             overflow: hidden;
-
             border: 1px solid var(--border);
-
             box-shadow: var(--shadow-sm);
-
             transition:
-                transform .4s var(--ease),
-                box-shadow .4s var(--ease),
-                border-color .3s ease;
+                transform .35s var(--ease),
+                box-shadow .35s ease,
+                border-color .35s ease;
         }
 
         .menu-card:hover {
-
-            transform: translateY(-10px);
-
+            transform: translateY(-7px);
             box-shadow: var(--shadow-md);
-
-            border-color: rgba(201, 169, 97, .4);
+            border-color: rgba(201, 169, 97, .42);
         }
 
         .menu-image {
-
-            height: 235px;
-
-            overflow: hidden;
-
             position: relative;
+            height: 245px;
+            overflow: hidden;
+            background:
+                linear-gradient(145deg, #f6f0e3, #e7decb);
+        }
 
-            background: var(--surface-2);
+        html[data-theme="dark"] .menu-image {
+            background:
+                linear-gradient(145deg, #173522, #0f2719);
         }
 
         .menu-image img {
-
             width: 100%;
             height: 100%;
-
             object-fit: cover;
-
-            transition: transform .65s var(--ease);
+            transition: transform .55s var(--ease);
         }
 
         .menu-card:hover .menu-image img {
-            transform: scale(1.07);
+            transform: scale(1.035);
+        }
+
+        .product-visual-fallback {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            padding: 24px;
+            background:
+                radial-gradient(circle at 50% 35%, rgba(201, 169, 97, .20), transparent 30%),
+                linear-gradient(145deg, var(--green-dark), var(--green-main));
+            color: white;
+        }
+
+        .product-visual-fallback::before {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 24px solid rgba(201, 169, 97, .08);
+        }
+
+        .product-visual-fallback-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+        .product-visual-fallback i {
+            display: block;
+            margin-bottom: 11px;
+            color: var(--gold);
+            font-size: 46px;
+        }
+
+        .product-visual-fallback strong {
+            display: block;
+            color: var(--cream);
+            font-family: "Playfair Display", serif;
+            font-size: 1.05rem;
+        }
+
+        .product-visual-fallback small {
+            color: rgba(255,255,255,.62);
+            font-size: .72rem;
         }
 
         .product-badge {
-
             position: absolute;
-
             top: 14px;
             inset-inline-start: 14px;
-
-            z-index: 2;
-
-            padding: 6px 12px;
-
-            border-radius: 100px;
-
+            z-index: 3;
+            padding: 6px 11px;
+            border-radius: 999px;
             background: var(--gold);
-
             color: var(--green-dark);
-
-            font-size: .75rem;
-
+            font-size: .72rem;
             font-weight: 900;
+            box-shadow: 0 7px 18px rgba(0, 0, 0, .12);
+        }
+
+        .product-photo-badge {
+            position: absolute;
+            bottom: 12px;
+            inset-inline-end: 12px;
+            z-index: 3;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 9px;
+            border-radius: 999px;
+            background: rgba(13, 40, 24, .85);
+            color: rgba(255,255,255,.86);
+            backdrop-filter: blur(8px);
+            font-size: .65rem;
+            font-weight: 700;
         }
 
         .menu-body {
-            padding: 21px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
         }
 
         .menu-title-row {
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: flex-start;
-
-            gap: 15px;
-
+            gap: 12px;
             margin-bottom: 8px;
         }
 
         .menu-title-row h3 {
-
-            font-size: 1.17rem;
-
             color: var(--green-dark);
+            font-size: 1.08rem;
+            line-height: 1.45;
         }
 
         html[data-theme="dark"] .menu-title-row h3 {
             color: var(--cream);
         }
 
-        .menu-price {
+        .menu-body > p {
+            color: var(--text-soft);
+            font-size: .82rem;
+            line-height: 1.6;
+            margin: 2px 0 13px;
+        }
 
+        .price-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+            padding-top: 12px;
+        }
+
+        .price-chip {
+            flex: 1 1 92px;
+            min-width: 92px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            padding: 8px 11px;
+            border-radius: 12px;
+            background: rgba(26, 77, 46, .07);
+            border: 1px solid rgba(26, 77, 46, .09);
+        }
+
+        html[data-theme="dark"] .price-chip {
+            background: rgba(255,255,255,.055);
+            border-color: rgba(255,255,255,.08);
+        }
+
+        .price-chip small {
+            color: var(--text-soft);
+            font-size: .68rem;
+            font-weight: 700;
+        }
+
+        .price-chip strong {
+            direction: ltr;
             color: var(--green-main);
-
             font-family: "Poppins", sans-serif;
-
-            font-weight: 800;
-
+            font-size: .9rem;
+            font-weight: 900;
             white-space: nowrap;
         }
 
-        html[data-theme="dark"] .menu-price {
+        html[data-theme="dark"] .price-chip strong {
             color: var(--gold);
         }
 
-        .menu-body p {
-
-            color: var(--text-soft);
-
-            font-size: .9rem;
-
-            min-height: 52px;
-        }
-
         .menu-card-footer {
-
             display: flex;
-
-            justify-content: space-between;
-
             align-items: center;
-
-            margin-top: 17px;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 15px;
+            padding-top: 13px;
+            border-top: 1px solid var(--border);
         }
 
         .product-category {
-
-            display: flex;
-
+            display: inline-flex;
             align-items: center;
-
             gap: 6px;
-
             color: var(--text-soft);
-
-            font-size: .8rem;
+            font-size: .75rem;
+            font-weight: 700;
         }
 
-        .add-btn {
+        .product-category i {
+            color: var(--gold);
+        }
 
-            width: 42px;
-            height: 42px;
+        .menu-bottom {
+            text-align: center;
+            margin-top: 10px;
+        }
 
-            border-radius: 50%;
+        .menu-bottom .btn {
+            min-width: min(310px, 100%);
+        }
 
-            background: var(--green-main);
-
-            color: white;
-
-            display: grid;
+        .menu-count-badge {
+            display: inline-grid;
             place-items: center;
-
-            transition:
-                transform .3s ease,
-                background .3s ease;
+            min-width: 28px;
+            height: 28px;
+            padding-inline: 7px;
+            margin-inline-start: 3px;
+            border-radius: 999px;
+            background: rgba(26,77,46,.10);
+            color: var(--green-main);
+            font-family: "Poppins", sans-serif;
+            font-size: .7rem;
+            font-weight: 900;
         }
 
-        .add-btn:hover {
-
-            background: var(--gold);
-
-            color: var(--green-dark);
-
-            transform: rotate(90deg);
+        html[data-theme="dark"] .menu-count-badge {
+            color: var(--gold);
+            background: rgba(201,169,97,.12);
         }
 
-
-        /* slider pagination */
+        /* pagination */
 
         .productsSwiper .swiper-pagination {
             bottom: 5px;
         }
 
         .productsSwiper .swiper-pagination-bullet {
-
             width: 8px;
             height: 8px;
-
             opacity: .25;
-
             background: var(--green-main);
-
-            transition: .3s;
+            transition: .25s ease;
         }
 
         .productsSwiper .swiper-pagination-bullet-active {
-
             opacity: 1;
-
             width: 27px;
-
             border-radius: 10px;
-
             background: var(--gold);
         }
 
-        .menu-bottom {
+        /* Full-menu search */
 
-            text-align: center;
-
-            margin-top: 12px;
+        .modal-search-wrap {
+            position: relative;
+            padding: 15px 25px 0;
+            background: var(--surface);
         }
+
+        .modal-search-wrap i {
+            position: absolute;
+            top: 33px;
+            inset-inline-start: 43px;
+            transform: translateY(-50%);
+            color: var(--gold);
+            pointer-events: none;
+        }
+
+        .modal-search {
+            width: 100%;
+            height: 48px;
+            padding-inline: 48px 16px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            outline: none;
+            background: var(--surface-2);
+            color: var(--text);
+            transition:
+                border-color .2s ease,
+                box-shadow .2s ease,
+                background .2s ease;
+        }
+
+        .modal-search:focus {
+            border-color: rgba(201,169,97,.8);
+            background: var(--surface);
+            box-shadow: 0 0 0 4px rgba(201,169,97,.10);
+        }
+
+        .modal-empty {
+            grid-column: 1 / -1;
+            padding: 55px 20px;
+            text-align: center;
+            color: var(--text-soft);
+        }
+
+        .modal-empty i {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--gold);
+            font-size: 36px;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .menu-actions {
+                justify-content: center;
+            }
+
+            .menu-source-note {
+                margin-top: -18px;
+            }
+
+            .menu-image {
+                height: 220px;
+            }
+
+            .modal-search-wrap {
+                padding: 12px 18px 0;
+            }
+
+            .modal-search-wrap i {
+                top: 30px;
+                inset-inline-start: 35px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .menu-image {
+                height: 225px;
+            }
+
+            .menu-body {
+                padding: 17px;
+            }
+
+            .price-chip {
+                flex-basis: calc(50% - 4px);
+            }
+
+            .category-btn {
+                min-height: 44px;
+                padding-inline: 15px;
+                font-size: .83rem;
+            }
+        }
+
+
 
 
         /* ==============================================================
@@ -2743,70 +2888,72 @@
         }
 
 
-        /* ==========================================
+/* ==========================================
    PREMIUM LOCATION CARD - DESKTOP
 ========================================== */
 
-        .location-card {
+.location-card {
 
-            position: relative;
+    position: relative;
 
-            min-height: 650px;
+    min-height: 650px;
 
-            border-radius: 32px;
+    border-radius: 32px;
 
-            overflow: hidden;
+    overflow: hidden;
 
-            background: var(--green-dark);
+    background: var(--green-dark);
 
-            box-shadow:
-                0 30px 80px rgba(13, 40, 24, .20);
+    box-shadow:
+        0 30px 80px rgba(13, 40, 24, .20);
 
-            border:
-                1px solid rgba(201, 169, 97, .12);
-        }
+    border:
+        1px solid rgba(201, 169, 97, .12);
+}
 
 
-        .location-info {
+.location-info {
 
-            position: absolute;
+    position: absolute;
 
-            z-index: 5;
+    z-index: 5;
 
-            top: 50%;
-            right: 28px;
-            left: auto;
+    top: 50%;
+    right: 28px;
+    left: auto;
 
-            transform: translateY(-50%);
+    transform: translateY(-50%);
 
-            width: 405px;
+    width: 405px;
 
-            max-width: calc(100% - 56px);
+    max-width: calc(100% - 56px);
 
-            /* مهم جداً */
-            max-height: none;
-            overflow: hidden;
+    /* مهم جداً */
+    max-height: none;
+    overflow: hidden;
 
-            padding: 30px 28px;
+    padding: 30px 28px;
 
-            border-radius: 26px;
+    border-radius: 26px;
 
-            color: #ffffff;
+    color: #ffffff;
 
-            background:
-                linear-gradient(145deg,
-                    rgba(9, 55, 31, .97),
-                    rgba(18, 92, 52, .95));
+    background:
+        linear-gradient(
+            145deg,
+            rgba(9, 55, 31, .97),
+            rgba(18, 92, 52, .95)
+        );
 
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 
-            box-shadow:
-                0 24px 60px rgba(0, 0, 0, .30);
+    box-shadow:
+        0 24px 60px rgba(0, 0, 0, .30);
 
-            border:
-                1px solid rgba(255, 255, 255, .10);
-        }
+    border:
+        1px solid rgba(255, 255, 255, .10);
+}
 
         .location-info::before {
 
@@ -2855,46 +3002,46 @@
 
         .location-info h3 {
 
+           
+    position: relative;
 
-            position: relative;
+    z-index: 2;
 
-            z-index: 2;
+    color: #ffffff;
 
-            color: #ffffff;
+    font-size: clamp(1.8rem, 3vw, 2.55rem);
 
-            font-size: clamp(1.8rem, 3vw, 2.55rem);
+    line-height: 1.25;
 
-            line-height: 1.25;
-
-            margin-bottom: 12px;
+    margin-bottom: 12px;
         }
 
         .location-info>p {
 
-            position: relative;
+               position: relative;
 
-            z-index: 2;
+    z-index: 2;
 
-            color: rgba(255, 255, 255, .78);
+    color: rgba(255,255,255,.78);
 
-            margin-bottom: 20px;
+    margin-bottom: 20px;
 
-            line-height: 1.75;
+    line-height: 1.75;
         }
 
         .location-details {
 
-            position: relative;
+             position: relative;
 
-            z-index: 2;
+    z-index: 2;
 
-            display: flex;
+    display: flex;
 
-            flex-direction: column;
+    flex-direction: column;
 
-            gap: 10px;
+    gap: 10px;
 
-            margin-bottom: 22px;
+    margin-bottom: 22px;
         }
 
         .location-detail {
@@ -2908,11 +3055,11 @@
 
         .location-detail-icon {
 
+            
+    width: 40px;
+    height: 40px;
 
-            width: 40px;
-            height: 40px;
-
-            flex: 0 0 40px;
+    flex: 0 0 40px;
 
             border-radius: 13px;
 
@@ -2929,24 +3076,24 @@
 
         .location-actions {
 
-            position: relative;
+    position: relative;
 
-            z-index: 2;
+    z-index: 2;
 
-            display: grid;
+    display: grid;
 
-            grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
 
-            gap: 10px;
-        }
+    gap: 10px;
+}
 
 
-        .location-actions .btn {
+.location-actions .btn {
 
-            width: 100%;
+    width: 100%;
 
-            min-height: 48px;
-        }
+    min-height: 48px;
+}
 
         .location-detail-text {
 
@@ -2987,21 +3134,21 @@
             gap: 11px;
         }
 
-        .map-wrap {
+      .map-wrap {
 
-            position: absolute;
+    position: absolute;
 
-            z-index: 1;
+    z-index: 1;
 
-            inset: 0;
+    inset: 0;
 
-            width: 100%;
-            height: 100%;
+    width: 100%;
+    height: 100%;
 
-            min-height: 570px;
+    min-height: 570px;
 
-            background: #ebe6da;
-        }
+    background: #ebe6da;
+}
 
         .map-wrap iframe {
             position: absolute;
@@ -3018,40 +3165,39 @@
             display: block;
         }
 
-        .map-badge {
+.map-badge {
 
-            position: absolute;
+    position: absolute;
 
-            top: 22px;
+    top: 22px;
 
-            left: 22px;
-            right: auto;
+    left: 22px;
+    right: auto;
 
-            z-index: 3;
+    z-index: 3;
 
-            display: flex;
+    display: flex;
 
-            align-items: center;
+    align-items: center;
 
-            gap: 10px;
+    gap: 10px;
 
-            padding: 10px 14px;
+    padding: 10px 14px;
 
-            border-radius: 15px;
+    border-radius: 15px;
 
-            background: rgba(13, 40, 24, .93);
+    background: rgba(13, 40, 24, .93);
 
-            backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
 
-            color: white;
+    color: white;
 
-            box-shadow:
-                0 12px 32px rgba(0, 0, 0, .20);
+    box-shadow:
+        0 12px 32px rgba(0, 0, 0, .20);
 
-            pointer-events: none;
-        }
-
-        .map-badge i {
+    pointer-events: none;
+} 
+       .map-badge i {
 
             width: 34px;
             height: 34px;
@@ -3681,15 +3827,9 @@
 
             .map-badge {
 
-                top: 12px;
+                top: 13px;
 
-                left: 12px;
-                right: auto;
-
-                inset-inline-start: auto;
-                inset-inline-end: auto;
-
-                max-width: calc(100% - 24px);
+                inset-inline-start: 13px;
             }
 
             .social-contact-links {
@@ -4072,229 +4212,231 @@
    Desktop design stays unchanged
    ============================================================== */
 
-        @media (max-width: 768px) {
+@media (max-width: 768px) {
 
-            /* الحاوية الرئيسية */
+    /* الحاوية الرئيسية */
 
-            .location-card {
+    .location-card {
 
-                display: flex;
+        display: flex;
 
-                flex-direction: column;
+        flex-direction: column;
 
-                min-height: auto;
+        min-height: auto;
 
-                overflow: hidden;
+        overflow: hidden;
 
-                background: var(--surface);
+        background: var(--surface);
 
-                border-radius: 26px;
+        border-radius: 26px;
 
-                border: 1px solid var(--border);
+        border: 1px solid var(--border);
 
-                box-shadow:
-                    0 18px 45px rgba(13, 40, 24, .16);
-            }
-
-
-            /* إلغاء Overlay الخاص بالديسكتوب */
-
-            .location-card::after {
-
-                display: none;
-            }
+        box-shadow:
+            0 18px 45px rgba(13, 40, 24, .16);
+    }
 
 
-            /* =========================================
+    /* إلغاء Overlay الخاص بالديسكتوب */
+
+    .location-card::after {
+
+        display: none;
+    }
+
+
+    /* =========================================
        معلومات المقهى
        ========================================= */
 
-            .location-info {
+    .location-info {
 
-                position: relative;
+        position: relative;
 
-                z-index: 2;
+        z-index: 2;
 
-                top: auto;
+        top: auto;
 
-                right: auto;
-                left: auto;
+        right: auto;
+        left: auto;
 
-                transform: none;
+        transform: none;
 
-                order: 1;
+        order: 1;
 
-                width: 100%;
-                max-width: none;
+        width: 100%;
+        max-width: none;
 
-                max-height: none;
+        max-height: none;
 
-                margin: 0;
+        margin: 0;
 
-                padding: 30px 22px;
+        padding: 30px 22px;
 
-                border-radius: 0;
+        border-radius: 0;
 
-                overflow: hidden;
+        overflow: hidden;
 
-                box-shadow: none;
-            }
-
-
-            .location-info h3 {
-
-                color: #ffffff;
-
-                font-size: 2rem;
-            }
+        box-shadow: none;
+    }
 
 
-            /* =========================================
+    .location-info h3 {
+
+        color: #ffffff;
+
+        font-size: 2rem;
+    }
+
+
+    /* =========================================
        الخريطة أسفل المعلومات
        ========================================= */
 
-            .map-wrap {
+    .map-wrap {
 
-                position: relative;
+        position: relative;
 
-                z-index: 1;
+        z-index: 1;
 
-                inset: auto;
+        inset: auto;
 
-                order: 2;
+        order: 2;
 
-                width: 100%;
+        width: 100%;
 
-                height: 380px;
+        height: 380px;
 
-                min-height: 380px;
+        min-height: 380px;
 
-                border-radius: 0;
+        border-radius: 0;
 
-                overflow: hidden;
+        overflow: hidden;
 
-                box-shadow: none;
-            }
-
-
-            .map-wrap iframe {
-
-                position: absolute;
-
-                inset: 0;
-
-                width: 100%;
-                height: 100%;
-
-                min-height: 0;
-
-                border: 0;
-            }
+        box-shadow: none;
+    }
 
 
-            /* البطاقة الصغيرة فوق الخريطة */
+    .map-wrap iframe {
 
-            .map-badge {
+        position: absolute;
 
-                top: 14px;
+        inset: 0;
 
-                left: 14px;
-                right: auto;
+        width: 100%;
+        height: 100%;
 
-                max-width:
-                    calc(100% - 28px);
-            }
+        min-height: 0;
+
+        border: 0;
+    }
 
 
-            /* =========================================
+    /* البطاقة الصغيرة فوق الخريطة */
+
+    .map-badge {
+
+        top: 14px;
+
+        left: 14px;
+        right: auto;
+
+        max-width:
+            calc(100% - 28px);
+    }
+
+
+    /* =========================================
        أزرار الموقع
        ========================================= */
 
-            .location-actions {
+    .location-actions {
 
-                display: grid;
+        display: grid;
 
-                grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
 
-                gap: 10px;
-            }
-
-
-            .location-actions .btn {
-
-                width: 100%;
-
-                min-height: 50px;
-            }
+        gap: 10px;
+    }
 
 
-            /* =========================================
+    .location-actions .btn {
+
+        width: 100%;
+
+        min-height: 50px;
+    }
+
+
+    /* =========================================
        تفاصيل الموقع
        ========================================= */
 
-            .location-details {
+    .location-details {
 
-                gap: 11px;
+        gap: 11px;
 
-                margin-bottom: 22px;
-            }
-
-
-            .location-detail {
-
-                width: 100%;
-            }
+        margin-bottom: 22px;
+    }
 
 
-            .location-detail-text strong,
-            .location-detail-text a {
+    .location-detail {
 
-                word-break: break-word;
-            }
-
-        }
+        width: 100%;
+    }
 
 
+    .location-detail-text strong,
+    .location-detail-text a {
 
-        /* الهواتف الصغيرة */
+        word-break: break-word;
+    }
 
-        @media (max-width: 520px) {
-
-            .location-card {
-
-                border-radius: 23px;
-            }
+}
 
 
-            .location-info {
 
-                padding:
-                    27px 18px;
-            }
+/* الهواتف الصغيرة */
 
+@media (max-width: 520px) {
 
-            .location-info h3 {
+    .location-card {
 
-                font-size: 1.8rem;
-            }
+        border-radius: 23px;
+    }
 
 
-            .map-wrap {
+    .location-info {
 
-                height: 340px;
+        padding:
+            27px 18px;
+    }
 
-                min-height: 340px;
-            }
+
+    .location-info h3 {
+
+        font-size: 1.8rem;
+    }
 
 
-            .map-badge {
+    .map-wrap {
 
-                top: 12px;
+        height: 340px;
 
-                left: 12px;
-            }
+        min-height: 340px;
+    }
 
-        }
+
+    .map-badge {
+
+        top: 12px;
+
+        left: 12px;
+    }
+
+}
+
+   
     </style>
 </head>
 
@@ -4688,7 +4830,6 @@
     </section>
 
 
-
     <!-- =========================================================
      MENU
 ========================================================= -->
@@ -4697,16 +4838,13 @@
 
         <div class="container">
 
-
             <div class="section-heading reveal">
 
                 <div class="kicker" data-i18n="menuKicker">
                     قائمتنا
                 </div>
 
-
                 <h2>
-
                     <span data-i18n="menuTitle1">
                         تشكيلة
                     </span>
@@ -4714,25 +4852,29 @@
                     <span>
                         Storven
                     </span>
-
                 </h2>
 
-
                 <p data-i18n="menuDescription">
-
-                    اكتشف المشروبات الساخنة والباردة والحلويات
-                    المختارة لتمنحك تجربة Storven في كل زيارة.
-
+                    اكتشف المشروبات والحلويات والأسعار الحالية من قائمة Storven الرسمية.
                 </p>
 
             </div>
 
 
+            <div class="menu-source-note reveal">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <span data-i18n="menuPriceNote">
+                    الأسعار بالدولار الأمريكي حسب القائمة الحالية للمقهى
+                </span>
+
+            </div>
+
 
             <!-- CATEGORY SLIDER -->
 
             <div class="menu-toolbar reveal">
-
 
                 <div class="category-slider-wrap">
 
@@ -4766,7 +4908,6 @@
             </div>
 
 
-
             <!-- PRODUCTS SLIDER -->
 
             <div class="swiper productsSwiper reveal">
@@ -4774,11 +4915,9 @@
                 <div class="swiper-wrapper" id="productsWrapper">
                 </div>
 
-
                 <div class="swiper-pagination"></div>
 
             </div>
-
 
 
             <div class="menu-bottom reveal">
@@ -4791,6 +4930,10 @@
                         عرض كل القائمة
                     </span>
 
+                    <span class="menu-count-badge" id="menuCountBadge">
+                        83
+                    </span>
+
                 </button>
 
             </div>
@@ -4798,6 +4941,8 @@
         </div>
 
     </section>
+
+
 
 
 
@@ -5113,7 +5258,7 @@
                                 </small>
 
                                 <strong data-i18n="workingHours">
-                                    نعمل على مدار 24 ساعة يوميًا
+                                    مفتوح 24 ساعة يوميًا
                                 </strong>
 
                             </div>
@@ -5289,7 +5434,7 @@
                             <i class="fa-solid fa-clock"></i>
 
                             <span data-i18n="workingHours">
-                                نعمل على مدار 24 ساعة يوميًا
+                                يومياً من 7 صباحاً حتى 12 ليلاً
                             </span>
 
                         </div>
@@ -5580,6 +5725,22 @@
 
 
 
+
+            <div class="modal-search-wrap">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="search"
+                    class="modal-search"
+                    id="menuSearch"
+                    autocomplete="off"
+                    placeholder="ابحث عن مشروب أو صنف..."
+                    aria-label="Search menu">
+
+            </div>
+
+
             <div class="modal-filters" id="modalFilters">
             </div>
 
@@ -5686,7 +5847,10 @@
                 menuTitle1: "تشكيلة",
 
                 menuDescription:
-                    "اكتشف المشروبات الساخنة والباردة والحلويات المختارة لتمنحك تجربة Storven في كل زيارة.",
+                    "اكتشف المشروبات والحلويات والأسعار الحالية من قائمة Storven الرسمية.",
+
+                menuPriceNote:
+                    "الأسعار بالدولار الأمريكي حسب القائمة الحالية للمقهى",
 
                 showFullMenu: "عرض كل القائمة",
 
@@ -5723,7 +5887,7 @@
                 locationBoxText: "استخدم الخريطة أو افتح الاتجاهات في Google Maps للوصول مباشرة إلى المقهى.",
                 coordinatesLabel: "الإحداثيات",
                 hoursLabel: "أوقات العمل",
-                workingHours: "نعمل على مدار 24 ساعة يوميًا",
+                workingHours: "مفتوح 24 ساعة يوميًا",
                 open247: "مفتوح 24/7",
                 whatsappLabel: "واتساب",
                 emailLabel: "البريد الإلكتروني",
@@ -5742,7 +5906,8 @@
 
                 address: "أوتوستراد إدلب - باب الهوى",
 
-                workingHours: "نعمل على مدار 24 ساعة يوميًا",
+                workingHours:
+                    "مفتوح 24 ساعة يوميًا",
 
                 browseMenu: "تصفح القائمة",
 
@@ -5840,7 +6005,10 @@
                     "Discover",
 
                 menuDescription:
-                    "Explore hot drinks, cold drinks and desserts selected to make every Storven visit special.",
+                    "Explore current drinks, desserts and prices from the official Storven menu.",
+
+                menuPriceNote:
+                    "Prices are in USD according to the cafe’s current menu",
 
                 showFullMenu:
                     "View Full Menu",
@@ -5916,8 +6084,11 @@
                 hoursLabel:
                     "Working Hours",
 
-                workingHours: "We operate 24 hours a day",
-                open247: "Operating 24/7",
+                workingHours:
+                    "Open 24 Hours Daily",
+
+                open247:
+                    "Open 24/7",
                 whatsappLabel:
                     "WhatsApp",
 
@@ -5948,7 +6119,8 @@
                 address:
                     "Idlib Highway - Bab Al-Hawa",
 
-                workingHours: "We operate 24 hours a day",
+                workingHours:
+                    "Open 24 Hours Daily",
 
                 browseMenu:
                     "Browse Menu",
@@ -5981,370 +6153,2371 @@
         };
 
 
-
         /* =============================================================
            CATEGORIES
            ============================================================= */
 
         const categories = [
-
             {
-                id: "all",
-                icon: "fa-border-all",
-                ar: "الكل",
-                en: "All"
+                        "id": "all",
+                        "icon": "fa-border-all",
+                        "ar": "الكل",
+                        "en": "All"
             },
-
             {
-                id: "hot",
-                icon: "fa-mug-hot",
-                ar: "ساخن",
-                en: "Hot"
+                        "id": "hot",
+                        "icon": "fa-mug-hot",
+                        "ar": "الساخن",
+                        "en": "Hot"
             },
-
             {
-                id: "cold",
-                icon: "fa-snowflake",
-                ar: "بارد",
-                en: "Cold"
+                        "id": "latte",
+                        "icon": "fa-mug-saucer",
+                        "ar": "لاتيه",
+                        "en": "Latte"
             },
-
             {
-                id: "dessert",
-                icon: "fa-cake-candles",
-                ar: "حلويات",
-                en: "Desserts"
+                        "id": "ice-tea",
+                        "icon": "fa-glass-water",
+                        "ar": "آيس تي",
+                        "en": "Ice Tea"
             },
-
             {
-                id: "special",
-                icon: "fa-star",
-                ar: "مميز",
-                en: "Special"
+                        "id": "mojito",
+                        "icon": "fa-lemon",
+                        "ar": "موهيتو",
+                        "en": "Mojito"
+            },
+            {
+                        "id": "juice",
+                        "icon": "fa-apple-whole",
+                        "ar": "عصائر",
+                        "en": "Juices"
+            },
+            {
+                        "id": "smoothie",
+                        "icon": "fa-blender",
+                        "ar": "سموزي",
+                        "en": "Smoothies"
+            },
+            {
+                        "id": "frappe",
+                        "icon": "fa-snowflake",
+                        "ar": "فرابيه",
+                        "en": "Frappe"
+            },
+            {
+                        "id": "milkshake",
+                        "icon": "fa-ice-cream",
+                        "ar": "ميلك شيك",
+                        "en": "Milkshake"
+            },
+            {
+                        "id": "cocktail",
+                        "icon": "fa-martini-glass-citrus",
+                        "ar": "كوكتيل",
+                        "en": "Cocktails"
+            },
+            {
+                        "id": "dessert",
+                        "icon": "fa-cookie-bite",
+                        "ar": "حلويات",
+                        "en": "Desserts"
+            },
+            {
+                        "id": "arakil",
+                        "icon": "fa-wind",
+                        "ar": "أراكيل",
+                        "en": "Arakil"
             }
-
-        ];
-
+];
 
 
         /* =============================================================
-           MENU DATA
+           MENU DATA - OFFICIAL STORVEN PRICE LIST
+           Arabic names and prices are based on the supplied cafe menus.
            ============================================================= */
 
         const menuItems = [
-
             {
-
-                id: 1,
-
-                category: "hot",
-
-                name: {
-                    ar: "إسبريسو",
-                    en: "Espresso"
-                },
-
-                description: {
-                    ar: "جرعة مركزة وغنية من أجود حبوب البن المحمصة.",
-                    en: "A concentrated rich shot prepared from premium roasted beans."
-                },
-
-                price: 3000,
-
-                image:
-                    "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=crop&w=800&q=85",
-
-                badge: null
+                        "id": 1,
+                        "category": "smoothie",
+                        "name": {
+                                    "ar": "سموزي منغا وباشن فروت",
+                                    "en": "Mango & Passion Fruit Smoothie"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 2.75
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 3.5
+                                    }
+                        ],
+                        "image": "assets/images/products/smoothie-mango-passion.jpg",
+                        "icon": "fa-blender",
+                        "badge": null
             },
-
-
             {
-
-                id: 2,
-
-                category: "hot",
-
-                name: {
-                    ar: "لاتيه",
-                    en: "Latte"
-                },
-
-                description: {
-                    ar: "إسبريسو ناعم مع حليب مبخر ورغوة حريرية.",
-                    en: "Smooth espresso with steamed milk and silky foam."
-                },
-
-                price: 5500,
-
-                image:
-                    "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&fit=crop&w=800&q=85",
-
-                badge: {
-                    ar: "الأكثر مبيعاً",
-                    en: "Best Seller"
-                }
+                        "id": 2,
+                        "category": "smoothie",
+                        "name": {
+                                    "ar": "سموزي فريز وتوت",
+                                    "en": "Strawberry & Berry Smoothie"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 2.75
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 3.5
+                                    }
+                        ],
+                        "image": "assets/images/products/smoothie-berry.jpg",
+                        "icon": "fa-blender",
+                        "badge": null
             },
-
-
             {
-
-                id: 3,
-
-                category: "hot",
-
-                name: {
-                    ar: "كابتشينو",
-                    en: "Cappuccino"
-                },
-
-                description: {
-                    ar: "توازن كلاسيكي بين الإسبريسو والحليب والرغوة.",
-                    en: "Classic balance of espresso, steamed milk and foam."
-                },
-
-                price: 5000,
-
-                image:
-                    "https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=800&q=85",
-
-                badge: null
+                        "id": 3,
+                        "category": "smoothie",
+                        "name": {
+                                    "ar": "سموزي أناناس وجوز الهند",
+                                    "en": "Pineapple & Coconut Smoothie"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 2.75
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 3.5
+                                    }
+                        ],
+                        "image": "assets/images/products/smoothie-pineapple-coconut.jpg",
+                        "icon": "fa-blender",
+                        "badge": null
             },
-
-
             {
-
-                id: 4,
-
-                category: "hot",
-
-                name: {
-                    ar: "موكا",
-                    en: "Mocha"
-                },
-
-                description: {
-                    ar: "إسبريسو مع شوكولا غنية وحليب دافئ.",
-                    en: "Espresso blended with rich chocolate and warm milk."
-                },
-
-                price: 6000,
-
-                image:
-                    "https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&fit=crop&w=800&q=85",
-
-                badge: null
+                        "id": 4,
+                        "category": "smoothie",
+                        "name": {
+                                    "ar": "سموزي كيوي وتفاح",
+                                    "en": "Kiwi & Apple Smoothie"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 2.75
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 3.5
+                                    }
+                        ],
+                        "image": "assets/images/products/smoothie-kiwi-apple.jpg",
+                        "icon": "fa-blender",
+                        "badge": null
             },
-
-
             {
-
-                id: 5,
-
-                category: "cold",
-
-                name: {
-                    ar: "آيس لاتيه",
-                    en: "Iced Latte"
-                },
-
-                description: {
-                    ar: "إسبريسو بارد مع الحليب والثلج.",
-                    en: "Chilled espresso with milk and ice."
-                },
-
-                price: 6500,
-
-                image:
-                    "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=85",
-
-                badge: null
+                        "id": 5,
+                        "category": "smoothie",
+                        "name": {
+                                    "ar": "سموزي دراق وتوت",
+                                    "en": "Peach & Berry Smoothie"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 2.75
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 3.5
+                                    }
+                        ],
+                        "image": "assets/images/products/smoothie-peach-berry.jpg",
+                        "icon": "fa-blender",
+                        "badge": null
             },
-
-
             {
-
-                id: 6,
-
-                category: "cold",
-
-                name: {
-                    ar: "آيس كوفي",
-                    en: "Iced Coffee"
-                },
-
-                description: {
-                    ar: "قهوة باردة منعشة تقدم فوق الثلج.",
-                    en: "Refreshing cold coffee served over ice."
-                },
-
-                price: 6000,
-
-                image:
-                    "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=85",
-
-                badge: null
+                        "id": 6,
+                        "category": "frappe",
+                        "name": {
+                                    "ar": "ماتشا فرايبه",
+                                    "en": "Matcha Frappe"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 3.5
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 4.99
+                                    }
+                        ],
+                        "image": "assets/images/products/matcha-frappe.jpg",
+                        "icon": "fa-snowflake",
+                        "badge": {
+                                    "ar": "مميز",
+                                    "en": "Special"
+                        }
             },
-
-
             {
-
-                id: 7,
-
-                category: "cold",
-
-                name: {
-                    ar: "فرابتشينو",
-                    en: "Frappuccino"
-                },
-
-                description: {
-                    ar: "مشروب قهوة مثلج وكريمي بنكهة غنية.",
-                    en: "A creamy blended iced coffee with a rich flavor."
-                },
-
-                price: 7000,
-
-                image:
-                    "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=85",
-
-                badge: {
-                    ar: "جديد",
-                    en: "New"
-                }
+                        "id": 7,
+                        "category": "ice-tea",
+                        "name": {
+                                    "ar": "ايس تي أناناس",
+                                    "en": "Pineapple Ice Tea"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 1.99
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/ice-tea.jpg",
+                        "icon": "fa-glass-water",
+                        "badge": null
             },
-
-
             {
-
-                id: 8,
-
-                category: "dessert",
-
-                name: {
-                    ar: "تشيز كيك",
-                    en: "Cheesecake"
-                },
-
-                description: {
-                    ar: "قطعة كريمية بقوام ناعم وقاعدة بسكويت.",
-                    en: "Creamy cheesecake with a smooth texture and biscuit base."
-                },
-
-                price: 6500,
-
-                image:
-                    "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=85",
-
-                badge: {
-                    ar: "مميز",
-                    en: "Special"
-                }
+                        "id": 8,
+                        "category": "ice-tea",
+                        "name": {
+                                    "ar": "ايس تي تفاح",
+                                    "en": "Apple Ice Tea"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 1.99
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/ice-tea.jpg",
+                        "icon": "fa-glass-water",
+                        "badge": null
             },
-
-
             {
-
-                id: 9,
-
-                category: "dessert",
-
-                name: {
-                    ar: "كرواسون",
-                    en: "Croissant"
-                },
-
-                description: {
-                    ar: "عجين طبقي طازج ومقرمش يقدم يومياً.",
-                    en: "Fresh flaky and crispy pastry served daily."
-                },
-
-                price: 3500,
-
-                image:
-                    "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=85",
-
-                badge: null
+                        "id": 9,
+                        "category": "ice-tea",
+                        "name": {
+                                    "ar": "ايس تي مانغو",
+                                    "en": "Mango Ice Tea"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 1.99
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/ice-tea.jpg",
+                        "icon": "fa-glass-water",
+                        "badge": null
             },
-
-
             {
-
-                id: 10,
-
-                category: "dessert",
-
-                name: {
-                    ar: "براوني",
-                    en: "Brownie"
-                },
-
-                description: {
-                    ar: "براوني شوكولا غني بطعم عميق ومميز.",
-                    en: "Rich chocolate brownie with a deep chocolate flavor."
-                },
-
-                price: 4500,
-
-                image:
-                    "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=85",
-
-                badge: null
+                        "id": 10,
+                        "category": "ice-tea",
+                        "name": {
+                                    "ar": "ايس تي دراق",
+                                    "en": "Peach Ice Tea"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 1.99
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/ice-tea.jpg",
+                        "icon": "fa-glass-water",
+                        "badge": null
             },
-
-
             {
-
-                id: 11,
-
-                category: "special",
-
-                name: {
-                    ar: "ستورفين لاتيه",
-                    en: "Storven Latte"
-                },
-
-                description: {
-                    ar: "خلطة ستورفين الخاصة بطابع غني ومتوازن.",
-                    en: "Storven's signature latte with a rich balanced flavor."
-                },
-
-                price: 7500,
-
-                image:
-                    "https://images.unsplash.com/photo-1561882468-9110e03e0f78?auto=format&fit=crop&w=800&q=85",
-
-                badge: {
-                    ar: "اختيار ستورفين",
-                    en: "Storven Choice"
-                }
+                        "id": 11,
+                        "category": "ice-tea",
+                        "name": {
+                                    "ar": "ايس تي فريز",
+                                    "en": "Strawberry Ice Tea"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 1.99
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/ice-tea.jpg",
+                        "icon": "fa-glass-water",
+                        "badge": null
             },
-
-
             {
-
-                id: 12,
-
-                category: "special",
-
-                name: {
-                    ar: "سبانيش لاتيه",
-                    en: "Spanish Latte"
-                },
-
-                description: {
-                    ar: "لاتيه كريمي حلو ومتوازن لمحبي النكهات الناعمة.",
-                    en: "Sweet creamy latte with a smooth balanced taste."
-                },
-
-                price: 7500,
-
-                image:
-                    "https://images.unsplash.com/photo-1593443320739-77f74939d0da?auto=format&fit=crop&w=800&q=85",
-
-                badge: null
+                        "id": 12,
+                        "category": "mojito",
+                        "name": {
+                                    "ar": "بطيخ",
+                                    "en": "Watermelon Mojito"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 1.9
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.3
+                                    }
+                        ],
+                        "image": "assets/images/products/mojito.jpg",
+                        "icon": "fa-lemon",
+                        "badge": null
+            },
+            {
+                        "id": 13,
+                        "category": "mojito",
+                        "name": {
+                                    "ar": "كيوي",
+                                    "en": "Kiwi Mojito"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 1.9
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.3
+                                    }
+                        ],
+                        "image": "assets/images/products/mojito.jpg",
+                        "icon": "fa-lemon",
+                        "badge": null
+            },
+            {
+                        "id": 14,
+                        "category": "mojito",
+                        "name": {
+                                    "ar": "أناناس",
+                                    "en": "Pineapple Mojito"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 1.9
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.3
+                                    }
+                        ],
+                        "image": "assets/images/products/mojito.jpg",
+                        "icon": "fa-lemon",
+                        "badge": null
+            },
+            {
+                        "id": 15,
+                        "category": "mojito",
+                        "name": {
+                                    "ar": "تفاح",
+                                    "en": "Apple Mojito"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 1.9
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.3
+                                    }
+                        ],
+                        "image": "assets/images/products/mojito.jpg",
+                        "icon": "fa-lemon",
+                        "badge": null
+            },
+            {
+                        "id": 16,
+                        "category": "mojito",
+                        "name": {
+                                    "ar": "بلاك بيري",
+                                    "en": "Blackberry Mojito"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 1.9
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.3
+                                    }
+                        ],
+                        "image": "assets/images/products/mojito.jpg",
+                        "icon": "fa-lemon",
+                        "badge": null
+            },
+            {
+                        "id": 17,
+                        "category": "mojito",
+                        "name": {
+                                    "ar": "رمان",
+                                    "en": "Pomegranate Mojito"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 1.9
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.3
+                                    }
+                        ],
+                        "image": "assets/images/products/mojito.jpg",
+                        "icon": "fa-lemon",
+                        "badge": null
+            },
+            {
+                        "id": 18,
+                        "category": "mojito",
+                        "name": {
+                                    "ar": "توت",
+                                    "en": "Berry Mojito"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 1.9
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.3
+                                    }
+                        ],
+                        "image": "assets/images/products/mojito.jpg",
+                        "icon": "fa-lemon",
+                        "badge": null
+            },
+            {
+                        "id": 19,
+                        "category": "mojito",
+                        "name": {
+                                    "ar": "كرز",
+                                    "en": "Cherry Mojito"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 1.9
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.3
+                                    }
+                        ],
+                        "image": "assets/images/products/mojito.jpg",
+                        "icon": "fa-lemon",
+                        "badge": null
+            },
+            {
+                        "id": 20,
+                        "category": "juice",
+                        "name": {
+                                    "ar": "أناناس",
+                                    "en": "Pineapple Juice"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 2.25
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/fresh-juice.jpg",
+                        "icon": "fa-apple-whole",
+                        "badge": null
+            },
+            {
+                        "id": 21,
+                        "category": "juice",
+                        "name": {
+                                    "ar": "برتقال",
+                                    "en": "Orange Juice"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 1.99
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.25
+                                    }
+                        ],
+                        "image": "assets/images/products/fresh-juice.jpg",
+                        "icon": "fa-apple-whole",
+                        "badge": null
+            },
+            {
+                        "id": 22,
+                        "category": "juice",
+                        "name": {
+                                    "ar": "فريز",
+                                    "en": "Strawberry Juice"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 2.25
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/fresh-juice.jpg",
+                        "icon": "fa-apple-whole",
+                        "badge": null
+            },
+            {
+                        "id": 23,
+                        "category": "juice",
+                        "name": {
+                                    "ar": "كيوي",
+                                    "en": "Kiwi Juice"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 2.5
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/fresh-juice.jpg",
+                        "icon": "fa-apple-whole",
+                        "badge": null
+            },
+            {
+                        "id": 24,
+                        "category": "juice",
+                        "name": {
+                                    "ar": "ليموناضة",
+                                    "en": "Lemonade"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 2.5
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/fresh-juice.jpg",
+                        "icon": "fa-apple-whole",
+                        "badge": null
+            },
+            {
+                        "id": 25,
+                        "category": "juice",
+                        "name": {
+                                    "ar": "مانغو",
+                                    "en": "Mango Juice"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 2.5
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/fresh-juice.jpg",
+                        "icon": "fa-apple-whole",
+                        "badge": null
+            },
+            {
+                        "id": 26,
+                        "category": "hot",
+                        "name": {
+                                    "ar": "متة",
+                                    "en": "Mate"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 1.15
+                                    }
+                        ],
+                        "image": null,
+                        "icon": "fa-leaf",
+                        "badge": null
+            },
+            {
+                        "id": 27,
+                        "category": "hot",
+                        "name": {
+                                    "ar": "قهوة",
+                                    "en": "Coffee"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 1.15
+                                    }
+                        ],
+                        "image": null,
+                        "icon": "fa-mug-hot",
+                        "badge": null
+            },
+            {
+                        "id": 28,
+                        "category": "arakil",
+                        "name": {
+                                    "ar": "تفاحتين خلطة ألمانية",
+                                    "en": "German Double Apple Mix"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 3.25
+                                    }
+                        ],
+                        "image": "assets/images/products/arakil.jpg",
+                        "icon": "fa-wind",
+                        "badge": null
+            },
+            {
+                        "id": 29,
+                        "category": "arakil",
+                        "name": {
+                                    "ar": "فاخر",
+                                    "en": "Fakher"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 3.25
+                                    }
+                        ],
+                        "image": "assets/images/products/arakil.jpg",
+                        "icon": "fa-wind",
+                        "badge": null
+            },
+            {
+                        "id": 30,
+                        "category": "arakil",
+                        "name": {
+                                    "ar": "بولو",
+                                    "en": "Polo"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 3.0
+                                    }
+                        ],
+                        "image": "assets/images/products/arakil.jpg",
+                        "icon": "fa-wind",
+                        "badge": null
+            },
+            {
+                        "id": 31,
+                        "category": "arakil",
+                        "name": {
+                                    "ar": "ليدي",
+                                    "en": "Lady"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 3.0
+                                    }
+                        ],
+                        "image": "assets/images/products/arakil.jpg",
+                        "icon": "fa-wind",
+                        "badge": null
+            },
+            {
+                        "id": 32,
+                        "category": "arakil",
+                        "name": {
+                                    "ar": "لوف",
+                                    "en": "Love"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 3.0
+                                    }
+                        ],
+                        "image": "assets/images/products/arakil.jpg",
+                        "icon": "fa-wind",
+                        "badge": null
+            },
+            {
+                        "id": 33,
+                        "category": "hot",
+                        "name": {
+                                    "ar": "اسبرسو سنجل",
+                                    "en": "Single Espresso"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 0.44
+                                    }
+                        ],
+                        "image": null,
+                        "icon": "fa-mug-saucer",
+                        "badge": null
+            },
+            {
+                        "id": 34,
+                        "category": "hot",
+                        "name": {
+                                    "ar": "اسبرسو دبل شوت",
+                                    "en": "Double Shot Espresso"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 0.68
+                                    }
+                        ],
+                        "image": null,
+                        "icon": "fa-mug-saucer",
+                        "badge": null
+            },
+            {
+                        "id": 35,
+                        "category": "hot",
+                        "name": {
+                                    "ar": "اسبرسو %97 بلا كافيين",
+                                    "en": "97% Decaf Espresso"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 1.55
+                                    }
+                        ],
+                        "image": null,
+                        "icon": "fa-mug-saucer",
+                        "badge": null
+            },
+            {
+                        "id": 36,
+                        "category": "hot",
+                        "name": {
+                                    "ar": "اسبرسو هندوراس + اندونيسي",
+                                    "en": "Honduras + Indonesian Espresso"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 1.55
+                                    }
+                        ],
+                        "image": null,
+                        "icon": "fa-mug-saucer",
+                        "badge": null
+            },
+            {
+                        "id": 37,
+                        "category": "hot",
+                        "name": {
+                                    "ar": "اسبرسو امريكان",
+                                    "en": "Americano Espresso"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 1.15
+                                    }
+                        ],
+                        "image": null,
+                        "icon": "fa-mug-saucer",
+                        "badge": null
+            },
+            {
+                        "id": 38,
+                        "category": "hot",
+                        "name": {
+                                    "ar": "اسبرسو اوروبي",
+                                    "en": "European Espresso"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 1.55
+                                    }
+                        ],
+                        "image": null,
+                        "icon": "fa-mug-saucer",
+                        "badge": null
+            },
+            {
+                        "id": 39,
+                        "category": "hot",
+                        "name": {
+                                    "ar": "مسكة 1*2 بحليب",
+                                    "en": "Miskeh 1×2 with Milk"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 0.68
+                                    }
+                        ],
+                        "image": null,
+                        "icon": "fa-glass-water",
+                        "badge": null
+            },
+            {
+                        "id": 40,
+                        "category": "hot",
+                        "name": {
+                                    "ar": "حليب 1*3",
+                                    "en": "Milk 1×3"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 0.68
+                                    }
+                        ],
+                        "image": null,
+                        "icon": "fa-glass-water",
+                        "badge": null
+            },
+            {
+                        "id": 41,
+                        "category": "hot",
+                        "name": {
+                                    "ar": "شاي أحمر، أخضر",
+                                    "en": "Red / Green Tea"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 0.68
+                                    }
+                        ],
+                        "image": null,
+                        "icon": "fa-mug-hot",
+                        "badge": null
+            },
+            {
+                        "id": 42,
+                        "category": "hot",
+                        "name": {
+                                    "ar": "شاي كرك",
+                                    "en": "Karak Tea"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 0.9
+                                    }
+                        ],
+                        "image": null,
+                        "icon": "fa-mug-hot",
+                        "badge": null
+            },
+            {
+                        "id": 43,
+                        "category": "hot",
+                        "name": {
+                                    "ar": "زهورات",
+                                    "en": "Herbal Tea"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 0.68
+                                    }
+                        ],
+                        "image": null,
+                        "icon": "fa-leaf",
+                        "badge": null
+            },
+            {
+                        "id": 44,
+                        "category": "hot",
+                        "name": {
+                                    "ar": "كمون وليمون",
+                                    "en": "Cumin & Lemon"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 0.68
+                                    }
+                        ],
+                        "image": null,
+                        "icon": "fa-lemon",
+                        "badge": null
+            },
+            {
+                        "id": 45,
+                        "category": "hot",
+                        "name": {
+                                    "ar": "قهوة مصرية",
+                                    "en": "Egyptian Coffee"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 0.44
+                                    }
+                        ],
+                        "image": null,
+                        "icon": "fa-mug-hot",
+                        "badge": null
+            },
+            {
+                        "id": 46,
+                        "category": "hot",
+                        "name": {
+                                    "ar": "هوت شوكلت",
+                                    "en": "Hot Chocolate"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 1.25
+                                    }
+                        ],
+                        "image": null,
+                        "icon": "fa-mug-hot",
+                        "badge": null
+            },
+            {
+                        "id": 47,
+                        "category": "latte",
+                        "name": {
+                                    "ar": "سبانيش لاتيه",
+                                    "en": "Spanish Latte"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "ساخن",
+                                                            "en": "Hot"
+                                                },
+                                                "value": 1.99
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "بارد",
+                                                            "en": "Cold"
+                                                },
+                                                "value": 2.25
+                                    }
+                        ],
+                        "image": "assets/images/products/coffee-latte.jpg",
+                        "icon": "fa-mug-saucer",
+                        "badge": null
+            },
+            {
+                        "id": 48,
+                        "category": "latte",
+                        "name": {
+                                    "ar": "وايت موكا لاتيه",
+                                    "en": "White Mocha Latte"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "ساخن",
+                                                            "en": "Hot"
+                                                },
+                                                "value": 1.99
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "بارد",
+                                                            "en": "Cold"
+                                                },
+                                                "value": 2.5
+                                    }
+                        ],
+                        "image": "assets/images/products/coffee-latte.jpg",
+                        "icon": "fa-mug-saucer",
+                        "badge": null
+            },
+            {
+                        "id": 49,
+                        "category": "latte",
+                        "name": {
+                                    "ar": "كوفي لاتيه",
+                                    "en": "Coffee Latte"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "ساخن",
+                                                            "en": "Hot"
+                                                },
+                                                "value": 1.99
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "بارد",
+                                                            "en": "Cold"
+                                                },
+                                                "value": 2.25
+                                    }
+                        ],
+                        "image": "assets/images/products/coffee-latte.jpg",
+                        "icon": "fa-mug-saucer",
+                        "badge": null
+            },
+            {
+                        "id": 50,
+                        "category": "latte",
+                        "name": {
+                                    "ar": "فانيلا لاتيه",
+                                    "en": "Vanilla Latte"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "ساخن",
+                                                            "en": "Hot"
+                                                },
+                                                "value": 1.99
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "بارد",
+                                                            "en": "Cold"
+                                                },
+                                                "value": 2.5
+                                    }
+                        ],
+                        "image": "assets/images/products/coffee-latte.jpg",
+                        "icon": "fa-mug-saucer",
+                        "badge": null
+            },
+            {
+                        "id": 51,
+                        "category": "latte",
+                        "name": {
+                                    "ar": "كراميل لاتيه",
+                                    "en": "Caramel Latte"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "ساخن",
+                                                            "en": "Hot"
+                                                },
+                                                "value": 1.99
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "بارد",
+                                                            "en": "Cold"
+                                                },
+                                                "value": 2.5
+                                    }
+                        ],
+                        "image": "assets/images/products/coffee-latte.jpg",
+                        "icon": "fa-mug-saucer",
+                        "badge": null
+            },
+            {
+                        "id": 52,
+                        "category": "latte",
+                        "name": {
+                                    "ar": "بندق لاتيه",
+                                    "en": "Hazelnut Latte"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "ساخن",
+                                                            "en": "Hot"
+                                                },
+                                                "value": 1.99
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "بارد",
+                                                            "en": "Cold"
+                                                },
+                                                "value": 2.5
+                                    }
+                        ],
+                        "image": "assets/images/products/coffee-latte.jpg",
+                        "icon": "fa-mug-saucer",
+                        "badge": null
+            },
+            {
+                        "id": 53,
+                        "category": "latte",
+                        "name": {
+                                    "ar": "موكا لاتيه",
+                                    "en": "Mocha Latte"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "ساخن",
+                                                            "en": "Hot"
+                                                },
+                                                "value": 1.99
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "بارد",
+                                                            "en": "Cold"
+                                                },
+                                                "value": 2.5
+                                    }
+                        ],
+                        "image": "assets/images/products/coffee-latte.jpg",
+                        "icon": "fa-mug-saucer",
+                        "badge": null
+            },
+            {
+                        "id": 54,
+                        "category": "frappe",
+                        "name": {
+                                    "ar": "فرابتشينو",
+                                    "en": "Frappuccino"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/frappe.jpg",
+                        "icon": "fa-snowflake",
+                        "badge": null
+            },
+            {
+                        "id": 55,
+                        "category": "frappe",
+                        "name": {
+                                    "ar": "فرايبه بستاشيو",
+                                    "en": "Pistachio Frappe"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/frappe.jpg",
+                        "icon": "fa-snowflake",
+                        "badge": null
+            },
+            {
+                        "id": 56,
+                        "category": "frappe",
+                        "name": {
+                                    "ar": "فرايبه شوكولا",
+                                    "en": "Chocolate Frappe"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/frappe.jpg",
+                        "icon": "fa-snowflake",
+                        "badge": null
+            },
+            {
+                        "id": 57,
+                        "category": "frappe",
+                        "name": {
+                                    "ar": "فرايبه فانيلا",
+                                    "en": "Vanilla Frappe"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/frappe.jpg",
+                        "icon": "fa-snowflake",
+                        "badge": null
+            },
+            {
+                        "id": 58,
+                        "category": "frappe",
+                        "name": {
+                                    "ar": "فرايبه كراميل",
+                                    "en": "Caramel Frappe"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/frappe.jpg",
+                        "icon": "fa-snowflake",
+                        "badge": null
+            },
+            {
+                        "id": 59,
+                        "category": "frappe",
+                        "name": {
+                                    "ar": "فرايبه بندق",
+                                    "en": "Hazelnut Frappe"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/frappe.jpg",
+                        "icon": "fa-snowflake",
+                        "badge": null
+            },
+            {
+                        "id": 60,
+                        "category": "milkshake",
+                        "name": {
+                                    "ar": "شوكولا",
+                                    "en": "Chocolate Milkshake"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 3.5
+                                    }
+                        ],
+                        "image": "assets/images/products/milkshake.jpg",
+                        "icon": "fa-ice-cream",
+                        "badge": null
+            },
+            {
+                        "id": 61,
+                        "category": "milkshake",
+                        "name": {
+                                    "ar": "لوتوس",
+                                    "en": "Lotus Milkshake"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 3.65
+                                    }
+                        ],
+                        "image": "assets/images/products/milkshake.jpg",
+                        "icon": "fa-ice-cream",
+                        "badge": null
+            },
+            {
+                        "id": 62,
+                        "category": "milkshake",
+                        "name": {
+                                    "ar": "اوريو",
+                                    "en": "Oreo Milkshake"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 3.65
+                                    }
+                        ],
+                        "image": "assets/images/products/milkshake.jpg",
+                        "icon": "fa-ice-cream",
+                        "badge": null
+            },
+            {
+                        "id": 63,
+                        "category": "milkshake",
+                        "name": {
+                                    "ar": "فريز",
+                                    "en": "Strawberry Milkshake"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 3.5
+                                    }
+                        ],
+                        "image": "assets/images/products/milkshake.jpg",
+                        "icon": "fa-ice-cream",
+                        "badge": null
+            },
+            {
+                        "id": 64,
+                        "category": "milkshake",
+                        "name": {
+                                    "ar": "بلو بيري",
+                                    "en": "Blueberry Milkshake"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 3.75
+                                    }
+                        ],
+                        "image": "assets/images/products/milkshake.jpg",
+                        "icon": "fa-ice-cream",
+                        "badge": null
+            },
+            {
+                        "id": 65,
+                        "category": "cocktail",
+                        "name": {
+                                    "ar": "كوكتيل",
+                                    "en": "Cocktail"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 3.85
+                                    }
+                        ],
+                        "image": "assets/images/products/emperor.jpg",
+                        "icon": "fa-martini-glass-citrus",
+                        "badge": {
+                                    "ar": "إمبراطور",
+                                    "en": "Emperor"
+                        }
+            },
+            {
+                        "id": 66,
+                        "category": "cocktail",
+                        "name": {
+                                    "ar": "فواكه مشكل",
+                                    "en": "Mixed Fruits"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 3.99
+                                    }
+                        ],
+                        "image": "assets/images/products/emperor.jpg",
+                        "icon": "fa-martini-glass-citrus",
+                        "badge": {
+                                    "ar": "إمبراطور",
+                                    "en": "Emperor"
+                        }
+            },
+            {
+                        "id": 67,
+                        "category": "cocktail",
+                        "name": {
+                                    "ar": "قشاطي",
+                                    "en": "Qashati"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 4.25
+                                    }
+                        ],
+                        "image": "assets/images/products/emperor.jpg",
+                        "icon": "fa-martini-glass-citrus",
+                        "badge": {
+                                    "ar": "إمبراطور",
+                                    "en": "Emperor"
+                        }
+            },
+            {
+                        "id": 68,
+                        "category": "cocktail",
+                        "name": {
+                                    "ar": "أفوكا",
+                                    "en": "Avoca"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 4.75
+                                    }
+                        ],
+                        "image": "assets/images/products/emperor.jpg",
+                        "icon": "fa-martini-glass-citrus",
+                        "badge": {
+                                    "ar": "إمبراطور",
+                                    "en": "Emperor"
+                        }
+            },
+            {
+                        "id": 69,
+                        "category": "cocktail",
+                        "name": {
+                                    "ar": "أفوكا",
+                                    "en": "Avoca"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 2.75
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 3.5
+                                    }
+                        ],
+                        "image": "assets/images/products/fresh-cocktail.jpg",
+                        "icon": "fa-martini-glass-citrus",
+                        "badge": null
+            },
+            {
+                        "id": 70,
+                        "category": "cocktail",
+                        "name": {
+                                    "ar": "فواكه",
+                                    "en": "Fruits"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 2.5
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/fresh-cocktail.jpg",
+                        "icon": "fa-martini-glass-citrus",
+                        "badge": null
+            },
+            {
+                        "id": 71,
+                        "category": "cocktail",
+                        "name": {
+                                    "ar": "فيرموا",
+                                    "en": "Firmoa"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 2.5
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/fresh-cocktail.jpg",
+                        "icon": "fa-martini-glass-citrus",
+                        "badge": null
+            },
+            {
+                        "id": 72,
+                        "category": "cocktail",
+                        "name": {
+                                    "ar": "فيرموزا",
+                                    "en": "Fermoza"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 2.5
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/fresh-cocktail.jpg",
+                        "icon": "fa-martini-glass-citrus",
+                        "badge": null
+            },
+            {
+                        "id": 73,
+                        "category": "cocktail",
+                        "name": {
+                                    "ar": "موز وحليب",
+                                    "en": "Banana & Milk"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 2.5
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/fresh-cocktail.jpg",
+                        "icon": "fa-martini-glass-citrus",
+                        "badge": null
+            },
+            {
+                        "id": 74,
+                        "category": "cocktail",
+                        "name": {
+                                    "ar": "فريز وحليب",
+                                    "en": "Strawberry & Milk"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "صغير",
+                                                            "en": "Small"
+                                                },
+                                                "value": 2.5
+                                    },
+                                    {
+                                                "label": {
+                                                            "ar": "كبير",
+                                                            "en": "Large"
+                                                },
+                                                "value": 2.99
+                                    }
+                        ],
+                        "image": "assets/images/products/fresh-cocktail.jpg",
+                        "icon": "fa-martini-glass-citrus",
+                        "badge": null
+            },
+            {
+                        "id": 75,
+                        "category": "dessert",
+                        "name": {
+                                    "ar": "وافل",
+                                    "en": "Waffle"
+                        },
+                        "description": {
+                                    "ar": "بستاشيو، شوكولا، بندق، لوتوس",
+                                    "en": "Pistachio, chocolate, hazelnut, Lotus"
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 3.75
+                                    }
+                        ],
+                        "image": "assets/images/products/waffle.jpg",
+                        "icon": "fa-cookie-bite",
+                        "badge": null
+            },
+            {
+                        "id": 76,
+                        "category": "dessert",
+                        "name": {
+                                    "ar": "مالتي كريب",
+                                    "en": "Multi Crepe"
+                        },
+                        "description": {
+                                    "ar": "بستاشيو، شوكولا، بندق، لوتوس",
+                                    "en": "Pistachio, chocolate, hazelnut, Lotus"
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 5.75
+                                    }
+                        ],
+                        "image": "assets/images/products/multi-crepe.jpg",
+                        "icon": "fa-cookie-bite",
+                        "badge": null
+            },
+            {
+                        "id": 77,
+                        "category": "dessert",
+                        "name": {
+                                    "ar": "كريب",
+                                    "en": "Crepe"
+                        },
+                        "description": {
+                                    "ar": "بستاشيو، شوكولا، بندق، لوتوس",
+                                    "en": "Pistachio, chocolate, hazelnut, Lotus"
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 3.5
+                                    }
+                        ],
+                        "image": "assets/images/products/crepe.jpg",
+                        "icon": "fa-cookie-bite",
+                        "badge": null
+            },
+            {
+                        "id": 78,
+                        "category": "dessert",
+                        "name": {
+                                    "ar": "سلطة فواكه اكسترا",
+                                    "en": "Extra Fruit Salad"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 5.5
+                                    }
+                        ],
+                        "image": "assets/images/products/fruit-salad-extra.jpg",
+                        "icon": "fa-cookie-bite",
+                        "badge": null
+            },
+            {
+                        "id": 79,
+                        "category": "dessert",
+                        "name": {
+                                    "ar": "بان كيك قشطة مكسرات",
+                                    "en": "Cream & Nuts Pancake"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 3.75
+                                    }
+                        ],
+                        "image": "assets/images/products/pancake-cream-nuts.jpg",
+                        "icon": "fa-cookie-bite",
+                        "badge": null
+            },
+            {
+                        "id": 80,
+                        "category": "dessert",
+                        "name": {
+                                    "ar": "بان كيك",
+                                    "en": "Pancake"
+                        },
+                        "description": {
+                                    "ar": "بستاشيو، شوكولا، بندق، لوتوس",
+                                    "en": "Pistachio, chocolate, hazelnut, Lotus"
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 3.25
+                                    }
+                        ],
+                        "image": "assets/images/products/pancake.jpg",
+                        "icon": "fa-cookie-bite",
+                        "badge": null
+            },
+            {
+                        "id": 81,
+                        "category": "dessert",
+                        "name": {
+                                    "ar": "كريب فوتوتشيني",
+                                    "en": "Fettuccine Crepe"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 3.5
+                                    }
+                        ],
+                        "image": "assets/images/products/fettuccine-crepe.jpg",
+                        "icon": "fa-cookie-bite",
+                        "badge": null
+            },
+            {
+                        "id": 82,
+                        "category": "dessert",
+                        "name": {
+                                    "ar": "صحن بوظة",
+                                    "en": "Ice Cream Plate"
+                        },
+                        "description": {
+                                    "ar": "حليب، شوكولا، مارس، تارت، نوت، غزلة، فستق حلبي، مارش ميلو",
+                                    "en": "Milk, chocolate, Mars, tart, nuts, ghazleh, pistachio, marshmallow"
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 2.5
+                                    }
+                        ],
+                        "image": "assets/images/products/ice-cream-plate.jpg",
+                        "icon": "fa-cookie-bite",
+                        "badge": null
+            },
+            {
+                        "id": 83,
+                        "category": "dessert",
+                        "name": {
+                                    "ar": "STORVEN",
+                                    "en": "STORVEN"
+                        },
+                        "description": {
+                                    "ar": "",
+                                    "en": ""
+                        },
+                        "prices": [
+                                    {
+                                                "label": {
+                                                            "ar": "السعر",
+                                                            "en": "Price"
+                                                },
+                                                "value": 6.5
+                                    }
+                        ],
+                        "image": "assets/images/products/storven-dessert.jpg",
+                        "icon": "fa-cookie-bite",
+                        "badge": {
+                                    "ar": "ستورفين",
+                                    "en": "Signature"
+                        }
             }
+];
 
-        ];
+
 
 
 
@@ -6364,6 +8537,8 @@
 
 
         let modalCategory = "all";
+
+        let modalSearch = "";
 
 
         let productsSwiper;
@@ -6582,454 +8757,272 @@
             });
 
 
+        /* =============================================================
+           MENU HELPERS
+           ============================================================= */
+
+        function getCategoryById(id) {
+            return categories.find(category => category.id === id);
+        }
+
+        function formatUsd(value) {
+            const number = Number(value);
+            if (!Number.isFinite(number)) return `$${value}`;
+
+            return "$" + number.toFixed(2)
+                .replace(/\.00$/, "")
+                .replace(/(\.\d)0$/, "$1");
+        }
+
+        function createPriceList(item) {
+            return `
+                <div class="price-list">
+                    ${item.prices.map(price => `
+                        <div class="price-chip">
+                            <small>${price.label[currentLanguage]}</small>
+                            <strong>${formatUsd(price.value)}</strong>
+                        </div>
+                    `).join("")}
+                </div>
+            `;
+        }
+
+        function createProductVisual(item) {
+            if (item.image) {
+                return `
+                    <img
+                        src="${item.image}"
+                        alt="${item.name[currentLanguage]}"
+                        loading="lazy"
+                        decoding="async">
+
+                    <span class="product-photo-badge">
+                        <i class="fa-solid fa-camera"></i>
+                        ${currentLanguage === "ar" ? "صورة من القائمة" : "Menu photo"}
+                    </span>
+                `;
+            }
+
+            return `
+                <div class="product-visual-fallback">
+                    <div class="product-visual-fallback-inner">
+                        <i class="fa-solid ${item.icon || "fa-mug-hot"}"></i>
+                        <strong>Storven Coffee</strong>
+                        <small>
+                            ${currentLanguage === "ar"
+                                ? "سيتم إضافة الصورة الأصلية"
+                                : "Original photo coming soon"}
+                        </small>
+                    </div>
+                </div>
+            `;
+        }
+
 
         /* =============================================================
            CATEGORY SLIDER
            ============================================================= */
 
         function createCategorySlider() {
-
             renderCategories();
 
-
             if (typeof Swiper === "undefined") {
-
-                document.documentElement
-                    .classList.add("swiper-fallback");
-
+                document.documentElement.classList.add("swiper-fallback");
                 return;
-
             }
 
-
-            categorySwiper =
-                new Swiper(".categorySwiper", {
-
-                    slidesPerView: "auto",
-
-                    spaceBetween: 10,
-
-                    freeMode: true,
-
-                    grabCursor: true,
-
-                    watchOverflow: true
-
-                });
-
+            categorySwiper = new Swiper(".categorySwiper", {
+                slidesPerView: "auto",
+                spaceBetween: 10,
+                freeMode: true,
+                grabCursor: true,
+                watchOverflow: true
+            });
         }
-
 
 
         function renderCategories() {
-
-            const wrapper =
-                document.getElementById(
-                    "categoryWrapper"
-                );
-
-
+            const wrapper = document.getElementById("categoryWrapper");
             if (!wrapper) return;
 
+            wrapper.innerHTML = categories.map(category => `
+                <div class="swiper-slide">
+                    <button
+                        class="category-btn ${activeCategory === category.id ? "active" : ""}"
+                        data-category="${category.id}">
+                        <i class="fa-solid ${category.icon}"></i>
+                        ${currentLanguage === "ar" ? category.ar : category.en}
+                    </button>
+                </div>
+            `).join("");
 
-            wrapper.innerHTML =
-                categories.map(category => `
+            wrapper.querySelectorAll(".category-btn").forEach(button => {
+                button.addEventListener("click", () => {
+                    activeCategory = button.dataset.category;
 
-            <div class="swiper-slide">
+                    renderCategories();
+                    renderProducts();
 
-                <button
-                    class="category-btn
-                    ${activeCategory === category.id ? "active" : ""}"
-
-                    data-category="${category.id}">
-
-                    <i class="fa-solid ${category.icon}"></i>
-
-                    ${currentLanguage === "ar"
-                        ? category.ar
-                        : category.en
-                    }
-
-                </button>
-
-            </div>
-
-        `).join("");
-
-
-            wrapper
-                .querySelectorAll(".category-btn")
-                .forEach(button => {
-
-                    button.addEventListener(
-                        "click",
-                        () => {
-
-                            activeCategory =
-                                button.dataset.category;
-
-
-                            renderCategories();
-
-                            renderProducts();
-
-
-                            if (categorySwiper) {
-
-                                categorySwiper.update();
-
-                            }
-
-                        }
-                    );
-
+                    if (categorySwiper) categorySwiper.update();
                 });
-
+            });
         }
-
 
 
         /* =============================================================
-           PRODUCT SWIPER
+           PRODUCT SLIDER
            ============================================================= */
 
         function createProductsSwiper() {
-
             if (typeof Swiper === "undefined") {
-
-                document.documentElement
-                    .classList.add("swiper-fallback");
-
+                document.documentElement.classList.add("swiper-fallback");
                 initFallbackSliderControls();
-
                 return;
-
             }
 
+            productsSwiper = new Swiper(".productsSwiper", {
+                slidesPerView: 1.12,
+                spaceBetween: 15,
+                grabCursor: true,
+                speed: 650,
 
-            productsSwiper =
-                new Swiper(".productsSwiper", {
+                navigation: {
+                    nextEl: "#productsNext",
+                    prevEl: "#productsPrev"
+                },
 
-                    slidesPerView: 1.12,
+                pagination: {
+                    el: ".productsSwiper .swiper-pagination",
+                    clickable: true
+                },
 
-                    spaceBetween: 15,
-
-                    grabCursor: true,
-
-                    speed: 650,
-
-
-                    navigation: {
-
-                        nextEl:
-                            "#productsNext",
-
-                        prevEl:
-                            "#productsPrev"
-
+                breakpoints: {
+                    520: {
+                        slidesPerView: 1.6,
+                        spaceBetween: 16
                     },
 
-
-                    pagination: {
-
-                        el:
-                            ".productsSwiper .swiper-pagination",
-
-                        clickable: true
-
+                    700: {
+                        slidesPerView: 2.2,
+                        spaceBetween: 18
                     },
 
+                    900: {
+                        slidesPerView: 3,
+                        spaceBetween: 20
+                    },
 
-                    breakpoints: {
-
-                        520: {
-
-                            slidesPerView: 1.6,
-
-                            spaceBetween: 16
-
-                        },
-
-
-                        700: {
-
-                            slidesPerView: 2.2,
-
-                            spaceBetween: 18
-
-                        },
-
-
-                        900: {
-
-                            slidesPerView: 3,
-
-                            spaceBetween: 20
-
-                        },
-
-
-                        1180: {
-
-                            slidesPerView: 4,
-
-                            spaceBetween: 22
-
-                        }
-
+                    1180: {
+                        slidesPerView: 4,
+                        spaceBetween: 22
                     }
-
-                });
-
+                }
+            });
         }
 
 
-
         function initFallbackSliderControls() {
+            const wrapper = document.getElementById("productsWrapper");
+            const prevButton = document.getElementById("productsPrev");
+            const nextButton = document.getElementById("productsNext");
 
-            const wrapper =
-                document.getElementById(
-                    "productsWrapper"
-                );
-
-
-            const prevButton =
-                document.getElementById(
-                    "productsPrev"
-                );
-
-
-            const nextButton =
-                document.getElementById(
-                    "productsNext"
-                );
-
-
-            if (
-                !wrapper
-                ||
-                !prevButton
-                ||
-                !nextButton
-            ) return;
-
+            if (!wrapper || !prevButton || !nextButton) return;
 
             const getStep = () => {
-
-                const slide =
-                    wrapper.querySelector(
-                        ".swiper-slide"
-                    );
-
-
+                const slide = wrapper.querySelector(".swiper-slide");
                 return slide
                     ? slide.getBoundingClientRect().width + 22
                     : 320;
-
             };
 
-
             const directionSign = () =>
-                document.documentElement.dir === "rtl"
-                    ? -1
-                    : 1;
+                document.documentElement.dir === "rtl" ? -1 : 1;
 
+            nextButton.addEventListener("click", () => {
+                wrapper.scrollBy({
+                    left: directionSign() * getStep(),
+                    behavior: "smooth"
+                });
+            });
 
-            nextButton.addEventListener(
-                "click",
-                () => {
-
-                    wrapper.scrollBy({
-
-                        left:
-                            directionSign()
-                            * getStep(),
-
-                        behavior:
-                            "smooth"
-
-                    });
-
-                }
-            );
-
-
-            prevButton.addEventListener(
-                "click",
-                () => {
-
-                    wrapper.scrollBy({
-
-                        left:
-                            -directionSign()
-                            * getStep(),
-
-                        behavior:
-                            "smooth"
-
-                    });
-
-                }
-            );
-
+            prevButton.addEventListener("click", () => {
+                wrapper.scrollBy({
+                    left: -directionSign() * getStep(),
+                    behavior: "smooth"
+                });
+            });
         }
 
 
         function renderProducts() {
-
-            const wrapper =
-                document.getElementById(
-                    "productsWrapper"
-                );
-
-
+            const wrapper = document.getElementById("productsWrapper");
             if (!wrapper) return;
-
 
             const filteredItems =
                 activeCategory === "all"
-
                     ? menuItems
-
-                    : menuItems.filter(
-                        item =>
-                            item.category === activeCategory
-                    );
-
+                    : menuItems.filter(item => item.category === activeCategory);
 
             wrapper.innerHTML =
                 filteredItems
                     .map(createProductCard)
                     .join("");
 
+            const countBadge = document.getElementById("menuCountBadge");
+            if (countBadge) countBadge.textContent = menuItems.length;
 
             if (productsSwiper) {
-
                 productsSwiper.update();
-
                 productsSwiper.slideTo(0);
-
             } else {
-
                 wrapper.scrollLeft = 0;
-
             }
-
         }
-
 
 
         function createProductCard(item) {
+            const category = getCategoryById(item.category);
+            const categoryName = category
+                ? category[currentLanguage]
+                : "";
 
-            const language =
-                currentLanguage;
-
-
-            const category =
-                categories.find(
-                    cat =>
-                        cat.id === item.category
-                );
-
-
-            const categoryName =
-                category
-                    ? category[language]
-                    : "";
-
-
-            const currency =
-                language === "ar"
-                    ? "ل.س"
-                    : "SYP";
-
+            const description = item.description[currentLanguage];
 
             return `
+                <div class="swiper-slide">
+                    <article class="menu-card">
 
-        <div class="swiper-slide">
+                        <div class="menu-image">
+                            ${item.badge
+                                ? `<span class="product-badge">${item.badge[currentLanguage]}</span>`
+                                : ""}
 
-            <article class="menu-card">
+                            ${createProductVisual(item)}
+                        </div>
 
+                        <div class="menu-body">
 
-                <div class="menu-image">
+                            <div class="menu-title-row">
+                                <h3>${item.name[currentLanguage]}</h3>
+                            </div>
 
-                    ${item.badge
-                    ? `
-                            <span class="product-badge">
-                                ${item.badge[language]}
-                            </span>
-                          `
-                    : ""
-                }
+                            ${description ? `<p>${description}</p>` : ""}
 
+                            ${createPriceList(item)}
 
-                    <img
-                        src="${item.image}"
-                        alt="${item.name[language]}"
-                        loading="lazy">
-
-                </div>
-
-
-                <div class="menu-body">
-
-
-                    <div class="menu-title-row">
-
-                        <h3>
-                            ${item.name[language]}
-                        </h3>
-
-
-                        <span class="menu-price">
-
-                            ${item.price.toLocaleString()}
-
-                            ${currency}
-
-                        </span>
-
-                    </div>
-
-
-                    <p>
-                        ${item.description[language]}
-                    </p>
-
-
-                    <div class="menu-card-footer">
-
-
-                        <div class="product-category">
-
-                            <i class="fa-solid fa-tag"></i>
-
-                            ${categoryName}
+                            <div class="menu-card-footer">
+                                <div class="product-category">
+                                    <i class="fa-solid ${category ? category.icon : "fa-tag"}"></i>
+                                    ${categoryName}
+                                </div>
+                            </div>
 
                         </div>
 
-
-                        <button
-                            class="add-btn"
-                            aria-label="Add">
-
-                            <i class="fa-solid fa-plus"></i>
-
-                        </button>
-
-
-                    </div>
-
+                    </article>
                 </div>
-
-            </article>
-
-        </div>
-
-    `;
-
+            `;
         }
-
 
 
         /* =============================================================
@@ -7037,274 +9030,203 @@
            ============================================================= */
 
         function createModalFilters() {
-
-            const container =
-                document.getElementById(
-                    "modalFilters"
-                );
-
-
+            const container = document.getElementById("modalFilters");
             if (!container) return;
 
+            container.innerHTML = categories.map(category => `
+                <button
+                    class="modal-filter ${modalCategory === category.id ? "active" : ""}"
+                    data-filter="${category.id}">
 
-            container.innerHTML =
-                categories.map(category => `
+                    <i class="fa-solid ${category.icon}"></i>
 
-            <button
-                class="modal-filter
-                ${modalCategory === category.id ? "active" : ""}"
+                    <span>
+                        ${category[currentLanguage]}
+                    </span>
 
-                data-filter="${category.id}">
+                </button>
+            `).join("");
 
-                <i class="fa-solid ${category.icon}"></i>
+            const searchInput = document.getElementById("menuSearch");
+            if (searchInput) {
+                searchInput.placeholder =
+                    currentLanguage === "ar"
+                        ? "ابحث عن مشروب أو صنف..."
+                        : "Search drinks and items...";
+            }
 
-                <span>
-                    ${category[currentLanguage]}
-                </span>
+            container.querySelectorAll(".modal-filter").forEach(button => {
+                button.addEventListener("click", () => {
+                    modalCategory = button.dataset.filter;
 
-            </button>
+                    createModalFilters();
+                    renderFullMenu();
 
-        `).join("");
+                    requestAnimationFrame(() => {
+                        const activeButton =
+                            container.querySelector(".modal-filter.active");
 
-
-            container
-                .querySelectorAll(".modal-filter")
-                .forEach(button => {
-
-                    button.addEventListener(
-                        "click",
-                        () => {
-
-                            modalCategory =
-                                button.dataset.filter;
-
-
-                            createModalFilters();
-
-                            renderFullMenu();
-
-
-                            requestAnimationFrame(() => {
-
-                                const activeButton =
-                                    container.querySelector(
-                                        ".modal-filter.active"
-                                    );
-
-
-                                if (activeButton) {
-
-                                    activeButton.scrollIntoView({
-
-                                        behavior: "smooth",
-
-                                        block: "nearest",
-
-                                        inline: "center"
-
-                                    });
-
-                                }
-
+                        if (activeButton) {
+                            activeButton.scrollIntoView({
+                                behavior: "smooth",
+                                block: "nearest",
+                                inline: "center"
                             });
-
                         }
-                    );
-
+                    });
                 });
-
+            });
         }
 
 
         function createModalProductCard(item) {
+            const category = getCategoryById(item.category);
+            const categoryName = category
+                ? category[currentLanguage]
+                : "";
 
-            const category =
-                categories.find(
-                    cat =>
-                        cat.id === item.category
-                );
-
-
-            const categoryName =
-                category
-                    ? category[currentLanguage]
-                    : "";
-
-
-            const currency =
-                currentLanguage === "ar"
-                    ? "ل.س"
-                    : "SYP";
-
+            const description = item.description[currentLanguage];
 
             return `
+                <article class="modal-product-card">
 
-        <article class="modal-product-card">
+                    <div class="modal-product-image">
 
+                        ${item.badge
+                            ? `<span class="product-badge">${item.badge[currentLanguage]}</span>`
+                            : ""}
 
-            <div class="modal-product-image">
-
-                ${item.badge
-                    ? `
-                        <span class="product-badge">
-                            ${item.badge[currentLanguage]}
-                        </span>
-                      `
-                    : ""
-                }
-
-
-                <img
-                    src="${item.image}"
-                    alt="${item.name[currentLanguage]}"
-                    loading="lazy"
-                    decoding="async">
-
-            </div>
-
-
-            <div class="modal-product-content">
-
-
-                <div class="modal-product-top">
-
-                    <h4>
-                        ${item.name[currentLanguage]}
-                    </h4>
-
-
-                    <span class="modal-product-price">
-
-                        ${item.price.toLocaleString()}
-
-                        ${currency}
-
-                    </span>
-
-                </div>
-
-
-                <p>
-                    ${item.description[currentLanguage]}
-                </p>
-
-
-                <div class="modal-product-footer">
-
-
-                    <div class="product-category">
-
-                        <i class="fa-solid fa-tag"></i>
-
-                        ${categoryName}
+                        ${createProductVisual(item)}
 
                     </div>
 
+                    <div class="modal-product-content">
 
-                    <button
-                        class="add-btn"
-                        aria-label="Add">
+                        <div class="modal-product-top">
+                            <h4>${item.name[currentLanguage]}</h4>
+                        </div>
 
-                        <i class="fa-solid fa-plus"></i>
+                        ${description ? `<p>${description}</p>` : ""}
 
-                    </button>
+                        ${createPriceList(item)}
 
+                        <div class="modal-product-footer">
+                            <div class="product-category">
+                                <i class="fa-solid ${category ? category.icon : "fa-tag"}"></i>
+                                ${categoryName}
+                            </div>
+                        </div>
 
-                </div>
+                    </div>
 
-
-            </div>
-
-
-        </article>
-
-    `;
-
+                </article>
+            `;
         }
 
 
-
         function renderFullMenu() {
-
-            const grid =
-                document.getElementById(
-                    "modalMenuGrid"
-                );
-
-
+            const grid = document.getElementById("modalMenuGrid");
             if (!grid) return;
 
+            const normalizedSearch = modalSearch
+                .trim()
+                .toLocaleLowerCase(currentLanguage === "ar" ? "ar" : "en");
 
-            const items =
+            let items =
                 modalCategory === "all"
-
                     ? menuItems
+                    : menuItems.filter(item => item.category === modalCategory);
 
-                    : menuItems.filter(
-                        item =>
-                            item.category === modalCategory
-                    );
+            if (normalizedSearch) {
+                items = items.filter(item => {
+                    const ar = item.name.ar.toLocaleLowerCase("ar");
+                    const en = item.name.en.toLocaleLowerCase("en");
 
+                    return ar.includes(normalizedSearch)
+                        || en.includes(normalizedSearch);
+                });
+            }
+
+            if (!items.length) {
+                grid.innerHTML = `
+                    <div class="modal-empty">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <strong>
+                            ${currentLanguage === "ar"
+                                ? "لم نجد صنفًا مطابقًا"
+                                : "No matching item found"}
+                        </strong>
+                    </div>
+                `;
+                return;
+            }
 
             grid.innerHTML =
                 items
                     .map(createModalProductCard)
                     .join("");
-
         }
+
+
 
 
         /* =============================================================
            MODAL EVENTS
            ============================================================= */
 
+
         function initModal() {
 
             const modal =
-                document.getElementById(
-                    "menuModal"
-                );
-
+                document.getElementById("menuModal");
 
             const openButton =
-                document.getElementById(
-                    "openFullMenu"
-                );
-
+                document.getElementById("openFullMenu");
 
             const closeButton =
-                document.getElementById(
-                    "closeMenuModal"
-                );
+                document.getElementById("closeMenuModal");
+
+            const searchInput =
+                document.getElementById("menuSearch");
 
 
-            openButton.addEventListener(
-                "click",
-                () => {
+            openButton.addEventListener("click", () => {
 
-                    modalCategory = "all";
+                modalCategory = "all";
+                modalSearch = "";
 
-                    createModalFilters();
-
-                    renderFullMenu();
-
-
-                    modal.classList.add("active");
-
-                    document.body.style.overflow =
-                        "hidden";
-
+                if (searchInput) {
+                    searchInput.value = "";
                 }
-            );
+
+                createModalFilters();
+                renderFullMenu();
+
+                modal.classList.add("active");
+
+                document.body.style.overflow = "hidden";
+
+                window.setTimeout(() => {
+                    if (searchInput && window.innerWidth > 768) {
+                        searchInput.focus();
+                    }
+                }, 180);
+            });
+
+
+            if (searchInput) {
+                searchInput.addEventListener("input", event => {
+                    modalSearch = event.target.value;
+                    renderFullMenu();
+                });
+            }
 
 
             function closeModal() {
 
                 modal.classList.remove("active");
 
-                document.body.style.overflow =
-                    "";
-
+                document.body.style.overflow = "";
             }
 
 
@@ -7319,11 +9241,8 @@
                 event => {
 
                     if (event.target === modal) {
-
                         closeModal();
-
                     }
-
                 }
             );
 
@@ -7333,15 +9252,13 @@
                 event => {
 
                     if (event.key === "Escape") {
-
                         closeModal();
-
                     }
-
                 }
             );
-
         }
+
+
 
 
 
