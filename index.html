@@ -4512,13 +4512,357 @@
                 font-size: .82rem;
             }
         }
+
+
+
+        /* =========================================================
+   STORVEN STORIES
+========================================================= */
+
+.stories-section {
+    padding: 22px 0 18px;
+    background: var(--bg-color);
+    border-bottom: 1px solid rgba(170, 138, 74, .12);
+}
+
+.stories-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 16px;
+}
+
+.stories-header h3 {
+    margin: 3px 0 0;
+    font-size: 1.15rem;
+    color: var(--text-color);
+}
+
+.stories-kicker {
+    color: var(--gold);
+    font-size: .76rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.stories-header > i {
+    font-size: 1.35rem;
+    color: var(--primary);
+}
+
+.stories-scroll {
+    display: flex;
+    align-items: flex-start;
+    gap: 17px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 4px 2px 12px;
+
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+}
+
+.story-item {
+    flex: 0 0 auto;
+
+    width: 92px;
+
+    border: 0;
+    background: transparent;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 8px;
+
+    font-family: inherit;
+}
+
+.story-circle {
+    position: relative;
+
+    width: 82px;
+    height: 82px;
+
+    border-radius: 50%;
+
+    padding: 3px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d7b46a,
+            #14583e,
+            #d7b46a
+        );
+
+    box-shadow: 0 7px 20px rgba(0, 0, 0, .12);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.story-circle::before {
+    content: "";
+
+    position: absolute;
+    inset: 3px;
+
+    border: 3px solid var(--bg-color);
+    border-radius: inherit;
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+.story-circle video {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    display: block;
+
+    background: #173d30;
+}
+
+.story-play {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    background: rgba(18, 69, 49, .88);
+
+    color: #fff;
+
+    display: grid;
+    place-items: center;
+
+    z-index: 4;
+
+    font-size: .65rem;
+
+    box-shadow: 0 4px 14px rgba(0,0,0,.25);
+}
+
+.story-item:hover .story-circle {
+    transform: translateY(-4px) scale(1.03);
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, .18);
+}
+
+.story-title {
+    width: 100%;
+
+    font-size: .75rem;
+    font-weight: 800;
+
+    color: var(--text-color);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    text-align: center;
+}
+
+
+/* STORY VIDEO MODAL */
+
+.story-modal {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(4, 15, 11, .88);
+
+    backdrop-filter: blur(12px);
+
+    z-index: 99999;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 18px;
+}
+
+.story-modal.active {
+    display: flex;
+}
+
+.story-modal-content {
+    position: relative;
+
+    width: min(390px, 94vw);
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    background: #080808;
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.5);
+}
+
+.story-modal-video {
+    display: block;
+
+    width: 100%;
+    max-height: 86vh;
+
+    aspect-ratio: 9 / 16;
+
+    object-fit: contain;
+
+    background: #000;
+}
+
+.story-modal-close {
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    z-index: 10;
+
+    width: 38px;
+    height: 38px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: rgba(0,0,0,.62);
+
+    color: #fff;
+
+    display: grid;
+    place-items: center;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+}
+
+.story-modal-title {
+    position: absolute;
+
+    left: 15px;
+    bottom: 15px;
+
+    max-width: calc(100% - 30px);
+
+    padding: 8px 12px;
+
+    border-radius: 50px;
+
+    background: rgba(0,0,0,.58);
+
+    color: #fff;
+
+    font-size: .82rem;
+    font-weight: 800;
+}
+
+
+@media (max-width: 768px) {
+
+    .stories-section {
+        padding: 15px 0 11px;
+    }
+
+    .stories-header {
+        margin-bottom: 12px;
+    }
+
+    .stories-header h3 {
+        font-size: 1rem;
+    }
+
+    .stories-scroll {
+        gap: 12px;
+    }
+
+    .story-item {
+        width: 76px;
+    }
+
+    .story-circle {
+        width: 70px;
+        height: 70px;
+    }
+
+    .story-title {
+        font-size: .68rem;
+    }
+}
+
+
     </style>
 </head>
+
+
+
 
 
 <body>
 
 
+<!-- =========================================================
+     STORY VIDEO MODAL
+========================================================= -->
+
+<div class="story-modal" id="storyModal">
+
+    <div class="story-modal-content">
+
+        <button
+            class="story-modal-close"
+            id="storyModalClose"
+            aria-label="Close">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <video
+            id="storyModalVideo"
+            class="story-modal-video"
+            controls
+            playsinline
+            preload="metadata">
+        </video>
+
+        <div
+            class="story-modal-title"
+            id="storyModalTitle">
+        </div>
+
+    </div>
+
+</div>
     <!-- =========================================================
      LOADER
 ========================================================= -->
@@ -4680,7 +5024,168 @@
 
     </header>
 
+<!-- =========================================================
+     STORVEN STORIES
+========================================================= -->
 
+<section class="stories-section" aria-label="Storven Stories">
+
+    <div class="container">
+
+        <div class="stories-header">
+            <div>
+                <span class="stories-kicker">Storven Moments</span>
+                <h3>لقطات من ستورفين</h3>
+            </div>
+
+            <i class="fa-brands fa-instagram"></i>
+        </div>
+
+
+        <div class="stories-scroll">
+
+            <button class="story-item"
+                data-video="assets/videos/stories/story-01.mp4"
+                data-title-ar="أجواء ستورفين"
+                data-title-en="Storven Vibes">
+
+                <span class="story-circle">
+                    <video
+                        src="assets/videos/stories/story-01.mp4#t=0.1"
+                        muted
+                        playsinline
+                        preload="metadata">
+                    </video>
+
+                    <span class="story-play">
+                        <i class="fa-solid fa-play"></i>
+                    </span>
+                </span>
+
+                <span class="story-title">أجواء ستورفين</span>
+
+            </button>
+
+
+            <button class="story-item"
+                data-video="assets/videos/stories/story-02.mp4"
+                data-title-ar="لحظات القهوة"
+                data-title-en="Coffee Moments">
+
+                <span class="story-circle">
+                    <video
+                        src="assets/videos/stories/story-02.mp4#t=0.1"
+                        muted
+                        playsinline
+                        preload="metadata">
+                    </video>
+
+                    <span class="story-play">
+                        <i class="fa-solid fa-play"></i>
+                    </span>
+                </span>
+
+                <span class="story-title">لحظات القهوة</span>
+
+            </button>
+
+
+            <button class="story-item"
+                data-video="assets/videos/stories/story-03.mp4"
+                data-title-ar="مشروباتنا"
+                data-title-en="Our Drinks">
+
+                <span class="story-circle">
+                    <video
+                        src="assets/videos/stories/story-03.mp4#t=0.1"
+                        muted
+                        playsinline
+                        preload="metadata">
+                    </video>
+
+                    <span class="story-play">
+                        <i class="fa-solid fa-play"></i>
+                    </span>
+                </span>
+
+                <span class="story-title">مشروباتنا</span>
+
+            </button>
+
+
+            <button class="story-item"
+                data-video="assets/videos/stories/story-04.mp4"
+                data-title-ar="حلويات ستورفين"
+                data-title-en="Storven Desserts">
+
+                <span class="story-circle">
+                    <video
+                        src="assets/videos/stories/story-04.mp4#t=0.1"
+                        muted
+                        playsinline
+                        preload="metadata">
+                    </video>
+
+                    <span class="story-play">
+                        <i class="fa-solid fa-play"></i>
+                    </span>
+                </span>
+
+                <span class="story-title">حلويات ستورفين</span>
+
+            </button>
+
+
+            <button class="story-item"
+                data-video="assets/videos/stories/story-05.mp4"
+                data-title-ar="خلف الكواليس"
+                data-title-en="Behind The Scenes">
+
+                <span class="story-circle">
+                    <video
+                        src="assets/videos/stories/story-05.mp4#t=0.1"
+                        muted
+                        playsinline
+                        preload="metadata">
+                    </video>
+
+                    <span class="story-play">
+                        <i class="fa-solid fa-play"></i>
+                    </span>
+                </span>
+
+                <span class="story-title">خلف الكواليس</span>
+
+            </button>
+
+
+            <button class="story-item"
+                data-video="assets/videos/stories/story-06.mp4"
+                data-title-ar="ليالي ستورفين"
+                data-title-en="Storven Nights">
+
+                <span class="story-circle">
+                    <video
+                        src="assets/videos/stories/story-06.mp4#t=0.1"
+                        muted
+                        playsinline
+                        preload="metadata">
+                    </video>
+
+                    <span class="story-play">
+                        <i class="fa-solid fa-play"></i>
+                    </span>
+                </span>
+
+                <span class="story-title">ليالي ستورفين</span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
 
     <!-- =========================================================
      HERO
@@ -9717,8 +10222,113 @@
 
         }
 
-    </script>
 
+
+
+       
+(function () {
+
+    const modal =
+        document.getElementById("storyModal");
+
+    const modalVideo =
+        document.getElementById("storyModalVideo");
+
+    const modalTitle =
+        document.getElementById("storyModalTitle");
+
+    const closeBtn =
+        document.getElementById("storyModalClose");
+
+
+    document.querySelectorAll(".story-item")
+        .forEach(item => {
+
+            item.addEventListener("click", () => {
+
+                const video =
+                    item.dataset.video;
+
+                const language =
+                    localStorage.getItem("storven-language") || "ar";
+
+                const title =
+                    language === "en"
+                        ? item.dataset.titleEn
+                        : item.dataset.titleAr;
+
+
+                modalVideo.src = video;
+
+                modalTitle.textContent = title;
+
+                modal.classList.add("active");
+
+                document.body.style.overflow = "hidden";
+
+
+                modalVideo.play()
+                    .catch(() => {
+                        /* User can press play manually */
+                    });
+
+            });
+
+        });
+
+
+    function closeStory() {
+
+        modalVideo.pause();
+
+        modalVideo.removeAttribute("src");
+
+        modalVideo.load();
+
+        modal.classList.remove("active");
+
+        document.body.style.overflow = "";
+
+    }
+
+
+    closeBtn.addEventListener(
+        "click",
+        closeStory
+    );
+
+
+    modal.addEventListener(
+        "click",
+        event => {
+
+            if (event.target === modal) {
+                closeStory();
+            }
+
+        }
+    );
+
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Escape" &&
+                modal.classList.contains("active")
+            ) {
+
+                closeStory();
+
+            }
+
+        }
+    );
+
+})();
+
+    </script>
 
 </body>
 
