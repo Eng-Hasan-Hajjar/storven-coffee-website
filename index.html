@@ -4834,6 +4834,12 @@
     }
 }
 
+
+@media (max-width: 1024px) {
+    .hamburger {
+        display: none !important;
+    }
+}
     </style>
 </head>
 
@@ -4849,7 +4855,7 @@
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
-            <video id="storyModalVideo" class="story-modal-video" controls playsinline preload="metadata"></video>
+            <video id="storyModalVideo" class="story-modal-video" controls playsinline preload="none"></video>
             <div class="story-modal-title" id="storyModalTitle"></div>
         </div>
     </div>
@@ -5004,7 +5010,13 @@
                 </button>
 
 
-           
+                <button class="hamburger" id="hamburger" aria-label="Menu" hidden>
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
 
             </div>
 
